@@ -20,5 +20,17 @@ EXPOSE 80 443
 
 # Make NGINX run on the foreground
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+# Remove default configuration from Nginx
+RUN rm /etc/nginx/conf.d/default.conf
+# Copy the modified Nginx conf
+COPY nginx.conf /etc/nginx/conf.d/
 
-CMD ["nginx", "-g", "daemon off;"]
+# Install Supervisord
+RUN apt-get update && apt-get install -y supervisor \
+&& rm -rf /var/lib/apt/lists/*
+# Custom Supervisord config
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+COPY ./app /app
+
+CMD ["/usr/bin/supervisord"]
