@@ -32,5 +32,6 @@ RUN apt-get update && apt-get install -y supervisor \
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 COPY ./app /app
+WORKDIR /app
 
 CMD ["/usr/bin/supervisord"]
