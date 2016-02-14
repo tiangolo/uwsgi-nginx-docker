@@ -4,58 +4,27 @@
 
 ## Description
 
-This Docker image allows you to create **Python** applications that run with **uWSGI** and **Nginx**.
+This [**Docker**](https://www.docker.com/) image allows you to create [**Python**](https://www.python.org/) web applications that run with [**uWSGI**](https://uwsgi-docs.readthedocs.org/en/latest/) and [**Nginx**](http://nginx.org/en/) in a single container.
 
-There are also two specialized **Flask** images (tags) (you probably want to use those).
+uWSGI with Nginx is one of the best ways to deploy a Python application, so you you should have a [good performance (check the benchmarks)](http://nichol.as/benchmark-of-python-web-servers) with this image.
 
-uWSGI with Nginx is one of the best ways to deploy a Python application, so you you should have a good performance.
+This image was created to be the base image for [**tiangolo/uwsgi-nginx-flask**](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/) but could be used as the base image to run any Python web application.
 
-## In a hurry?
+If you are creating a new **Python Flask** application you should use [**tiangolo/uwsgi-nginx-flask**](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/) instead.
 
-* Go to `example-flask` (in this repository)
-* Copy that directory as a template for your Flask application
-* Adapt it to your needs
-* Build your Docker container with:
+**GitHub repo**: <https://github.com/tiangolo/uwsgi-nginx-docker>
 
-```
-docker build -t my-flask-app .
-```
+**Docker Hub image**: <https://hub.docker.com/r/tiangolo/uwsgi-nginx/>
 
-* Run your Docker container with:
+## How to use
 
-```
-docker run -d --name my-flask-app -p 80:80 my-flask-app
-```
+You shouldn't have to clone this repo. You should use it as a base image for other images, using `FROM tiangolo/uwsgi-nginx` in your `Dockerfile`.
 
-...and you have an optimized Flask server in a Docker container.
-
-## Building an Angular JS app (or similar) with Flask?
-
-Do the same as "**In a hurry?**" (above) but with the directory `example-flask-index`.
-
-
-## Usage
-
-You don't have to clone this repo, you should be able to use one of the images as a base image for your Dockerfiles.
-
-There are 3 Docker images:
-
-* **[base](base)**: A bare bones image including uWSGI, Nginx and a very simple sample Hello World application.
-You probably don't want to use this image directly but instead one of the Flask images.
-
-* **[flask](flask)**: An image based on the **base** image, including Flask and a sample template app.
-You probably want to use this as your base image.
-
-* **[flask-index](flask-index)**: An image based on the **flask** image, but optimizing the configuration to make Nginx serve `/app/static/index.html` directly when requested for `/`.
-This is specially helpful (and efficient) if you are building a single-page app without templates (as with Angular JS) and using Flask as an API / back-end.
-
-You may want to go to the directory of the base image that applies the most to you and read it's README: **[base](base)**, **[flask](flask)**, **[flask-index](flask-index)**.
-
-You may also want to start a Flask app using one of the example templates: **[example-flask](example-flask)** or **[example-flask-index](example-flask-index)**.
+If you are building a **Flask** web application you should use instead [**tiangolo/uwsgi-nginx-flask**](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/).
 
 ## Technical details
 
-One of the best ways to deploy a Python application is with uWSGI and Nginx, as seen in the [benchmarks](http://nichol.as/benchmark-of-python-web-servers).
+One of the best ways to deploy a Python web application is with uWSGI and Nginx, as seen in the [benchmarks](http://nichol.as/benchmark-of-python-web-servers).
 
 Roughly:
 
@@ -63,16 +32,31 @@ Roughly:
 
 * **uWSGI** is an application server, that's what runs your Python code.
 
-* **Your Python code** has the actual application, and is run by uWSGI.
+* **Your Python code** has the actual web application, and is run by uWSGI.
 
-This image (and its tags) take advantage of already slim and optimized existing Docker images (based on Debian as [recommended by Docker](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)), implementing Docker best practices.
+This image takes advantage of already slim and optimized existing Docker images (based on Debian as [recommended by Docker](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)) and implements Docker best practices.
+
 It uses the official Python Docker image, installs uWSGI and on top of that, with the least amount of modifications, adds the official Nginx image (as of 2016-02-14).
 
+And it controls all these processes with Supervisord.
+
+---
+
 There's the rule of thumb that you should have "one process per container".
-That helps, for example, isolating an app from its database in different containers.
-But if you want to have a "micro-services" approach you may want to [have more than one process in one container](https://valdhaus.co/writings/docker-misconceptions/) if they are all related to the same "service", and you may want to include your code, uWSGI and Nginx in the same container (and maybe run another container with your database).
+
+That helps, for example, isolating an app and its database in different containers.
+
+But if you want to have a "micro-services" approach you may want to [have more than one process in one container](https://valdhaus.co/writings/docker-misconceptions/) if they are all related to the same "service", and you may want to include your Flask code, uWSGI and Nginx in the same container (and maybe run another container with your database).
 
 That's the approach taken in this image.
+
+---
+
+This image has a default sample "Hello World" app in the container's `/app` directory using the example in the [uWSGI documentation](http://uwsgi-docs.readthedocs.org/en/latest/WSGIquickstart.html).
+
+You probably want to override it or delete it for your application.
+
+It is there in case you run this image by itself and not as a base image for your own `Dockerfile`, so that you get a sample app without errors.
 
 ## License
 
