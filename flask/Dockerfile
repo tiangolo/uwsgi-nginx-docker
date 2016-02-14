@@ -9,4 +9,3 @@ COPY nginx.conf /etc/nginx/conf.d/
 
 # Copy sample app
 COPY ./app /app
-WORKDIR /app
