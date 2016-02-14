@@ -18,7 +18,7 @@ If you are creating a new **Python Flask** application you should use [**tiangol
 
 ## How to use
 
-You shouldn't have to clone this repo. You should use it as a base image for other images, using `FROM tiangolo/uwsgi-nginx` in your `Dockerfile`.
+You shouldn't have to clone the GitHub repo. You should use it as a base image for other images, using `FROM tiangolo/uwsgi-nginx` in your `Dockerfile`.
 
 If you are building a **Flask** web application you should use instead [**tiangolo/uwsgi-nginx-flask**](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/).
 
@@ -30,7 +30,7 @@ Roughly:
 
 * **Nginx** is a web server, it takes care of the HTTP connections and also can serve static files directly and more efficiently.
 
-* **uWSGI** is an application server, that's what runs your Python code.
+* **uWSGI** is an application server, that's what runs your Python code and it talks with Nginx.
 
 * **Your Python code** has the actual web application, and is run by uWSGI.
 
@@ -54,7 +54,7 @@ That's the approach taken in this image.
 
 This image has a default sample "Hello World" app in the container's `/app` directory using the example in the [uWSGI documentation](http://uwsgi-docs.readthedocs.org/en/latest/WSGIquickstart.html).
 
-You probably want to override it or delete it for your application.
+You probably want to override it or delete it in your project.
 
 It is there in case you run this image by itself and not as a base image for your own `Dockerfile`, so that you get a sample app without errors.
 
