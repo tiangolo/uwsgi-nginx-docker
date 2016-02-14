@@ -84,10 +84,11 @@ code.
 * **Your Python code** has the actual application, and is run by
 uWSGI.
 
-These images take advantage of already slim and optimized
-existing Docker images, implementing best practices. They use
-the official Python Docker image, install uWSGI and on top of
-that, with the least amount of modifications, add the official
+This image (and its tags) take advantage of already slim and
+optimized existing Docker images (based on Debian as
+[recommended by Docker](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)),
+implementing Docker best practices. It uses the official Python
+Docker image, installs uWSGI and on top of that, with the least amount of modifications, adds the official
 Nginx image (as of 2016-02-14).
 
 There's the rule of thumb that you should have "one process per
