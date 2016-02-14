@@ -1,17 +1,14 @@
 # uwsgi-nginx
 
-**Docker** image with **uWSGI** and **Nginx** for **Python** applications (in a
-single container).
+**Docker** image with **uWSGI** and **Nginx** for **Python** applications (as **Flask**) in a single container.
 
 ## Description
 
-The image allows you to create **Python** applications that run
-with **uWSGI** and **Nginx**.
+This Docker image allows you to create **Python** applications that run with **uWSGI** and **Nginx**.
 
-There are also two specialized **Flask** images (tags).
+There are also two specialized **Flask** images (tags) (you probably want to use those).
 
-uWSGI with Nginx is one of the best ways to deploy a Python
-application, so you know you'll have a good performance.
+uWSGI with Nginx is one of the best ways to deploy a Python application, so you you should have a good performance.
 
 ## In a hurry?
 
@@ -39,66 +36,43 @@ Do the same as "**In a hurry?**" (above) but with the directory `example-flask-i
 
 ## Usage
 
-You don't have to clone this repo, you should be able to use one
-of the images as a base image for your Dockerfiles.
+You don't have to clone this repo, you should be able to use one of the images as a base image for your Dockerfiles.
 
 There are 3 Docker images:
 
-* **[base](base)**: A bare bones image including uWSGI, Nginx and a
-very simple sample Hello World application. You probably don't
-want to use this image directly but instead one of the Flask
-images.
+* **[base](base)**: A bare bones image including uWSGI, Nginx and a very simple sample Hello World application.
+You probably don't want to use this image directly but instead one of the Flask images.
 
-* **[flask](flask)**: An image based on the **base** image, including
-Flask and a sample template app. You probably want to use this
-as your base image.
+* **[flask](flask)**: An image based on the **base** image, including Flask and a sample template app.
+You probably want to use this as your base image.
 
-* **[flask-index](flask-index)**: An image based on the **flask** image, but
-optimizing the configuration to make Nginx serve
-`/app/static/index.html` directly when requested for `/`. This is
-specially helpful (and efficient) if you are building a
-single-page app without templates (as with Angular JS) and using
-Flask as an API / back-end.
+* **[flask-index](flask-index)**: An image based on the **flask** image, but optimizing the configuration to make Nginx serve `/app/static/index.html` directly when requested for `/`.
+This is specially helpful (and efficient) if you are building a single-page app without templates (as with Angular JS) and using Flask as an API / back-end.
 
-You may want to go to the directory of the base image that applies
-the most to you and read it's README: **[base](base)**, **[flask](flask)**,
-**[flask-index](flask-index)**.
+You may want to go to the directory of the base image that applies the most to you and read it's README: **[base](base)**, **[flask](flask)**, **[flask-index](flask-index)**.
 
-You may also want to start a Flask app using one of the example templates:
-**[example-flask](example-flask)** or **[example-flask-index](example-flask-index)**.
+You may also want to start a Flask app using one of the example templates: **[example-flask](example-flask)** or **[example-flask-index](example-flask-index)**.
 
 ## Technical details
 
-One of the best ways to deploy a Python application is with uWSGI
-and Nginx, as seen in the
-[benchmarks](http://nichol.as/benchmark-of-python-web-servers).
+One of the best ways to deploy a Python application is with uWSGI and Nginx, as seen in the [benchmarks](http://nichol.as/benchmark-of-python-web-servers).
 
 Roughly:
 
-* **Nginx** is a web server, it takes care of the HTTP connections and
-also can serve static files directly and more efficiently.
+* **Nginx** is a web server, it takes care of the HTTP connections and also can serve static files directly and more efficiently.
 
-* **uWSGI** is an application server, that's what runs your Python
-code.
+* **uWSGI** is an application server, that's what runs your Python code.
 
-* **Your Python code** has the actual application, and is run by
-uWSGI.
+* **Your Python code** has the actual application, and is run by uWSGI.
 
-This image (and its tags) take advantage of already slim and
-optimized existing Docker images (based on Debian as
-[recommended by Docker](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)),
-implementing Docker best practices. It uses the official Python
-Docker image, installs uWSGI and on top of that, with the least amount of modifications, adds the official
-Nginx image (as of 2016-02-14).
+This image (and its tags) take advantage of already slim and optimized existing Docker images (based on Debian as [recommended by Docker](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)), implementing Docker best practices.
+It uses the official Python Docker image, installs uWSGI and on top of that, with the least amount of modifications, adds the official Nginx image (as of 2016-02-14).
 
-There's the rule of thumb that you should have "one process per
-container". That helps, for example, isolating an app from its
-database in different containers. But if you want to have a
-"micro-services" approach you may want to [have more than one
-process in one container](https://valdhaus.co/writings/docker-misconceptions/) if they are all related to the
-same "service", and you may want to include your code, uWSGI
-and Nginx in the same container (and maybe run another container
-with your database). That's the approach taken in this image.
+There's the rule of thumb that you should have "one process per container".
+That helps, for example, isolating an app from its database in different containers.
+But if you want to have a "micro-services" approach you may want to [have more than one process in one container](https://valdhaus.co/writings/docker-misconceptions/) if they are all related to the same "service", and you may want to include your code, uWSGI and Nginx in the same container (and maybe run another container with your database).
+
+That's the approach taken in this image.
 
 ## License
 
