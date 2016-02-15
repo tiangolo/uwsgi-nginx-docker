@@ -10,7 +10,7 @@ uWSGI with Nginx is one of the best ways to deploy a Python application, so you 
 
 This image was created to be the base image for [**tiangolo/uwsgi-nginx-flask**](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/) but could be used as the base image to run any Python web application.
 
-If you are creating a new **Python Flask** application you should use [**tiangolo/uwsgi-nginx-flask**](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/) instead.
+If you are creating a new [**Flask**](http://flask.pocoo.org/) web application you should use [**tiangolo/uwsgi-nginx-flask**](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/) instead.
 
 **GitHub repo**: <https://github.com/tiangolo/uwsgi-nginx-docker>
 
