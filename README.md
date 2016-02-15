@@ -1,3 +1,7 @@
+## Supported tags and respective `Dockerfile` links
+
+* [`latest` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/Dockerfile)
+
 # uwsgi-nginx
 
 **Docker** image with **uWSGI** and **Nginx** for **Python** applications (as **Flask**) in a single container.
