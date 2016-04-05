@@ -20,6 +20,10 @@ If you are creating a new [**Flask**](http://flask.pocoo.org/) web application y
 
 **Docker Hub image**: <https://hub.docker.com/r/tiangolo/uwsgi-nginx/>
 
+## What's new
+
+* 2016-04-05: Nginx and uWSGI logs are now redirected to stdout, allowing to use `docker logs`.
+
 ## How to use
 
 You shouldn't have to clone the GitHub repo. You should use it as a base image for other images, using `FROM tiangolo/uwsgi-nginx` in your `Dockerfile`.
