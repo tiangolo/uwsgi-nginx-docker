@@ -1,6 +1,9 @@
-FROM python:2.7
+FROM python:latest
 
-MAINTAINER Sebastian Ramirez <tiangolo@gmail.com>
+MAINTAINER Eelco Hoekema <ehoekema@gmail.com>
+# Forked from: MAINTAINER Sebastian Ramirez <tiangolo@gmail.com>
+# Forked because python3
+
 # Install uWSGI
 RUN pip install uwsgi
 
