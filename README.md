@@ -22,6 +22,10 @@ If you are creating a new [**Flask**](http://flask.pocoo.org/) web application y
 
 ## What's new
 
+* 2016-08-16: Use dynamic a number of worker processes for uWSGI, from 2 to 16 depending on load. This should work for most cases. This helps specially when there are some responses that are slow and take time to be generated, this change allows all the other responses to keep fast (in a new process) without having to wait for the first (slow) one to finish.
+
+* Also, it now uses a base `uwsgi.ini` file under `/etc/uwsgi/` with most of the general configurations, so, the `uwsgi.ini` inside `/app` (the one you could need to modify) is now a lot simpler.
+
 * 2016-04-05: Nginx and uWSGI logs are now redirected to stdout, allowing to use `docker logs`.
 
 ## How to use
