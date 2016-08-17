@@ -1,7 +1,7 @@
 ## Supported tags and respective `Dockerfile` links
 
-* [`latest`, `python2.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/Dockerfile)
-* [`python3.5` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/Dockerfile)
+* [`latest`, `python2.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python2.7/Dockerfile)
+* [`python3.5` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.5/Dockerfile)
 
 # uwsgi-nginx
 
