@@ -23,6 +23,8 @@ If you are creating a new [**Flask**](http://flask.pocoo.org/) web application y
 
 ## What's new
 
+* 2016-10-01: Now you can override default `uwsgi.ini` parameters from the file in `/app/uwsgi.ini`.
+
 * 2016-08-16: There's now an image tag for Python 3.5, based on the official image for Python 3.5. So now you can use this image for your projects in Python 2.7 and Python 3.5.
 
 * 2016-08-16: Use dynamic a number of worker processes for uWSGI, from 2 to 16 depending on load. This should work for most cases. This helps specially when there are some responses that are slow and take time to be generated, this change allows all the other responses to keep fast (in a new process) without having to wait for the first (slow) one to finish.
