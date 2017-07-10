@@ -1,4 +1,4 @@
-FROM python:3.5
+FROM python:3.6
 
 MAINTAINER Sebastian Ramirez <tiangolo@gmail.com>
 # Install uWSGI
