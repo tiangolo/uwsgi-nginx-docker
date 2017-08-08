@@ -44,7 +44,7 @@ If you are creating a new [**Flask**](http://flask.pocoo.org/) web application y
 * You shouldn't have to clone the GitHub repo. You should use it as a base image for other images, using this in your `Dockerfile`:
 
 ```Dockerfile
-`FROM tiangolo/uwsgi-nginx:python3.6`
+FROM tiangolo/uwsgi-nginx:python3.6
 
 # Your Dockerfile code...
 ```
