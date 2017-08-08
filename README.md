@@ -1,18 +1,35 @@
 ## Supported tags and respective `Dockerfile` links
 
-* [`latest`, `python2.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python2.7/Dockerfile)
 * [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.6/Dockerfile)
 * [`python3.5` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.5/Dockerfile)
+* [`python2.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python2.7/Dockerfile)
+* [`latest` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/latest/Dockerfile)
 
 # uwsgi-nginx
 
-**Docker** image with **uWSGI** and **Nginx** for **Python 2.7**, **Python 3.5** and **Python 3.6** applications (as **Flask**) in a single container.
+**Docker** image with **uWSGI** and **Nginx** for **Python 3.6**, **Python 3.5** and **Python 2.7** applications (as **Flask**) in a single container.
+
+## NOTICE
+
+Soon the tag `latest` will point to `python3.6` instead of `python2.7`.
+
+If you are using in your `Dockerfile`:
+
+```Dockerfile
+FROM tiangolo/uwsgi-nginx:latest
+```
+
+you should update it to:
+
+```Dockerfile
+FROM tiangolo/uwsgi-nginx:python2.7
+```
 
 ## Description
 
 This [**Docker**](https://www.docker.com/) image allows you to create [**Python**](https://www.python.org/) web applications that run with [**uWSGI**](https://uwsgi-docs.readthedocs.org/en/latest/) and [**Nginx**](http://nginx.org/en/) in a single container.
 
-uWSGI with Nginx is one of the best ways to deploy a Python application, so you you should have a [good performance (check the benchmarks)](http://nichol.as/benchmark-of-python-web-servers) with this image.
+uWSGI with Nginx is one of the best ways to deploy a Python application, so you should have a [good performance (check the benchmarks)](http://nichol.as/benchmark-of-python-web-servers) with this image.
 
 This image was created to be the base image for [**tiangolo/uwsgi-nginx-flask**](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/) but could be used as the base image to run any Python web application.
 
@@ -22,7 +39,23 @@ If you are creating a new [**Flask**](http://flask.pocoo.org/) web application y
 
 **Docker Hub image**: <https://hub.docker.com/r/tiangolo/uwsgi-nginx/>
 
+## How to use
+
+* You shouldn't have to clone the GitHub repo. You should use it as a base image for other images, using this in your `Dockerfile`:
+
+```Dockerfile
+`FROM tiangolo/uwsgi-nginx:python3.6`
+
+# Your Dockerfile code...
+```
+
+* If you need Python 2.7 that line would have to be `FROM tiangolo/uwsgi-nginx:python2.7`.
+
+If you are building a **Flask** web application you should use instead [**tiangolo/uwsgi-nginx-flask**](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/).
+
 ## What's new
+
+* 2017-08-08: There's a new `latest` tag image, just to show a warning for those still using `latest` for Python 2.7 web applications. As now [everyone](https://www.python.org/dev/peps/pep-0373/) [should be](http://flask.pocoo.org/docs/0.12/python3/#python3-support) [using Python 3](https://docs.djangoproject.com/en/1.11/faq/install/#what-python-version-should-i-use-with-django).
 
 * 2017-08-08: Supervisord now terminates uWSGI on `SIGTERM`, so if you run `docker stop` or something similar, it will actually stop everything, instead of waiting for Docker's timeout to kill the container.
 
@@ -32,21 +65,11 @@ If you are creating a new [**Flask**](http://flask.pocoo.org/) web application y
 
 * 2016-08-16: There's now an image tag for Python 3.5, based on the official image for Python 3.5. So now you can use this image for your projects in Python 2.7 and Python 3.5.
 
-* 2016-08-16: Use dynamic a number of worker processes for uWSGI, from 2 to 16 depending on load. This should work for most cases. This helps specially when there are some responses that are slow and take time to be generated, this change allows all the other responses to keep fast (in a new process) without having to wait for the first (slow) one to finish.
+* 2016-08-16: Use dynamic a number of worker processes for uWSGI, from 2 to 16 depending on load. This should work for most cases. This helps especially when there are some responses that are slow and take some time to be generated, this change allows all the other responses to keep fast (in a new process) without having to wait for the first (slow) one to finish.
 
 * Also, it now uses a base `uwsgi.ini` file under `/etc/uwsgi/` with most of the general configurations, so, the `uwsgi.ini` inside `/app` (the one you could need to modify) is now a lot simpler.
 
 * 2016-04-05: Nginx and uWSGI logs are now redirected to stdout, allowing to use `docker logs`.
-
-## How to use
-
-* You shouldn't have to clone the GitHub repo. You should use it as a base image for other images, using `FROM tiangolo/uwsgi-nginx` in your `Dockerfile`.
-
-* Alternatively, you could use `FROM tiangolo/uwsgi-nginx:python2.7`, but this is the default (it is also marked with the `latest` tag), so the result is the same as the method above. Python 2.7 is the default as it is still the most used version of Python and [not necessarily all the packages are available for Python 3.5 or 3.6](http://flask.pocoo.org/docs/0.11/python3/).
-
-If you want to use it as a base image for a Python 3.5 or 3.6 application then you should use `FROM tiangolo/uwsgi-nginx:python3.5` or `FROM tiangolo/uwsgi-nginx:python3.6` in your `Dockerfile`.
-
-If you are building a **Flask** web application you should use instead [**tiangolo/uwsgi-nginx-flask**](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/).
 
 ## Technical details
 
