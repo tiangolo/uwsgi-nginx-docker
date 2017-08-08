@@ -24,6 +24,8 @@ If you are creating a new [**Flask**](http://flask.pocoo.org/) web application y
 
 ## What's new
 
+* 2017-08-08: Supervisord now terminates uWSGI on `SIGTERM`, so if you run `docker stop` or something similar, it will actually stop everything, instead of waiting for Docker's timeout to kill the container.
+
 * 2017-07-31: There's now an image tag for Python 3.6, based on the official image for Python 3.6.
 
 * 2016-10-01: Now you can override default `uwsgi.ini` parameters from the file in `/app/uwsgi.ini`.
