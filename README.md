@@ -1,11 +1,12 @@
 ## Supported tags and respective `Dockerfile` links
 
 * [`latest`, `python2.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python2.7/Dockerfile)
+* [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.6/Dockerfile)
 * [`python3.5` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.5/Dockerfile)
 
 # uwsgi-nginx
 
-**Docker** image with **uWSGI** and **Nginx** for **Python 2.7** and **Python 3.5** applications (as **Flask**) in a single container.
+**Docker** image with **uWSGI** and **Nginx** for **Python 2.7**, **Python 3.5** and **Python 3.6** applications (as **Flask**) in a single container.
 
 ## Description
 
@@ -23,6 +24,8 @@ If you are creating a new [**Flask**](http://flask.pocoo.org/) web application y
 
 ## What's new
 
+* 2017-07-31: There's now an image tag for Python 3.6, based on the official image for Python 3.6.
+
 * 2016-10-01: Now you can override default `uwsgi.ini` parameters from the file in `/app/uwsgi.ini`.
 
 * 2016-08-16: There's now an image tag for Python 3.5, based on the official image for Python 3.5. So now you can use this image for your projects in Python 2.7 and Python 3.5.
@@ -37,9 +40,9 @@ If you are creating a new [**Flask**](http://flask.pocoo.org/) web application y
 
 * You shouldn't have to clone the GitHub repo. You should use it as a base image for other images, using `FROM tiangolo/uwsgi-nginx` in your `Dockerfile`.
 
-* Alternatively, you could use `FROM tiangolo/uwsgi-nginx:python2.7`, but this is the default (it is also marked with the `latest` tag), so the result is the same as the method above. Python 2.7 is the default as it is still the most used version of Python and [not necessarily all the packages are available for Python 3.5](http://flask.pocoo.org/docs/0.11/python3/).
+* Alternatively, you could use `FROM tiangolo/uwsgi-nginx:python2.7`, but this is the default (it is also marked with the `latest` tag), so the result is the same as the method above. Python 2.7 is the default as it is still the most used version of Python and [not necessarily all the packages are available for Python 3.5 or 3.6](http://flask.pocoo.org/docs/0.11/python3/).
 
-If you want to use it as a base image for a Python 3.5 application then you should use `FROM tiangolo/uwsgi-nginx:python3.5` in your `Dockerfile`.
+If you want to use it as a base image for a Python 3.5 or 3.6 application then you should use `FROM tiangolo/uwsgi-nginx:python3.5` or `FROM tiangolo/uwsgi-nginx:python3.6` in your `Dockerfile`.
 
 If you are building a **Flask** web application you should use instead [**tiangolo/uwsgi-nginx-flask**](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/).
 
