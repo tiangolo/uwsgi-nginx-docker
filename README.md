@@ -59,7 +59,11 @@ If you are building a **Flask** web application you should use instead [**tiango
 
 ## Advanced usage
 
-* If you need to use a directory for your app different than `/app`, for example in `/application`, you can override the uWSGI config file path with an environment variable `UWSGI_INI`, and put your custom `uwsgi.ini` file there. So, your `Dockerfile` might look like:
+### Custom app directory
+
+If you need to use a directory for your app different than `/app`, you can override the uWSGI config file path with an environment variable `UWSGI_INI`, and put your custom `uwsgi.ini` file there. 
+
+For example, if you needed to have your application directory in `/application` instead of `/app`, your `Dockerfile` would look like:
 
 ```Dockerfile
 FROM tiangolo/uwsgi-nginx:python3.6
@@ -70,14 +74,34 @@ COPY ./application /application
 WORKDIR /appapplication
 ```
 
-* And your `uwsgi.ini` file in `./application/uwsgi.ini` would have:
+And your `uwsgi.ini` file in `./application/uwsgi.ini` would contain:
 
 ```ini
 [uwsgi]
 wsgi-file=/application/main.py
 ```
 
+### Custom max upload size
+
+In this image, Nginx is configured to allow unlimited upload file sizes. This is done because by default a simple Python server would allow that, so that's the simplest behavior a developer would expect.
+
+If you need to restrict the maximum upload size in Nginx, you can add an environment variable `NGINX_UPLOAD` and assign a value corresponding to the [standard Nginx config `client_max_body_size`](http://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size).
+
+For example, if you wanted to set the maximum upload file size to 1 MB (the default in a normal Nginx installation), you would need to set the `NGINX_UPLOAD` environment variable to the value `1m`. Then the image would take care of adding the corresponding configuration file (this is done by the `entrypoint.sh`).
+
+So, your `Dockerfile` would look something like:
+
+```Dockerfile
+FROM tiangolo/uwsgi-nginx:python3.6
+
+ENV NGINX_UPLOAD 1m
+
+COPY ./app /app
+```
+
 ## What's new
+
+* 2017-08-09: You can set a custom maximum upload file size using an environment variable `NGINX_UPLOAD`, by default it has a value of `0`, that allows unlimited upload file sizes. This differs from Nginx's default value of 1 MB. It's configured this way because that's the simplest experience a developer that is not expert in Nginx would expect.
 
 * 2017-08-09: Now you can override where to look for the `uwsgi.ini` file, and with that, change the default directory from `/app` to something else, using the envirnoment variable `UWSGI_INI`.
 
