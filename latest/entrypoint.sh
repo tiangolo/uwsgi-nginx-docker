@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+USE_NGINX_MAX_UPLOAD=${NGINX_MAX_UPLOAD:-0}
+
+echo "client_max_body_size $USE_NGINX_MAX_UPLOAD;" > /etc/nginx/conf.d/upload.conf
+
 echo -e "WARNING: YOU SHOULDN'T BE USING THE 'latest' DOCKER TAG.
 
 The Docker tag 'latest' will be for Python 3.6 soon.
