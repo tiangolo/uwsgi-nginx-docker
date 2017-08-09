@@ -7,7 +7,7 @@
 
 # uwsgi-nginx
 
-**Docker** image with **uWSGI** and **Nginx** for **Python 3.6**, **Python 3.5** and **Python 2.7** applications (as **Flask**) in a single container.
+**Docker** image with **uWSGI** and **Nginx** for web applications in **Python 3.6**, **Python 3.5** and **Python 2.7** (as **Flask**) in a single container.
 
 ## NOTICE
 
