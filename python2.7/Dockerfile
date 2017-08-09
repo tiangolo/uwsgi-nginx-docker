@@ -33,6 +33,8 @@ RUN apt-get update && apt-get install -y supervisor \
 # Custom Supervisord config
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+ENV UWSGI_INI /app/uwsgi.ini
+
 COPY ./app /app
 WORKDIR /app
 
