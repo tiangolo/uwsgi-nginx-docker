@@ -35,6 +35,12 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 ENV UWSGI_INI /app/uwsgi.ini
 
+ENV NGINX_UPLOAD 0
+
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+
 COPY ./app /app
 WORKDIR /app
 
