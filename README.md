@@ -51,7 +51,31 @@ FROM tiangolo/uwsgi-nginx:python3.6
 
 * But, if you need Python 2.7 that line would have to be `FROM tiangolo/uwsgi-nginx:python2.7`.
 
+* By default it will try to find a uWSGI config file in `/app/uwsgi.ini`.
+
+* That `uwsgi.ini` file will make it try to run a Python file in `/app/main.py`.
+
 If you are building a **Flask** web application you should use instead [**tiangolo/uwsgi-nginx-flask**](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/).
+
+## Advanced usage
+
+* If you need to use a directory for your app different than `/app`, for example in `/application`, you can override the uWSGI config file path with an environment variable `UWSGI_INI`, and put your custom `uwsgi.ini` file there. So, your `Dockerfile` might look like:
+
+```Dockerfile
+FROM tiangolo/uwsgi-nginx:python3.6
+
+ENV UWSGI_INI /application/uwsgi.ini
+
+COPY ./application /application
+WORKDIR /appapplication
+```
+
+* And your `uwsgi.ini` file in `./application/uwsgi.ini` would have:
+
+```ini
+[uwsgi]
+wsgi-file=/application/main.py
+```
 
 ## What's new
 
