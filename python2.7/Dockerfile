@@ -39,6 +39,8 @@ ENV NGINX_MAX_UPLOAD 0
 
 COPY entrypoint.sh /entrypoint.sh
 
+RUN chmod +x /entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
 
 COPY ./app /app
