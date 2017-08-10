@@ -107,7 +107,7 @@ COPY ./app /app
 
 * 2017-08-09: Now you can override where to look for the `uwsgi.ini` file, and with that, change the default directory from `/app` to something else, using the envirnoment variable `UWSGI_INI`.
 
-* 2017-08-08: There's a new `latest` tag image, just to show a warning for those still using `latest` for Python 2.7 web applications. As of now [everyone](https://www.python.org/dev/peps/pep-0373/) [should be](http://flask.pocoo.org/docs/0.12/python3/#python3-support) [using Python 3](https://docs.djangoproject.com/en/1.11/faq/install/#what-python-version-should-i-use-with-django).
+* 2017-08-08: There's a new `latest` tag image, just to show a warning for those still using `latest` for Python 2.7 web applications. As of now, [everyone](https://www.python.org/dev/peps/pep-0373/) [should be](http://flask.pocoo.org/docs/0.12/python3/#python3-support) [using Python 3](https://docs.djangoproject.com/en/1.11/faq/install/#what-python-version-should-i-use-with-django).
 
 * 2017-08-08: Supervisord now terminates uWSGI on `SIGTERM`, so if you run `docker stop` or something similar, it will actually stop everything, instead of waiting for Docker's timeout to kill the container.
 
