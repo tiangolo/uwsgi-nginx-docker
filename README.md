@@ -81,6 +81,8 @@ And your `uwsgi.ini` file in `./application/uwsgi.ini` would contain:
 wsgi-file=/application/main.py
 ```
 
+**Note**: it's important to include the `WORKDIR` option, otherwise uWSGI will start the application in `/app`.
+
 ### Custom max upload size
 
 In this image, Nginx is configured to allow unlimited upload file sizes. This is done because by default a simple Python server would allow that, so that's the simplest behavior a developer would expect.
