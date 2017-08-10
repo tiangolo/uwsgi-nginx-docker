@@ -20,7 +20,7 @@ FROM tiangolo/uwsgi-nginx:python3.6
 
 Listen to the cow..."
 
-for i in {1..3}
+for i in {1..6}
 do
    cowsay "WARNING: don't use 'latest', instead use:
 
