@@ -1,9 +1,6 @@
 FROM python:3.5-alpine
 
 MAINTAINER Sebastian Ramirez <tiangolo@gmail.com>
-# CONTRIBUTOR Felipe "Prog" Esteves <progui@gmail.com>
-# Install uWSGI
-#RUN pip install uwsgi
 
 # Standard set up Nginx
 ENV NGINX_VERSION 1.12.1
