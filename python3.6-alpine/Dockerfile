@@ -7,12 +7,13 @@ ENV NGINX_VERSION 1.12.1
 
 RUN apk update \
     && apk add --no-cache --virtual .build-deps \
-	gcc \
-	libc-dev \
-	linux-headers \
-	bash \
+    gcc \
+    libc-dev \
+    linux-headers \
+    bash \
     nginx \
-    supervisor
+    supervisor \ 
+    && rm -rf /var/cache/apk/*
 
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
