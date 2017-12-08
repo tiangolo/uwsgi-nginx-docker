@@ -105,25 +105,21 @@ COPY ./app /app
 
 By default, the container made from this image will listen on port 80.
 
-To change this behavior, set the `LISTEN_PORT` environemt variable.
+To change this behavior, set the `LISTEN_PORT` environment variable.
 
-You can do that in your `Dockerfile`:
+You can do that in your `Dockerfile`, it would look something like:
 
-```dockerfile
-# ... (snip) ...
+```Dockerfile
+FROM tiangolo/uwsgi-nginx:python3.6
+
 ENV LISTEN_PORT 8080
-# ... (snip) ...
-```
 
-Or with `-e` option of [`docker run` command](https://docs.docker.com/engine/reference/commandline/run/#options), e.g.:
-
-```bash
-docker run -e LISTEN_PORT=8080 -p 8080:8080 myimage
+COPY ./app /app
 ```
 
 ## What's new
 
-* 2017-10-XX: Now you can configure which port the container should listen on, using the environment variable `LISTEN_PORT`.
+* 2017-12-08: Now you can configure which port the container should listen on, using the environment variable `LISTEN_PORT`.
 
 * 2017-08-09: You can set a custom maximum upload file size using an environment variable `NGINX_MAX_UPLOAD`, by default it has a value of `0`, that allows unlimited upload file sizes. This differs from Nginx's default value of 1 MB. It's configured this way because that's the simplest experience a developer that is not expert in Nginx would expect.
 
