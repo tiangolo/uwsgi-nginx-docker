@@ -123,6 +123,20 @@ COPY ./app /app
 
 ## What's new
 
+<!-- 
+
+**Note**: although Raspberry Pi can now compile and run the image, Docker Hub doesn't have an automated building process for other architectures yet.
+
+https://github.com/docker/hub-feedback/issues/1261
+
+* 2017-12-09: The version based in Python 3.6 now supports multiple architectures apart from AMD64 using the new Docker multi-architecture features. It was tested on an ARMv7 32 bits (Raspberry Pi 3 B). 
+
+To achieve that, the Python 3.6 version now uses a copy of the latest Nginx image which is based on the latest Debian version (Debian Stretch). 
+
+In the official Python image, there's a Stretch version only for Python 3.6. So, that's the only one that can be merged with the current Nginx image. That's why, in this image, only Python 3.6 supports multi-arch.
+
+-->
+
 * 2017-12-08: Now you can configure which port the container should listen on, using the environment variable `LISTEN_PORT`.
 
 * 2017-08-09: You can set a custom maximum upload file size using an environment variable `NGINX_MAX_UPLOAD`, by default it has a value of `0`, that allows unlimited upload file sizes. This differs from Nginx's default value of 1 MB. It's configured this way because that's the simplest experience a developer that is not expert in Nginx would expect.
