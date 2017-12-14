@@ -9,6 +9,7 @@ echo "client_max_body_size $USE_NGINX_MAX_UPLOAD;" > /etc/nginx/conf.d/upload.co
 # Get the listen port for Nginx, default to 80
 USE_LISTEN_PORT=${LISTEN_PORT:-80}
 # Modify Nignx config for listen port
-sed -i -e "/server {/a\    listen ${USE_LISTEN_PORT};" /etc/nginx/conf.d/nginx.conf
-
+if ! grep -q "listen ${USE_LISTEN_PORT};" /etc/nginx/conf.d/nginx.conf ; then
+    sed -i -e "/server {/a\    listen ${USE_LISTEN_PORT};" /etc/nginx/conf.d/nginx.conf
+fi
 exec "$@"
