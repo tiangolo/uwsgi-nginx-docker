@@ -1,13 +1,15 @@
 ## Supported tags and respective `Dockerfile` links
 
 * [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.6/Dockerfile)
+* [`python3.6-alpine3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.6-alpine3.7/Dockerfile)
 * [`python3.5` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.5/Dockerfile)
 * [`python2.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python2.7/Dockerfile)
+* [`python2.7-alpine3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python2.7-alpine3.7/Dockerfile)
 * [`latest` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/latest/Dockerfile)
 
 # uwsgi-nginx
 
-**Docker** image with **uWSGI** and **Nginx** for web applications in **Python 3.6**, **Python 3.5** and **Python 2.7** (as **Flask**) in a single container.
+**Docker** image with **uWSGI** and **Nginx** for web applications in **Python 3.6**, **Python 3.5** and **Python 2.7** (as **Flask**) in a single container. Optionally with Alpine Linux.
 
 ## NOTICE
 
@@ -30,6 +32,8 @@ FROM tiangolo/uwsgi-nginx:python2.7
 This [**Docker**](https://www.docker.com/) image allows you to create [**Python**](https://www.python.org/) web applications that run with [**uWSGI**](https://uwsgi-docs.readthedocs.org/en/latest/) and [**Nginx**](http://nginx.org/en/) in a single container.
 
 uWSGI with Nginx is one of the best ways to deploy a Python application, so you should have a [good performance (check the benchmarks)](http://nichol.as/benchmark-of-python-web-servers) with this image.
+
+There is also an Alpine version. If you want it, use one of the Alpine tags from above.
 
 This image was created to be the base image for [**tiangolo/uwsgi-nginx-flask**](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/) but could be used as the base image to run any Python web application.
 
@@ -136,6 +140,8 @@ To achieve that, the Python 3.6 version now uses a copy of the latest Nginx imag
 In the official Python image, there's a Stretch version only for Python 3.6. So, that's the only one that can be merged with the current Nginx image. That's why, in this image, only Python 3.6 supports multi-arch.
 
 -->
+
+* 2018-01-14: There are now two Alpine based versions, `python2.7-alpine3.7` and `python3.6-alpine3.7`.
 
 * 2017-12-08: Now you can configure which port the container should listen on, using the environment variable `LISTEN_PORT`.
 
