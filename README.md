@@ -168,7 +168,7 @@ In the official Python image, there's a Stretch version only for Python 3.6. So,
 
 * 2018-01-14: There are now two Alpine based versions, `python2.7-alpine3.7` and `python3.6-alpine3.7`.
 
-* 2017-12-08: Now you can configure which port the container should listen on, using the environment variable `LISTEN_PORT`.
+* 2017-12-08: Now you can configure which port the container should listen on, using the environment variable `LISTEN_PORT` thanks to [tmshn](https://github.com/tmshn) in [this PR](https://github.com/tiangolo/uwsgi-nginx-docker/pull/16).
 
 * 2017-08-09: You can set a custom maximum upload file size using an environment variable `NGINX_MAX_UPLOAD`, by default it has a value of `0`, that allows unlimited upload file sizes. This differs from Nginx's default value of 1 MB. It's configured this way because that's the simplest experience a developer that is not expert in Nginx would expect.
 
@@ -178,7 +178,7 @@ In the official Python image, there's a Stretch version only for Python 3.6. So,
 
 * 2017-08-08: Supervisord now terminates uWSGI on `SIGTERM`, so if you run `docker stop` or something similar, it will actually stop everything, instead of waiting for Docker's timeout to kill the container.
 
-* 2017-07-31: There's now an image tag for Python 3.6, based on the official image for Python 3.6.
+* 2017-07-31: There's now an image tag for Python 3.6, based on the official image for Python 3.6 thanks to [jrd](https://github.com/jrd) in [this PR](https://github.com/tiangolo/uwsgi-nginx-docker/pull/6).
 
 * 2016-10-01: Now you can override default `uwsgi.ini` parameters from the file in `/app/uwsgi.ini`.
 
