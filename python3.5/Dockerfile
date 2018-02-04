@@ -41,6 +41,10 @@ ENV UWSGI_INI /app/uwsgi.ini
 # ENV NGINX_MAX_UPLOAD 1m
 ENV NGINX_MAX_UPLOAD 0
 
+# By default, Nginx will run a single worker process, setting it to auto
+# will create a worker for each CPU core
+ENV NGINX_WORKER_PROCESSES 1
+
 # By default, Nginx listens on port 80.
 # To modify this, change LISTEN_PORT environment variable.
 # (in a Dockerfile or with an option for `docker run`)
