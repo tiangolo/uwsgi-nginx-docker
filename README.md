@@ -125,6 +125,30 @@ EXPOSE 8080
 COPY ./app /app
 ```
 
+### Custom Nginx processes number
+
+By default, Nginx will start one "worker process".
+
+If you want to set a different number of Nginx worker processes you can use the environment variable `NGINX_WORKER_PROCESSES`.
+
+You can use a specific single number, e.g.:
+
+```Dockerfile
+ENV NGINX_WORKER_PROCESSES 2
+```
+
+or you can set it to the keyword `auto` and it will try to autodetect the number of CPUs available and use that for the number of workers.
+
+For example, using `auto`, your Dockerfile could look like:
+
+```Dockerfile
+FROM tiangolo/uwsgi-nginx:python3.6
+
+ENV NGINX_WORKER_PROCESSES auto
+
+COPY ./app /app
+```
+
 ## What's new
 
 <!-- 
@@ -140,6 +164,7 @@ To achieve that, the Python 3.6 version now uses a copy of the latest Nginx imag
 In the official Python image, there's a Stretch version only for Python 3.6. So, that's the only one that can be merged with the current Nginx image. That's why, in this image, only Python 3.6 supports multi-arch.
 
 -->
+* 2018-02-04: It's now possible to set the number of Nginx worker processes with the environment variable `NGINX_WORKER_PROCESSES`. Thanks to [naktinis](https://github.com/naktinis) in PR #22.
 
 * 2018-01-14: There are now two Alpine based versions, `python2.7-alpine3.7` and `python3.6-alpine3.7`.
 
