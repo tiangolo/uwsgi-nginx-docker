@@ -164,7 +164,7 @@ To achieve that, the Python 3.6 version now uses a copy of the latest Nginx imag
 In the official Python image, there's a Stretch version only for Python 3.6. So, that's the only one that can be merged with the current Nginx image. That's why, in this image, only Python 3.6 supports multi-arch.
 
 -->
-* 2018-02-04: It's now possible to set the number of Nginx worker processes with the environment variable `NGINX_WORKER_PROCESSES`. Thanks to [naktinis](https://github.com/naktinis) in PR #22.
+* 2018-02-04: It's now possible to set the number of Nginx worker processes with the environment variable `NGINX_WORKER_PROCESSES`. Thanks to [naktinis](https://github.com/naktinis) in [this PR](https://github.com/tiangolo/uwsgi-nginx-docker/pull/22).
 
 * 2018-01-14: There are now two Alpine based versions, `python2.7-alpine3.7` and `python3.6-alpine3.7`.
 
