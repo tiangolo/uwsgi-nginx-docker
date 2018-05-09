@@ -149,6 +149,26 @@ ENV NGINX_WORKER_PROCESSES auto
 COPY ./app /app
 ```
 
+## Custom Nginx maximum connections per worker setting
+
+By default, Nginx will start with a maximum limit of 1024 connections per worker.
+
+If you want to set a different number you can use the environment variable `NGINX_WORKER_CONNECTIONS`, e.g:
+
+```Dockerfile
+ENV NGINX_WORKER_CONNECTIONS 2048
+```
+
+## Custom Nginx maximum open files setting
+
+Nginx workers are limited by the system with regard to the maximum open file descriptors "worker process".
+
+If you want to change the limit you can use the environment variable `NGINX_WORKER_OPEN_FILES`, e.g.:
+
+```Dockerfile
+ENV NGINX_WORKER_OPEN_FILES 2048
+```
+
 ## What's new
 
 <!-- 
