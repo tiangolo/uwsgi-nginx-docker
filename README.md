@@ -186,6 +186,8 @@ To achieve that, the Python 3.6 version now uses a copy of the latest Nginx imag
 In the official Python image, there's a Stretch version only for Python 3.6. So, that's the only one that can be merged with the current Nginx image. That's why, in this image, only Python 3.6 supports multi-arch.
 
 -->
+* 2018-06-22: You can now use `NGINX_WORKER_CONNECTIONS` to set the maximum number of Nginx worker connections and `NGINX_WORKER_OPEN_FILES` to set the maximum number of open files. Thanks to [ronlut](https://github.com/ronlut) in [this PR](https://github.com/tiangolo/uwsgi-nginx-docker/pull/26).
+
 * 2018-06-22: Make uWSGI require an app to run, instead of going in "full dynamic mode" while there was an error. Supervisord doesn't terminate itself but tries to restart uWSGI and shows the errors. Uses `need-app` as suggested by [luckydonald](https://github.com/luckydonald) in [this comment](https://github.com/tiangolo/uwsgi-nginx-flask-docker/issues/3#issuecomment-321991279).
 
 * 2018-06-22: Correctly handled graceful shutdown of uWSGI and Nginx. Thanks to [desaintmartin](https://github.com/desaintmartin) in [this PR](https://github.com/tiangolo/uwsgi-nginx-docker/pull/30).
