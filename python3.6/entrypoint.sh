@@ -11,7 +11,8 @@ USE_NGINX_WORKER_PROCESSES=${NGINX_WORKER_PROCESSES:-1}
 # Modify the number of worker processes in Nginx config
 sed -i "/worker_processes\s/c\worker_processes ${USE_NGINX_WORKER_PROCESSES};" /etc/nginx/nginx.conf
 
-# Set the max number of connections per worker for Nginx, if requested
+# Set the max number of connections per worker for Nginx, if requested 
+# Cannot exceed worker_rlimit_nofile, see NGINX_WORKER_OPEN_FILES below
 if [[ -v NGINX_WORKER_CONNECTIONS ]] ; then
     sed -i "/worker_connections\s/c\    worker_connections ${NGINX_WORKER_CONNECTIONS};" /etc/nginx/nginx.conf
 fi
