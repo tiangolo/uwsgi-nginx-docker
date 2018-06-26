@@ -1,13 +1,17 @@
 FROM python:3.5
 
-MAINTAINER Sebastian Ramirez <tiangolo@gmail.com>
+LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
+
 # Install uWSGI
 RUN pip install uwsgi
 
-# Standard set up Nginx
-ENV NGINX_VERSION 1.9.11-1~jessie
-
-RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62 \
+# There is no longer an official Nginx Docker image for Debian Jessie, only for Debian Stretch,
+# but the official Python 3.5 image is only available in Debian Jessie,
+# so, here's an updated custom Nginx installation, based on the last official Jessie Nginx image
+# Installation reference: https://www.nginx.com/resources/wiki/start/topics/tutorials/install/
+# Packages repo: http://nginx.org/packages/debian/dists/jessie/
+ENV NGINX_VERSION 1.15.0-1~jessie
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ABF5BD827BD9BF62 \
 	&& echo "deb http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list \
 	&& apt-get update \
 	&& apt-get install -y ca-certificates nginx=${NGINX_VERSION} gettext-base \
