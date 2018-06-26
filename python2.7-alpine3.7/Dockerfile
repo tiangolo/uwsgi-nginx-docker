@@ -1,5 +1,7 @@
 FROM python:2.7-alpine3.7
 
+LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
+
 # Standard set up Nginx Alpine
 # https://github.com/nginxinc/docker-nginx/blob/f8fad321cf58d5cbcafa3d9fa15314b8a77b5e65/mainline/alpine/Dockerfile
 
