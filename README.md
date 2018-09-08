@@ -87,6 +87,29 @@ wsgi-file=/application/main.py
 
 **Note**: it's important to include the `WORKDIR` option, otherwise uWSGI will start the application in `/app`.
 
+### Custom uWSGI process number
+
+By default, the image starts with 2 uWSGI processes running, when the server is having a high load, it creates more processes to handle it, on demand, up to 16.
+
+If you need to configure these numbers you can use environment variables.
+
+The starting number of uWSGI processes is controlled by the variable `UWSGI_CHEAPER`, by default set to `2`.
+
+The maximum number of uWSGI processes is controlled by the variable `UWSGI_PROCESSES`, by default set to `16`.
+
+Have in mind that `UWSGI_CHEAPER` must be lower than `UWSGI_PROCESSES`.
+
+So, if, for example, you need to start with 4 processes and grow to a maximum of 64, your `Dockerfile` could look like:
+
+```Dockerfile
+FROM tiangolo/uwsgi-nginx:python3.6
+
+ENV UWSGI_CHEAPER 4
+ENV UWSGI_PROCESSES 64
+
+COPY ./app /app
+```
+
 ### Custom max upload size
 
 In this image, Nginx is configured to allow unlimited upload file sizes. This is done because by default a simple Python server would allow that, so that's the simplest behavior a developer would expect.
