@@ -94,7 +94,7 @@ wsgi-file=/application/main.py
 
 ### Custom uWSGI process number
 
-By default, the image starts with 2 uWSGI processes running, when the server is having a high load, it creates more processes to handle it, on demand, up to 16.
+By default, the image starts with 2 uWSGI processes running. When the server is experiencing a high load, it creates up to 16 uWSGI processes to handle it on demand.
 
 If you need to configure these numbers you can use environment variables.
 
