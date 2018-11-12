@@ -1,4 +1,4 @@
-FROM python:3.6-alpine3.8
+FROM python:2.7-alpine3.8
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
@@ -150,7 +150,7 @@ EXPOSE 80
 EXPOSE 443
 
 # Install uWSGI
-RUN apk add --no-cache uwsgi-python3
+RUN apk add --no-cache uwsgi-python
 
 # Make NGINX run on the foreground
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
