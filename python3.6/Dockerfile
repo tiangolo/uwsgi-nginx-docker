@@ -3,8 +3,8 @@ FROM python:3.6-stretch
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
 # Standard set up Nginx
-ENV NGINX_VERSION 1.13.12-1~stretch
-ENV NJS_VERSION   1.13.12.0.2.0-1~stretch
+ENV NGINX_VERSION 1.15.8-1~stretch
+ENV NJS_VERSION   1.15.8.0.2.7-1~stretch
 
 RUN set -x \
 	&& apt-get update \
@@ -19,7 +19,7 @@ RUN set -x \
 		pgp.mit.edu \
 	; do \
 		echo "Fetching GPG key $NGINX_GPGKEY from $server"; \
-		apt-key adv --keyserver "$server" --keyserver-options timeout=10 --recv-keys "$NGINX_GPGKEY" && found=yes && break; \
+		apt-key adv --no-tty --keyserver "$server" --keyserver-options timeout=10 --recv-keys "$NGINX_GPGKEY" && found=yes && break; \
 	done; \
 	test -z "$found" && echo >&2 "error: failed to fetch GPG key $NGINX_GPGKEY" && exit 1; \
 	apt-get remove --purge --auto-remove -y gnupg1 && rm -rf /var/lib/apt/lists/* \
@@ -94,7 +94,9 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
 EXPOSE 80
 # Removed the section that breaks pip installations
-# && apt-get remove --purge --auto-remove -y apt-transport-https ca-certificates 
+# && apt-get remove --purge --auto-remove -y apt-transport-https ca-certificates
+# added --no-tty to apt-key adv as without it it breaks (even though it works in official Nginx)
+# apt-key adv --no-tty
 # Standard set up Nginx finished
 
 # Expose 443, in case of LTS / HTTPS
