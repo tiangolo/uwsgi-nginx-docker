@@ -2,7 +2,7 @@
 
 ## Supported tags and respective `Dockerfile` links
 
-* [`python3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.7/Dockerfile)
+* [`python3.7`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.7/Dockerfile)
 * [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.6/Dockerfile)
 * [`python3.6-alpine3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.6-alpine3.7/Dockerfile)
 * [`python3.6-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.6-alpine3.8/Dockerfile)
@@ -10,7 +10,6 @@
 * [`python2.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python2.7/Dockerfile)
 * [`python2.7-alpine3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python2.7-alpine3.7/Dockerfile)
 * [`python2.7-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python2.7-alpine3.8/Dockerfile)
-* [`latest` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/latest/Dockerfile)
 
 ## Temporarily not supported
 
@@ -20,21 +19,6 @@
 
 **Docker** image with **uWSGI** and **Nginx** for web applications in **Python 3.7**, **Python 3.6**, **Python 3.5** and **Python 2.7** (as **Flask**) in a single container. Optionally with Alpine Linux.
 
-## NOTICE
-
-Soon the tag `latest` will point to `python3.6` instead of `python2.7`.
-
-If you are using in your `Dockerfile`:
-
-```Dockerfile
-FROM tiangolo/uwsgi-nginx:latest
-```
-
-you should update it to:
-
-```Dockerfile
-FROM tiangolo/uwsgi-nginx:python2.7
-```
 
 ## Description
 
