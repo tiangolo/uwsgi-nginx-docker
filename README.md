@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tiangolo/uwsgi-nginx-docker.svg?branch=master)](https://travis-ci.org/tiangolo/uwsgi-nginx-docker)
+
 ## Supported tags and respective `Dockerfile` links
 
 * [`python3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.7/Dockerfile)
