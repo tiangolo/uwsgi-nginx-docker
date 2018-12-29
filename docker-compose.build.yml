@@ -24,6 +24,9 @@ services:
   python3.7:
     build: ./python3.7
     image: tiangolo/uwsgi-nginx:python3.7
+  latest:
+    build: ./python3.7
+    image: tiangolo/uwsgi-nginx:latest
   python3.7-alpine3.7:
     build: ./python3.7-alpine3.7
     image: tiangolo/uwsgi-nginx:python3.7-alpine3.7
