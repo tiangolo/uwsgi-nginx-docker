@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-docker-compose build
+set -e
+
+docker-compose -f docker-compose.build.yml build
