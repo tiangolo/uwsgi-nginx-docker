@@ -1,9 +1,9 @@
 import time
+from pathlib import Path, PurePath
 
 import docker
 import pytest
 import requests
-from requests import Response
 
 from ..utils import CONTAINER_NAME, get_logs, get_nginx_config, stop_previous_container
 
@@ -11,54 +11,65 @@ client = docker.from_env()
 
 
 @pytest.mark.parametrize(
-    "image,response_text",
+    "dockerfile,response_text",
     [
         (
-            "tiangolo/uwsgi-nginx:python2.7",
-            "Hello World from a default Nginx uWSGI Python 2.7 app in a Docker container (default)",
+            "python2.7.dockerfile",
+            "Hello World from Nginx uWSGI Python 2.7 app in a Docker container",
         ),
         (
-            "tiangolo/uwsgi-nginx:python2.7-alpine3.7",
-            "Hello World from a default Nginx uWSGI Python 2.7 app in a Docker container in Alpine (default)",
+            "python2.7-alpine3.7.dockerfile",
+            "Hello World from Nginx uWSGI Python 2.7 app in a Docker container",
         ),
         (
-            "tiangolo/uwsgi-nginx:python2.7-alpine3.8",
-            "Hello World from a default Nginx uWSGI Python 2.7 app in a Docker container in Alpine (default)",
+            "python2.7-alpine3.8.dockerfile",
+            "Hello World from Nginx uWSGI Python 2.7 app in a Docker container",
         ),
         (
-            "tiangolo/uwsgi-nginx:python3.5",
-            "Hello World from a default Nginx uWSGI Python 3.5 app in a Docker container (default)",
+            "python3.5.dockerfile",
+            "Hello World from Nginx uWSGI Python 3.5 app in a Docker container",
         ),
         (
-            "tiangolo/uwsgi-nginx:python3.6",
-            "Hello World from a default Nginx uWSGI Python 3.6 app in a Docker container (default)",
+            "python3.6.dockerfile",
+            "Hello World from Nginx uWSGI Python 3.6 app in a Docker container",
         ),
         (
-            "tiangolo/uwsgi-nginx:python3.6-alpine3.7",
-            "Hello World from a default Nginx uWSGI Python 3.6 app in a Docker container in Alpine (default)",
+            "python3.6-alpine3.7.dockerfile",
+            "Hello World from Nginx uWSGI Python 3.6 app in a Docker container",
         ),
         (
-            "tiangolo/uwsgi-nginx:python3.6-alpine3.8",
-            "Hello World from a default Nginx uWSGI Python 3.6 app in a Docker container in Alpine (default)",
+            "python3.6-alpine3.8.dockerfile",
+            "Hello World from Nginx uWSGI Python 3.6 app in a Docker container",
         ),
         (
-            "tiangolo/uwsgi-nginx:python3.7",
-            "Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container (default)",
+            "python3.7.dockerfile",
+            "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
+        ),
+        (
+            "latest.dockerfile",
+            "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
         ),
         # (
-        #     "tiangolo/uwsgi-nginx:python3.7-alpine3.7",
-        #     "Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container in Alpine (default)",
+        #     "python3.7-alpine3.7.dockerfile",
+        #     "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
         # ),
         # (
-        #     "tiangolo/uwsgi-nginx:python3.7-alpine3.8",
-        #     "Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container in Alpine (default)",
+        #     "python3.7-alpine3.8.dockerfile",
+        #     "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
         # ),
     ],
 )
-def test_defaults(image, response_text):
+def test_env_vars_1(dockerfile, response_text):
     stop_previous_container(client)
+    tag = "uwsgi-nginx-testimage"
+    test_path: PurePath = Path(__file__)
+    path = test_path.parent / "simple_app"
+    client.images.build(path=str(path), dockerfile=dockerfile, tag=tag)
     container = client.containers.run(
-        image, name=CONTAINER_NAME, ports={"80": "8000"}, detach=True
+        tag,
+        name=CONTAINER_NAME,
+        ports={"80": "8000"},
+        detach=True,
     )
     nginx_config = get_nginx_config(container)
     assert "client_max_body_size 0;" in nginx_config

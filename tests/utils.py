@@ -1,13 +1,11 @@
-import json
-
 from docker.errors import NotFound
 
-CONTAINER_NAME = "uwsgi-nginx-text"
+CONTAINER_NAME = "uwsgi-nginx-test"
 
 
-def get_uwsgi_config(container):
-    result = container.exec_run(f"uwsgi --show-config")
-    return result.output.decode()
+def get_logs(container):
+    logs: str = container.logs()
+    return logs.decode("utf-8")
 
 
 def get_nginx_config(container):
