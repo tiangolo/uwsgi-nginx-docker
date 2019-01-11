@@ -274,6 +274,10 @@ You probably want to override it or delete it in your project.
 
 It is there in case you run this image by itself and not as a base image for your own `Dockerfile`, so that you get a sample app without errors.
 
+## Tests
+
+All the image tags, configurations, environment variables and application options are tested.
+
 ## License
 
 This project is licensed under the terms of the Apache license.
