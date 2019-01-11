@@ -2,3 +2,4 @@
 set -e
 
 docker-compose -f docker-compose.build.yml build
+pytest tests

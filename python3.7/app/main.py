@@ -1,4 +1,10 @@
+import sys
+
+
 def application(env, start_response):
-    start_response('200 OK', [('Content-Type', 'text/html')])
-    return [b"Hello World from a default Nginx uWSGI Python 3.7 app in a\
-            Docker container (default)"]
+    version = "{}.{}".format(sys.version_info.major, sys.version_info.minor)
+    start_response("200 OK", [("Content-Type", "text/plain")])
+    message = "Hello World from a default Nginx uWSGI Python {} app in a Docker container (default)".format(
+        version
+    )
+    return [message.encode("utf-8")]
