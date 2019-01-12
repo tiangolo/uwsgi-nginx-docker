@@ -24,13 +24,33 @@
 
 This [**Docker**](https://www.docker.com/) image allows you to create [**Python**](https://www.python.org/) web applications that run with [**uWSGI**](https://uwsgi-docs.readthedocs.org/en/latest/) and [**Nginx**](http://nginx.org/en/) in a single container.
 
-uWSGI with Nginx is one of the best ways to deploy a Python application, so you should have a [good performance (check the benchmarks)](http://nichol.as/benchmark-of-python-web-servers) with this image.
+The combination of uWSGI with Nginx is a [common way to deploy Python web applications like Flask and Django](http://flask.pocoo.org/docs/1.0/deploying/uwsgi/). It is widely used in the industry and would give you decent performance. (*)
 
 There is also an Alpine version. If you want it, use one of the Alpine tags from above.
 
-This image was created to be the base image for [**tiangolo/uwsgi-nginx-flask**](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/) but could be used as the base image to run any Python web application.
+This image was created to be the base image for [**tiangolo/uwsgi-nginx-flask**](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/) but could be used as the base image for any other (WSGI-based) Python web application, like Django.
 
-If you are creating a new [**Flask**](http://flask.pocoo.org/) web application you should use [**tiangolo/uwsgi-nginx-flask**](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/) instead.
+### * Note on performance and features
+
+If you are starting a new project, you might benefit from a newer and faster framework based on ASGI instead of WSGI (Flask and Django are WSGI-based).
+
+You could use an ASGI framework like:
+
+* [**FastAPI**](https://github.com/tiangolo/fastapi) (which is based on Starlette) with this Docker image: [**tiangolo/uvicorn-gunicorn-fastapi**](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker).
+* [**Starlette**](https://github.com/encode/starlette) directly, with this Docker image: [**tiangolo/uvicorn-gunicorn-starlette**](https://github.com/tiangolo/uvicorn-gunicorn-starlette-docker).
+* Or any other ASGI framework with this Docker image: [**tiangolo/uvicorn-gunicorn**](https://github.com/tiangolo/uvicorn-gunicorn-docker).
+
+FastAPI, or Starlette, would give you about 800% (8x) the performance achievable with this image (**tiangolo/uwsgi-nginx**). [You can see the third-party benchmarks here](https://www.techempower.com/benchmarks/#section=test&runid=a979de55-980d-4721-a46f-77298b3f3923&hw=ph&test=fortune&l=zijzen-7)).
+
+Also, if you want to use new technologies like WebSockets it would be easier (and *possible*) with a newer framework based on ASGI, like FastAPI or Starlette. As the standard ASGI was designed to be able to handle asynchronous code like the one needed for WebSockets.
+
+#### If you need a WSGI-based application (like Flask or Django)
+
+If you need to use an older WSGI-based framework like Flask or Django (instead of something based on ASGI) and you need to have the best performance possible, you can use the alternative image: [**tiangolo/meinheld-gunicorn**](https://github.com/tiangolo/meinheld-gunicorn-docker).
+
+**tiangolo/meinheld-gunicorn** will give you about 400% (4x) the performance of this image.
+
+---
 
 **GitHub repo**: <https://github.com/tiangolo/uwsgi-nginx-docker>
 
@@ -240,7 +260,7 @@ In the official Python image, there's a Stretch version only for Python 3.6. So,
 
 ## Technical details
 
-One of the best ways to deploy a Python web application is with uWSGI and Nginx, as seen in the [benchmarks](http://nichol.as/benchmark-of-python-web-servers).
+The combination of uWSGI with Nginx is a [common way to deploy Python web applications](http://flask.pocoo.org/docs/1.0/deploying/uwsgi/).
 
 Roughly:
 
