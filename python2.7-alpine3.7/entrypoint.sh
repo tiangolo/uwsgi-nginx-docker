@@ -35,15 +35,6 @@ content=$content'                      '"'\"\$http_user_agent\" \"\$http_x_forwa
 content=$content'    access_log  /var/log/nginx/access.log  main;\n'
 content=$content'    sendfile        on;\n'
 content=$content'    keepalive_timeout  65;\n'
-# Generate Nginx config for maximum upload file size
-content=$content'    server {\n'
-content=$content"        listen ${USE_LISTEN_PORT};\n"
-content=$content'        location / {\n'
-content=$content'            include uwsgi_params;\n'
-content=$content'            uwsgi_pass unix:///tmp/uwsgi.sock;\n'
-content=$content'        }\n'
-content=$content'    }\n'
-content=$content"    client_max_body_size $USE_NGINX_MAX_UPLOAD;\n"
 content=$content'    include /etc/nginx/conf.d/*.conf;\n'
 content=$content'}\n'
 content=$content'daemon off;\n'
@@ -51,8 +42,20 @@ content=$content'daemon off;\n'
 if [ -n "${NGINX_WORKER_OPEN_FILES}" ] ; then
     content=$content"worker_rlimit_nofile ${NGINX_WORKER_OPEN_FILES};\n"
 fi
-
-# Save generated nginx.conf
+# Save generated /etc/nginx/nginx.conf
 printf "$content" > /etc/nginx/nginx.conf
+
+content_server='server {\n'
+content_server=$content_server"    listen ${USE_LISTEN_PORT};\n"
+content_server=$content_server'    location / {\n'
+content_server=$content_server'        include uwsgi_params;\n'
+content_server=$content_server'        uwsgi_pass unix:///tmp/uwsgi.sock;\n'
+content_server=$content_server'    }\n'
+content_server=$content_server'}\n'
+# Save generated server /etc/nginx/conf.d/nginx.conf
+printf "$content_server" > /etc/nginx/conf.d/nginx.conf
+
+# Generate Nginx config for maximum upload file size
+printf "client_max_body_size $USE_NGINX_MAX_UPLOAD;\n" > /etc/nginx/conf.d/upload.conf
 
 exec "$@"
