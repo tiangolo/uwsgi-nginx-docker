@@ -139,8 +139,6 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	&& ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
 
-COPY nginx.conf /etc/nginx/nginx.conf
-
 # Standard set up Nginx finished
 
 EXPOSE 80
@@ -152,10 +150,6 @@ EXPOSE 443
 # Install uWSGI
 RUN apk add --no-cache uwsgi-python
 
-# Make NGINX run on the foreground
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-# Copy the modified Nginx conf
-COPY nginx-custom.conf /etc/nginx/conf.d/nginx.conf
 # Copy the base uWSGI ini file to enable default dynamic uwsgi process number
 COPY uwsgi.ini /etc/uwsgi/
 
