@@ -207,6 +207,33 @@ You can change the limit of open files with the environment variable `NGINX_WORK
 ENV NGINX_WORKER_OPEN_FILES 2048
 ```
 
+### Customizing Nginx additional configurations
+
+If you need to configure Nginx further, you can add `*.conf` files to `/etc/nginx/conf.d/` in your `Dockerfile`.
+
+Just have in mind that the default configurations are created during startup in a file at `/etc/nginx/conf.d/nginx.conf` and `/etc/nginx/conf.d/upload.conf`. So you shouldn't overwrite them. You should name your `*.conf` file with something different than `nginx.conf` or `upload.conf`, for example: `custom.conf`.
+
+**Note**: if you are customizing Nginx, maybe copying configurations from a blog or a StackOverflow answer, have in mind that you probably need to use the [configurations specific to uWSGI](http://nginx.org/en/docs/http/ngx_http_uwsgi_module.html), instead of those for other modules, like for example, `ngx_http_fastcgi_module`.
+
+
+### Overriding Nginx configuration completely
+
+If you need to configure Nginx even further, completely overriding the defaults, you can add a custom Nginx configuration to `/app/nginx.conf`.
+
+It will be copied to `/etc/nginx/nginx.conf` and used instead of the generated one.
+
+Have in mind that, in that case, this image won't generate any of the Nginx configurations, it will only copy and use your configuration file.
+
+That means that all the environment variables described above that are specific to Nginx won't be used.
+
+It also means that it won't use additional configurations from files in `/etc/nginx/conf.d/*.conf`, unless you explicitly have a section in your custom file `/app/nginx.conf` with:
+
+```conf
+include /etc/nginx/conf.d/*.conf;
+```
+
+If you want to add a custom `/app/nginx.conf` file but don't know where to start from, you can use [the `nginx.conf` used for the tests](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/tests/test_02_app/custom_nginx_app/app/nginx.conf) and customize it or modify it further.
+
 ## What's new
 
 <!-- 
@@ -222,7 +249,10 @@ To achieve that, the Python 3.6 version now uses a copy of the latest Nginx imag
 In the official Python image, there's a Stretch version only for Python 3.6. So, that's the only one that can be merged with the current Nginx image. That's why, in this image, only Python 3.6 supports multi-arch.
 
 -->
-* 2019-02-02: The Nginx configurations are generated dynamically from the entrypoint, instead of modifying pre-existing files. [PR #50](https://github.com/tiangolo/uwsgi-nginx-docker/pull/50).
+
+* 2019-02-02:
+    * The Nginx configurations are generated dynamically from the entrypoint, instead of modifying pre-existing files. [PR #50](https://github.com/tiangolo/uwsgi-nginx-docker/pull/50).
+    * Support for a completely custom `/app/nginx.conf` file that overrides the generated one. [PR #51](https://github.com/tiangolo/uwsgi-nginx-docker/pull/51).
 
 * 2018-11-23: New Alpine 3.8 images for Python 2.7, Python 3.6 and Python 3.7 (Python 3.7 temporarily disabled). Thanks to [philippfreyer](https://github.com/philippfreyer) in [PR #45](https://github.com/tiangolo/uwsgi-nginx-docker/pull/45)
 
