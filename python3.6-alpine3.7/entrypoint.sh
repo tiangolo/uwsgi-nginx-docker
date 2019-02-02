@@ -3,7 +3,7 @@ set -e
 
 # Explicitly add installed Python packages and uWSGI Python packages to PYTHONPATH
 # Otherwise uWSGI can't import Flask
-export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages:/usr/lib/python2.7/site-packages
+export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3.6/site-packages:/usr/lib/python3.6/site-packages
 
 # Get the maximum upload file size for Nginx, default to 0: unlimited
 USE_NGINX_MAX_UPLOAD=${NGINX_MAX_UPLOAD:-0}
