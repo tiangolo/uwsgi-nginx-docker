@@ -222,6 +222,8 @@ To achieve that, the Python 3.6 version now uses a copy of the latest Nginx imag
 In the official Python image, there's a Stretch version only for Python 3.6. So, that's the only one that can be merged with the current Nginx image. That's why, in this image, only Python 3.6 supports multi-arch.
 
 -->
+* 2019-02-02: The Nginx configurations are generated dynamically from the entrypoint, instead of modifying pre-existing files. [PR #50](https://github.com/tiangolo/uwsgi-nginx-docker/pull/50).
+
 * 2018-11-23: New Alpine 3.8 images for Python 2.7, Python 3.6 and Python 3.7 (Python 3.7 temporarily disabled). Thanks to [philippfreyer](https://github.com/philippfreyer) in [PR #45](https://github.com/tiangolo/uwsgi-nginx-docker/pull/45)
 
 * 2018-09-22: New Python 3.7 versions, standard and Alpine based. Thanks to [desaintmartin](https://github.com/desaintmartin) in [this PR](https://github.com/tiangolo/uwsgi-nginx-docker/pull/39).
