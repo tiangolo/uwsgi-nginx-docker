@@ -1,8 +1,6 @@
-FROM python:2.7
+FROM python:2.7-stretch
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
-# Install uWSGI
-RUN pip install uwsgi
 
 # Standard set up Nginx
 ENV NGINX_VERSION 1.15.8-1~stretch
@@ -103,6 +101,9 @@ EXPOSE 80
 
 # Expose 443, in case of LTS / HTTPS
 EXPOSE 443
+
+# Install uWSGI
+RUN pip install uwsgi
 
 # Remove default configuration from Nginx
 RUN rm /etc/nginx/conf.d/default.conf

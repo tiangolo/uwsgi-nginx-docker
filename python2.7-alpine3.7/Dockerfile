@@ -156,7 +156,7 @@ COPY uwsgi.ini /etc/uwsgi/
 # Install Supervisord
 RUN apk add --no-cache supervisor
 # Custom Supervisord config
-COPY supervisord.ini /etc/supervisor.d/supervisord.ini
+COPY supervisord.conf /etc/supervisor.d/supervisord.conf
 
 # Which uWSGI .ini file should be used, to make it customizable
 ENV UWSGI_INI /app/uwsgi.ini

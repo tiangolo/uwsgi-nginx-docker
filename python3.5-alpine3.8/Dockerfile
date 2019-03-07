@@ -1,4 +1,4 @@
-FROM python:2.7-alpine3.8
+FROM python:3.5-alpine3.8
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
@@ -148,7 +148,7 @@ EXPOSE 80
 EXPOSE 443
 
 # Install uWSGI
-RUN apk add --no-cache uwsgi-python
+RUN apk add --no-cache uwsgi-python3
 
 # Copy the base uWSGI ini file to enable default dynamic uwsgi process number
 COPY uwsgi.ini /etc/uwsgi/

@@ -1,9 +1,6 @@
-FROM python:3.5
+FROM python:3.5-stretch
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
-
-# Install uWSGI
-RUN pip install uwsgi
 
 # Standard set up Nginx
 ENV NGINX_VERSION 1.15.8-1~stretch
@@ -101,6 +98,12 @@ EXPOSE 80
 # added --no-tty to apt-key adv as without it it breaks (even though it works in official Nginx)
 # apt-key adv --no-tty
 # Standard set up Nginx finished
+
+# Expose 443, in case of LTS / HTTPS
+EXPOSE 443
+
+# Install uWSGI
+RUN pip install uwsgi
 
 # Remove default configuration from Nginx
 RUN rm /etc/nginx/conf.d/default.conf

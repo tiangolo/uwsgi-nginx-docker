@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 set -e
 
 # Explicitly add installed Python packages and uWSGI Python packages to PYTHONPATH
@@ -11,7 +11,7 @@ USE_NGINX_MAX_UPLOAD=${NGINX_MAX_UPLOAD:-0}
 # Get the number of workers for Nginx, default to 1
 USE_NGINX_WORKER_PROCESSES=${NGINX_WORKER_PROCESSES:-1}
 
-# Set the max number of connections per worker for Nginx, if requested 
+# Set the max number of connections per worker for Nginx, if requested
 # Cannot exceed worker_rlimit_nofile, see NGINX_WORKER_OPEN_FILES below
 NGINX_WORKER_CONNECTIONS=${NGINX_WORKER_CONNECTIONS:-1024}
 
