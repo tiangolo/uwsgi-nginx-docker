@@ -69,6 +69,10 @@ def verify_container(container, response_text):
             "Hello World from a default Nginx uWSGI Python 2.7 app in a Docker container in Alpine (default)",
         ),
         (
+            "tiangolo/uwsgi-nginx:python2.7-alpine3.9",
+            "Hello World from a default Nginx uWSGI Python 2.7 app in a Docker container in Alpine (default)",
+        ),
+        (
             "tiangolo/uwsgi-nginx:python3.5",
             "Hello World from a default Nginx uWSGI Python 3.5 app in a Docker container (default)",
         ),
@@ -82,6 +86,10 @@ def verify_container(container, response_text):
         ),
         (
             "tiangolo/uwsgi-nginx:python3.6-alpine3.8",
+            "Hello World from a default Nginx uWSGI Python 3.6 app in a Docker container in Alpine (default)",
+        ),
+        (
+            "tiangolo/uwsgi-nginx:python3.6-alpine3.9",
             "Hello World from a default Nginx uWSGI Python 3.6 app in a Docker container in Alpine (default)",
         ),
         (

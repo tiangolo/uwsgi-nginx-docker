@@ -9,6 +9,9 @@ services:
   python2.7-alpine3.8:
     build: ./python2.7-alpine3.8
     image: tiangolo/uwsgi-nginx:python2.7-alpine3.8
+  python2.7-alpine3.9:
+    build: ./python2.7-alpine3.9
+    image: tiangolo/uwsgi-nginx:python2.7-alpine3.9
   python3.5:
     build: ./python3.5
     image: tiangolo/uwsgi-nginx:python3.5
@@ -21,6 +24,9 @@ services:
   python3.6-alpine3.8:
     build: ./python3.6-alpine3.8
     image: tiangolo/uwsgi-nginx:python3.6-alpine3.8
+  python3.6-alpine3.9:
+    build: ./python3.6-alpine3.9
+    image: tiangolo/uwsgi-nginx:python3.6-alpine3.9
   python3.7:
     build: ./python3.7
     image: tiangolo/uwsgi-nginx:python3.7
@@ -33,3 +39,6 @@ services:
   python3.7-alpine3.8:
     build: ./python3.7-alpine3.8
     image: tiangolo/uwsgi-nginx:python3.7-alpine3.8
+  python3.7-alpine3.9:
+    build: ./python3.7-alpine3.9
+    image: tiangolo/uwsgi-nginx:python3.7-alpine3.9

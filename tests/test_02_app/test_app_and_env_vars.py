@@ -68,6 +68,10 @@ def verify_container(container, response_text):
             "Hello World from Nginx uWSGI Python 2.7 app in a Docker container",
         ),
         (
+            "python2.7-alpine3.9.dockerfile",
+            "Hello World from Nginx uWSGI Python 2.7 app in a Docker container",
+        ),
+        (
             "python3.5.dockerfile",
             "Hello World from Nginx uWSGI Python 3.5 app in a Docker container",
         ),
@@ -81,6 +85,10 @@ def verify_container(container, response_text):
         ),
         (
             "python3.6-alpine3.8.dockerfile",
+            "Hello World from Nginx uWSGI Python 3.6 app in a Docker container",
+        ),
+        (
+            "python3.6-alpine3.9.dockerfile",
             "Hello World from Nginx uWSGI Python 3.6 app in a Docker container",
         ),
         (
