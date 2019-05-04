@@ -95,9 +95,7 @@ versions = [
 
 
 def test_tag(*, env: dict):
-    tag = f"tiangolo/uwsgi-nginx:{env['NAME']}"
-    print(f"Testing image: {tag}")
-    use_env = {**os.environ, **env, "TAG": tag}
+    use_env = {**os.environ, **env}
     return_code = subprocess.call(["bash", "scripts/test.sh"], env=use_env)
     if return_code != 0:
         sys.exit(return_code)

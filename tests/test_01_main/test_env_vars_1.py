@@ -56,7 +56,8 @@ def verify_container(container, response_text):
 def test_env_vars_1():
     if not os.getenv("RUN_TESTS"):
         return
-    image = os.getenv("TAG")
+    name = os.getenv("NAME")
+    image = f"tiangolo/uwsgi-nginx:{name}"
     response_text = os.getenv("TEST_STR1")
     sleep_time = int(os.getenv("SLEEP_TIME", 3))
     remove_previous_container(client)
