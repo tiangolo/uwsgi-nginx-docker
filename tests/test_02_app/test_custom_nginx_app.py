@@ -1,8 +1,8 @@
+import os
 import time
 from pathlib import Path, PurePath
 
 import docker
-import pytest
 import requests
 
 from ..utils import (
@@ -53,64 +53,12 @@ def verify_container(container, response_text):
     assert response.text == response_text
 
 
-@pytest.mark.parametrize(
-    "dockerfile,response_text",
-    [
-        (
-            "python2.7.dockerfile",
-            "Hello World from Nginx uWSGI Python 2.7 app in a Docker container",
-        ),
-        (
-            "python2.7-alpine3.7.dockerfile",
-            "Hello World from Nginx uWSGI Python 2.7 app in a Docker container",
-        ),
-        (
-            "python2.7-alpine3.8.dockerfile",
-            "Hello World from Nginx uWSGI Python 2.7 app in a Docker container",
-        ),
-        (
-            "python2.7-alpine3.9.dockerfile",
-            "Hello World from Nginx uWSGI Python 2.7 app in a Docker container",
-        ),
-        (
-            "python3.5.dockerfile",
-            "Hello World from Nginx uWSGI Python 3.5 app in a Docker container",
-        ),
-        (
-            "python3.6.dockerfile",
-            "Hello World from Nginx uWSGI Python 3.6 app in a Docker container",
-        ),
-        (
-            "python3.6-alpine3.7.dockerfile",
-            "Hello World from Nginx uWSGI Python 3.6 app in a Docker container",
-        ),
-        (
-            "python3.6-alpine3.8.dockerfile",
-            "Hello World from Nginx uWSGI Python 3.6 app in a Docker container",
-        ),
-        (
-            "python3.6-alpine3.9.dockerfile",
-            "Hello World from Nginx uWSGI Python 3.6 app in a Docker container",
-        ),
-        (
-            "python3.7.dockerfile",
-            "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
-        ),
-        (
-            "latest.dockerfile",
-            "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
-        ),
-        # (
-        #     "python3.7-alpine3.7.dockerfile",
-        #     "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
-        # ),
-        # (
-        #     "python3.7-alpine3.8.dockerfile",
-        #     "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
-        # ),
-    ],
-)
-def test_env_vars_1(dockerfile, response_text):
+def test_env_vars_1():
+    if not os.getenv("RUN_TESTS"):
+        return
+    dockerfile = os.getenv("DOCKERFILE")
+    response_text = os.getenv("TEST_STR2")
+    sleep_time = int(os.getenv("SLEEP_TIME", 3))
     remove_previous_container(client)
     tag = "uwsgi-nginx-testimage"
     test_path: PurePath = Path(__file__)
@@ -119,12 +67,12 @@ def test_env_vars_1(dockerfile, response_text):
     container = client.containers.run(
         tag, name=CONTAINER_NAME, ports={"8080": "8080"}, detach=True
     )
-    time.sleep(3)
+    time.sleep(sleep_time)
     verify_container(container, response_text)
     container.stop()
     # Test that everything works after restarting too
     container.start()
-    time.sleep(3)
+    time.sleep(sleep_time)
     verify_container(container, response_text)
     container.stop()
     container.remove()

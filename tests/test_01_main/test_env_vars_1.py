@@ -1,7 +1,7 @@
+import os
 import time
 
 import docker
-import pytest
 import requests
 
 from ..utils import (
@@ -53,60 +53,13 @@ def verify_container(container, response_text):
     assert response.text == response_text
 
 
-@pytest.mark.parametrize(
-    "image,response_text",
-    [
-        (
-            "tiangolo/uwsgi-nginx:python2.7",
-            "Hello World from a default Nginx uWSGI Python 2.7 app in a Docker container (default)",
-        ),
-        (
-            "tiangolo/uwsgi-nginx:python2.7-alpine3.7",
-            "Hello World from a default Nginx uWSGI Python 2.7 app in a Docker container in Alpine (default)",
-        ),
-        (
-            "tiangolo/uwsgi-nginx:python2.7-alpine3.8",
-            "Hello World from a default Nginx uWSGI Python 2.7 app in a Docker container in Alpine (default)",
-        ),
-        (
-            "tiangolo/uwsgi-nginx:python2.7-alpine3.9",
-            "Hello World from a default Nginx uWSGI Python 2.7 app in a Docker container in Alpine (default)",
-        ),
-        (
-            "tiangolo/uwsgi-nginx:python3.5",
-            "Hello World from a default Nginx uWSGI Python 3.5 app in a Docker container (default)",
-        ),
-        (
-            "tiangolo/uwsgi-nginx:python3.6",
-            "Hello World from a default Nginx uWSGI Python 3.6 app in a Docker container (default)",
-        ),
-        (
-            "tiangolo/uwsgi-nginx:python3.6-alpine3.7",
-            "Hello World from a default Nginx uWSGI Python 3.6 app in a Docker container in Alpine (default)",
-        ),
-        (
-            "tiangolo/uwsgi-nginx:python3.6-alpine3.8",
-            "Hello World from a default Nginx uWSGI Python 3.6 app in a Docker container in Alpine (default)",
-        ),
-        (
-            "tiangolo/uwsgi-nginx:python3.6-alpine3.9",
-            "Hello World from a default Nginx uWSGI Python 3.6 app in a Docker container in Alpine (default)",
-        ),
-        (
-            "tiangolo/uwsgi-nginx:python3.7",
-            "Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container (default)",
-        ),
-        # (
-        #     "tiangolo/uwsgi-nginx:python3.7-alpine3.7",
-        #     "Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container in Alpine (default)",
-        # ),
-        # (
-        #     "tiangolo/uwsgi-nginx:python3.7-alpine3.8",
-        #     "Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container in Alpine (default)",
-        # ),
-    ],
-)
-def test_env_vars_1(image, response_text):
+def test_env_vars_1():
+    if not os.getenv("RUN_TESTS"):
+        return
+    name = os.getenv("NAME")
+    image = f"tiangolo/uwsgi-nginx:{name}"
+    response_text = os.getenv("TEST_STR1")
+    sleep_time = int(os.getenv("SLEEP_TIME", 3))
     remove_previous_container(client)
     container = client.containers.run(
         image,
@@ -122,12 +75,12 @@ def test_env_vars_1(image, response_text):
         ports={"80": "8000"},
         detach=True,
     )
-    time.sleep(3)
+    time.sleep(sleep_time)
     verify_container(container, response_text)
     container.stop()
     # Test that everything works after restarting too
     container.start()
-    time.sleep(3)
+    time.sleep(sleep_time)
     verify_container(container, response_text)
     container.stop()
     container.remove()

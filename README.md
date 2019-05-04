@@ -256,6 +256,9 @@ In the official Python image, there's a Stretch version only for Python 3.6. So,
 
 -->
 
+* 2019-05-04:
+    * Build images using Travis matrix to improve development/testing speed. Needed for some recent PRs. [PR #58](https://github.com/tiangolo/uwsgi-nginx-docker/pull/58).
+
 * 2019-02-02:
     * The Nginx configurations are generated dynamically from the entrypoint, instead of modifying pre-existing files. [PR #50](https://github.com/tiangolo/uwsgi-nginx-docker/pull/50).
     * Support for a completely custom `/app/nginx.conf` file that overrides the generated one. [PR #51](https://github.com/tiangolo/uwsgi-nginx-docker/pull/51).
