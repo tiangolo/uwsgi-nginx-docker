@@ -116,7 +116,6 @@ def main():
     for env in versions:
         test_tag(env=env)
 
-import sys
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
