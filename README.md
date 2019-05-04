@@ -257,6 +257,7 @@ In the official Python image, there's a Stretch version only for Python 3.6. So,
 -->
 
 * 2019-05-04:
+    * Add Alpine Linux 3.9. PR [#55](https://github.com/tiangolo/uwsgi-nginx-docker/pull/55) by [evilgoldfish](https://github.com/evilgoldfish).
     * Build images using Travis matrix to improve development/testing speed. Needed for some recent PRs. [PR #58](https://github.com/tiangolo/uwsgi-nginx-docker/pull/58).
 
 * 2019-02-02:
