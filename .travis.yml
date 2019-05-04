@@ -27,6 +27,8 @@ env:
   - NAME='python3.7-alpine3.8' BUILD_PATH='python3.7-alpine3.8' TEST_STR1='Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container in Alpine (default)' DOCKERFILE='python3.7-alpine3.8.dockerfile' TEST_STR2='Hello World from Nginx uWSGI Python 3.7 app in a Docker container' RUN_TESTS=''
   - NAME='python3.7-alpine3.9' BUILD_PATH='python3.7-alpine3.9' TEST_STR1='Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container in Alpine (default)' DOCKERFILE='python3.7-alpine3.9.dockerfile' TEST_STR2='Hello World from Nginx uWSGI Python 3.7 app in a Docker container' RUN_TESTS=''
 
+script: bash scripts/test.sh
+
 jobs:
     include:
       - script: bash scripts/test.sh
