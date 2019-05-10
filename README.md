@@ -268,7 +268,7 @@ include /etc/nginx/conf.d/*.conf;
 
 If you want to add a custom `/app/nginx.conf` file but don't know where to start from, you can use [the `nginx.conf` used for the tests](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/tests/test_02_app/custom_nginx_app/app/nginx.conf) and customize it or modify it further.
 
-## What's new
+## Release Notes
 
 <!-- 
 
@@ -284,8 +284,11 @@ In the official Python image, there's a Stretch version only for Python 3.6. So,
 
 -->
 
-* 2019-05-10:
-    * Added support for `/app/prestart.sh` script to run arbitrary code before starting the app (for example, Alembic - SQLAlchemy migrations). The [documentation for the `/app/prestart.sh` is in the main README](https://github.com/tiangolo/uwsgi-nginx-docker#custom-appprestartsh). [PR #59](https://github.com/tiangolo/uwsgi-nginx-docker/pull/59).
+## 1.1.0
+
+* Added support for `/app/prestart.sh` script to run arbitrary code before starting the app (for example, Alembic - SQLAlchemy migrations). The [documentation for the `/app/prestart.sh` is in the main README](https://github.com/tiangolo/uwsgi-nginx-docker#custom-appprestartsh). [PR #59](https://github.com/tiangolo/uwsgi-nginx-docker/pull/59).
+
+### 1.0.0
 
 * 2019-05-04:
     * Add Alpine Linux 3.9. PR [#55](https://github.com/tiangolo/uwsgi-nginx-docker/pull/55) by [evilgoldfish](https://github.com/evilgoldfish).
