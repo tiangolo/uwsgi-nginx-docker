@@ -167,6 +167,34 @@ EXPOSE 8080
 COPY ./app /app
 ```
 
+### Custom `/app/prestart.sh`
+
+If you need to run anything before starting the app, you can add a file `prestart.sh` to the directory `/app`. The image will automatically detect and run it before starting everything.
+
+For example, if you want to add database migrations that are run on startup (e.g. with Alembic, or Django migrations), before starting the app, you could create a `./app/prestart.sh` file in your code directory (that will be copied by your `Dockerfile`) with:
+
+```bash
+#! /usr/bin/env bash
+
+# Let the DB start
+sleep 10;
+# Run migrations
+alembic upgrade head
+```
+
+and it would wait 10 seconds to give the database some time to start and then run that `alembic` command (you could update that to run Django migrations or any other tool you need).
+
+If you need to run a Python script before starting the app, you could make the `/app/prestart.sh` file run your Python script, with something like:
+
+```bash
+#! /usr/bin/env bash
+
+# Run custom Python script before starting
+python /app/my_custom_prestart_script.py
+```
+
+**Note**: The image uses `.` to run the script (as in `. /app/prestart.sh`), so for example, environment variables would persist. If you don't understand the previous sentence, you probably don't need it.
+
 ### Custom Nginx processes number
 
 By default, Nginx will start one "worker process".
@@ -255,6 +283,9 @@ To achieve that, the Python 3.6 version now uses a copy of the latest Nginx imag
 In the official Python image, there's a Stretch version only for Python 3.6. So, that's the only one that can be merged with the current Nginx image. That's why, in this image, only Python 3.6 supports multi-arch.
 
 -->
+
+* 2019-05-10:
+    * Added support for `/app/prestart.sh` script to run arbitrary code before starting the app (for example, Alembic - SQLAlchemy migrations). The [documentation for the `/app/prestart.sh` is in the main README](https://github.com/tiangolo/uwsgi-nginx-docker#custom-appprestartsh). [PR #59](https://github.com/tiangolo/uwsgi-nginx-docker/pull/59).
 
 * 2019-05-04:
     * Add Alpine Linux 3.9. PR [#55](https://github.com/tiangolo/uwsgi-nginx-docker/pull/55) by [evilgoldfish](https://github.com/evilgoldfish).
