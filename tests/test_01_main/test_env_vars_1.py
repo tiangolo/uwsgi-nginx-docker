@@ -40,6 +40,11 @@ def verify_container(container, response_text):
     assert "wsgi-file = /app/main.py" in logs
     assert "processes = 8" in logs
     assert "cheaper = 3" in logs
+    assert "Checking for script in /app/prestart.sh" in logs
+    assert "Running script /app/prestart.sh" in logs
+    assert (
+        "Running inside /app/prestart.sh, you could add migrations to this file" in logs
+    )
     assert "spawned uWSGI master process" in logs
     assert "spawned uWSGI worker 1" in logs
     assert "spawned uWSGI worker 2" in logs
