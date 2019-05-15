@@ -25,7 +25,6 @@ Temporarily not supported as uWSGI has not been released with Python 3.7 support
 
 **Docker** image with **uWSGI** and **Nginx** for web applications in **Python 3.7**, **Python 3.6**, **Python 3.5** and **Python 2.7** (as **Flask**) in a single container. Optionally with Alpine Linux.
 
-
 ## Description
 
 This [**Docker**](https://www.docker.com/) image allows you to create [**Python**](https://www.python.org/) web applications that run with [**uWSGI**](https://uwsgi-docs.readthedocs.org/en/latest/) and [**Nginx**](http://nginx.org/en/) in a single container.
@@ -58,9 +57,9 @@ If you need to use an older WSGI-based framework like Flask or Django (instead o
 
 ---
 
-**GitHub repo**: <https://github.com/tiangolo/uwsgi-nginx-docker>
+**GitHub repo**: [https://github.com/tiangolo/uwsgi-nginx-docker](https://github.com/tiangolo/uwsgi-nginx-docker)
 
-**Docker Hub image**: <https://hub.docker.com/r/tiangolo/uwsgi-nginx/>
+**Docker Hub image**: [https://hub.docker.com/r/tiangolo/uwsgi-nginx/](https://hub.docker.com/r/tiangolo/uwsgi-nginx/)
 
 ## How to use
 
@@ -248,7 +247,6 @@ If you need to configure Nginx further, you can add `*.conf` files to `/etc/ngin
 Just have in mind that the default configurations are created during startup in a file at `/etc/nginx/conf.d/nginx.conf` and `/etc/nginx/conf.d/upload.conf`. So you shouldn't overwrite them. You should name your `*.conf` file with something different than `nginx.conf` or `upload.conf`, for example: `custom.conf`.
 
 **Note**: if you are customizing Nginx, maybe copying configurations from a blog or a StackOverflow answer, have in mind that you probably need to use the [configurations specific to uWSGI](http://nginx.org/en/docs/http/ngx_http_uwsgi_module.html), instead of those for other modules, like for example, `ngx_http_fastcgi_module`.
-
 
 ### Overriding Nginx configuration completely
 
