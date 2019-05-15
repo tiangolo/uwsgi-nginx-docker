@@ -284,7 +284,11 @@ In the official Python image, there's a Stretch version only for Python 3.6. So,
 
 -->
 
-## 1.1.0
+### Next Release
+
+* Upgrade Travis. PR [#60](https://github.com/tiangolo/uwsgi-nginx-docker/pull/60).
+
+### 1.1.0
 
 * Added support for `/app/prestart.sh` script to run arbitrary code before starting the app (for example, Alembic - SQLAlchemy migrations). The [documentation for the `/app/prestart.sh` is in the main README](https://github.com/tiangolo/uwsgi-nginx-docker#custom-appprestartsh). [PR #59](https://github.com/tiangolo/uwsgi-nginx-docker/pull/59).
 
