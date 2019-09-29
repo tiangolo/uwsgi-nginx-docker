@@ -13,6 +13,8 @@
 * [`python2.7-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python2.7-alpine3.8/Dockerfile)
 * [`python2.7-alpine3.9` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python2.7-alpine3.9/Dockerfile)
 
+**Note**: Note: There are [tags for each build date](https://hub.docker.com/r/tiangolo/uwsgi-nginx/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uwsgi-nginx:python3.7-2019-09-28`.
+
 ## Temporarily not supported
 
 * [`python3.7-alpine3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.7-alpine3.7/Dockerfile)
@@ -283,6 +285,9 @@ In the official Python image, there's a Stretch version only for Python 3.6. So,
 -->
 
 ### Next Release
+
+* 2019-09-28:
+    * Refactor build scripts and add image tags for each build date, like `tiangolo/uwsgi-nginx:python3.7-2019-09-28`. PR [#65](https://github.com/tiangolo/uwsgi-nginx-docker/pull/65).
 
 * Upgrade Travis. PR [#60](https://github.com/tiangolo/uwsgi-nginx-docker/pull/60).
 
