@@ -2,7 +2,7 @@ import os
 import subprocess
 import sys
 
-versions = [
+environments = [
     {
         "NAME": "python2.7",
         "BUILD_PATH": "python2.7",
@@ -117,19 +117,25 @@ versions = [
     },
 ]
 
+start_with = os.environ.get("START_WITH")
+build_push = os.environ.get("BUILD_PUSH")
 
-def test_tag(*, env: dict):
+
+def process_tag(*, env: dict):
     use_env = {**os.environ, **env}
-    return_code = subprocess.call(["bash", "scripts/test.sh"], env=use_env)
+    script = "scripts/test.sh"
+    if build_push:
+        script = "scripts/build-push.sh"
+    return_code = subprocess.call(["bash", script], env=use_env)
     if return_code != 0:
         sys.exit(return_code)
 
 
 def print_version_envs():
     env_lines = []
-    for version in versions:
+    for env in environments:
         env_vars = []
-        for key, value in version.items():
+        for key, value in env.items():
             env_vars.append(f"{key}='{value}'")
         env_lines.append(" ".join(env_vars))
     for line in env_lines:
@@ -137,8 +143,14 @@ def print_version_envs():
 
 
 def main():
-    for env in versions:
-        test_tag(env=env)
+    start_at = 0
+    if start_with:
+        start_at = [
+            i for i, env in enumerate((environments)) if env["NAME"] == start_with
+        ][0]
+    for i, env in enumerate(environments[start_at:]):
+        print(f"Processing tag: {env['NAME']}")
+        process_tag(env=env)
 
 
 if __name__ == "__main__":
