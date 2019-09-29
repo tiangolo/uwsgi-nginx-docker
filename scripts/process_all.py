@@ -9,7 +9,7 @@ environments = [
         "TEST_STR1": "Hello World from a default Nginx uWSGI Python 2.7 app in a Docker container (default)",
         "DOCKERFILE": "python2.7.dockerfile",
         "TEST_STR2": "Hello World from Nginx uWSGI Python 2.7 app in a Docker container",
-        "RUN_TESTS": "1"
+        "RUN_TESTS": "1",
     },
     {
         "NAME": "python2.7-alpine3.7",
@@ -17,7 +17,7 @@ environments = [
         "TEST_STR1": "Hello World from a default Nginx uWSGI Python 2.7 app in a Docker container in Alpine (default)",
         "DOCKERFILE": "python2.7-alpine3.7.dockerfile",
         "TEST_STR2": "Hello World from Nginx uWSGI Python 2.7 app in a Docker container",
-        "RUN_TESTS": "1"
+        "RUN_TESTS": "1",
     },
     {
         "NAME": "python2.7-alpine3.8",
@@ -25,7 +25,7 @@ environments = [
         "TEST_STR1": "Hello World from a default Nginx uWSGI Python 2.7 app in a Docker container in Alpine (default)",
         "DOCKERFILE": "python2.7-alpine3.8.dockerfile",
         "TEST_STR2": "Hello World from Nginx uWSGI Python 2.7 app in a Docker container",
-        "RUN_TESTS": "1"
+        "RUN_TESTS": "1",
     },
     {
         "NAME": "python2.7-alpine3.9",
@@ -33,7 +33,7 @@ environments = [
         "TEST_STR1": "Hello World from a default Nginx uWSGI Python 2.7 app in a Docker container in Alpine (default)",
         "DOCKERFILE": "python2.7-alpine3.9.dockerfile",
         "TEST_STR2": "Hello World from Nginx uWSGI Python 2.7 app in a Docker container",
-        "RUN_TESTS": "1"
+        "RUN_TESTS": "1",
     },
     {
         "NAME": "python3.5",
@@ -41,7 +41,7 @@ environments = [
         "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.5 app in a Docker container (default)",
         "DOCKERFILE": "python3.5.dockerfile",
         "TEST_STR2": "Hello World from Nginx uWSGI Python 3.5 app in a Docker container",
-        "RUN_TESTS": "1"
+        "RUN_TESTS": "1",
     },
     {
         "NAME": "python3.6",
@@ -49,7 +49,7 @@ environments = [
         "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.6 app in a Docker container (default)",
         "DOCKERFILE": "python3.6.dockerfile",
         "TEST_STR2": "Hello World from Nginx uWSGI Python 3.6 app in a Docker container",
-        "RUN_TESTS": "1"
+        "RUN_TESTS": "1",
     },
     {
         "NAME": "python3.6-alpine3.7",
@@ -57,7 +57,7 @@ environments = [
         "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.6 app in a Docker container in Alpine (default)",
         "DOCKERFILE": "python3.6-alpine3.7.dockerfile",
         "TEST_STR2": "Hello World from Nginx uWSGI Python 3.6 app in a Docker container",
-        "RUN_TESTS": "1"
+        "RUN_TESTS": "1",
     },
     {
         "NAME": "python3.6-alpine3.8",
@@ -65,7 +65,7 @@ environments = [
         "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.6 app in a Docker container in Alpine (default)",
         "DOCKERFILE": "python3.6-alpine3.8.dockerfile",
         "TEST_STR2": "Hello World from Nginx uWSGI Python 3.6 app in a Docker container",
-        "RUN_TESTS": "1"
+        "RUN_TESTS": "1",
     },
     {
         "NAME": "python3.6-alpine3.9",
@@ -73,7 +73,7 @@ environments = [
         "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.6 app in a Docker container in Alpine (default)",
         "DOCKERFILE": "python3.6-alpine3.9.dockerfile",
         "TEST_STR2": "Hello World from Nginx uWSGI Python 3.6 app in a Docker container",
-        "RUN_TESTS": "1"
+        "RUN_TESTS": "1",
     },
     {
         "NAME": "python3.7",
@@ -81,7 +81,7 @@ environments = [
         "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container (default)",
         "DOCKERFILE": "python3.7.dockerfile",
         "TEST_STR2": "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
-        "RUN_TESTS": "1"
+        "RUN_TESTS": "1",
     },
     {
         "NAME": "latest",
@@ -89,7 +89,7 @@ environments = [
         "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container (default)",
         "DOCKERFILE": "latest.dockerfile",
         "TEST_STR2": "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
-        "RUN_TESTS": "1"
+        "RUN_TESTS": "1",
     },
     {
         "NAME": "python3.7-alpine3.7",
@@ -97,7 +97,7 @@ environments = [
         "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container in Alpine (default)",
         "DOCKERFILE": "python3.7-alpine3.7.dockerfile",
         "TEST_STR2": "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
-        "RUN_TESTS": ""
+        "RUN_TESTS": "",
     },
     {
         "NAME": "python3.7-alpine3.8",
@@ -105,7 +105,7 @@ environments = [
         "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container in Alpine (default)",
         "DOCKERFILE": "python3.7-alpine3.8.dockerfile",
         "TEST_STR2": "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
-        "RUN_TESTS": ""
+        "RUN_TESTS": "",
     },
     {
         "NAME": "python3.7-alpine3.9",
@@ -113,8 +113,8 @@ environments = [
         "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container in Alpine (default)",
         "DOCKERFILE": "python3.7-alpine3.9.dockerfile",
         "TEST_STR2": "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
-        "RUN_TESTS": ""
-    }
+        "RUN_TESTS": "",
+    },
 ]
 
 start_with = os.environ.get("START_WITH")
@@ -145,7 +145,9 @@ def print_version_envs():
 def main():
     start_at = 0
     if start_with:
-        start_at = [i for i, env in enumerate((environments)) if env["NAME"] == start_with][0]
+        start_at = [
+            i for i, env in enumerate((environments)) if env["NAME"] == start_with
+        ][0]
     for i, env in enumerate(environments[start_at:]):
         print(f"Processing tag: {env['NAME']}")
         process_tag(env=env)
