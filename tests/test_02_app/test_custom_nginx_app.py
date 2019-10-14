@@ -61,7 +61,8 @@ def verify_container(container, response_text):
 def test_env_vars_1():
     if not os.getenv("RUN_TESTS"):
         return
-    dockerfile = os.getenv("DOCKERFILE")
+    name = os.getenv("NAME")
+    dockerfile = f"{name}.dockerfile"
     response_text = os.getenv("TEST_STR2")
     sleep_time = int(os.getenv("SLEEP_TIME", 3))
     remove_previous_container(client)
