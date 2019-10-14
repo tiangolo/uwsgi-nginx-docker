@@ -286,6 +286,8 @@ In the official Python image, there's a Stretch version only for Python 3.6. So,
 
 ### Latest Changes
 
+### 1.2.0
+
 * 2019-10-14:
     * Refactor and simplify test scripts. PR [#66](https://github.com/tiangolo/uwsgi-nginx-docker/pull/66).
 * 2019-09-28:
