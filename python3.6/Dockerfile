@@ -1,4 +1,4 @@
-FROM python:3.6-stretch
+FROM python:3.6-slim-stretch
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
@@ -9,6 +9,9 @@ ENV NJS_VERSION   1.15.8.0.2.7-1~stretch
 RUN set -x \
 	&& apt-get update \
 	&& apt-get install --no-install-recommends --no-install-suggests -y gnupg1 apt-transport-https ca-certificates \
+	&& apt-get install --no-install-recommends --no-install-suggests -y build-essential \
+	&& pip install uwsgi \
+	&& apt-get remove --purge --auto-remove -y build-essential \
 	&& \
 	NGINX_GPGKEY=573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62; \
 	found=''; \
@@ -101,9 +104,6 @@ EXPOSE 80
 
 # Expose 443, in case of LTS / HTTPS
 EXPOSE 443
-
-# Install uWSGI
-RUN pip install uwsgi
 
 # Remove default configuration from Nginx
 RUN rm /etc/nginx/conf.d/default.conf
