@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tiangolo/uwsgi-nginx-docker.svg?branch=master)](https://travis-ci.org/tiangolo/uwsgi-nginx-docker)
+[![Build Status](https://travis-ci.com/tiangolo/uwsgi-nginx-docker.svg?branch=master)](https://travis-ci.com/tiangolo/uwsgi-nginx-docker)
 
 ## Supported tags and respective `Dockerfile` links
 
