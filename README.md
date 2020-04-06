@@ -286,6 +286,8 @@ In the official Python image, there's a Stretch version only for Python 3.6. So,
 
 ### Latest Changes
 
+* Migrate Travis to .com, update badge. PR [#77](https://github.com/tiangolo/uwsgi-nginx-docker/pull/77).
+
 ### 1.2.0
 
 * 2019-10-14:
