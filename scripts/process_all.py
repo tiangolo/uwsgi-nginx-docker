@@ -3,111 +3,24 @@ import subprocess
 import sys
 
 environments = [
-    {
-        "NAME": "python2.7",
-        "BUILD_PATH": "python2.7",
-        "TEST_STR1": "Hello World from a default Nginx uWSGI Python 2.7 app in a Docker container (default)",
-        "TEST_STR2": "Hello World from Nginx uWSGI Python 2.7 app in a Docker container",
-        "RUN_TESTS": "1",
-    },
-    {
-        "NAME": "python2.7-alpine3.7",
-        "BUILD_PATH": "python2.7-alpine3.7",
-        "TEST_STR1": "Hello World from a default Nginx uWSGI Python 2.7 app in a Docker container in Alpine (default)",
-        "TEST_STR2": "Hello World from Nginx uWSGI Python 2.7 app in a Docker container",
-        "RUN_TESTS": "1",
-    },
-    {
-        "NAME": "python2.7-alpine3.8",
-        "BUILD_PATH": "python2.7-alpine3.8",
-        "TEST_STR1": "Hello World from a default Nginx uWSGI Python 2.7 app in a Docker container in Alpine (default)",
-        "TEST_STR2": "Hello World from Nginx uWSGI Python 2.7 app in a Docker container",
-        "RUN_TESTS": "1",
-    },
-    {
-        "NAME": "python2.7-alpine3.9",
-        "BUILD_PATH": "python2.7-alpine3.9",
-        "TEST_STR1": "Hello World from a default Nginx uWSGI Python 2.7 app in a Docker container in Alpine (default)",
-        "TEST_STR2": "Hello World from Nginx uWSGI Python 2.7 app in a Docker container",
-        "RUN_TESTS": "1",
-    },
-    {
-        "NAME": "python3.5",
-        "BUILD_PATH": "python3.5",
-        "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.5 app in a Docker container (default)",
-        "TEST_STR2": "Hello World from Nginx uWSGI Python 3.5 app in a Docker container",
-        "RUN_TESTS": "1",
-    },
-    {
-        "NAME": "python3.6",
-        "BUILD_PATH": "python3.6",
-        "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.6 app in a Docker container (default)",
-        "TEST_STR2": "Hello World from Nginx uWSGI Python 3.6 app in a Docker container",
-        "RUN_TESTS": "1",
-    },
-    {
-        "NAME": "python3.6-alpine3.7",
-        "BUILD_PATH": "python3.6-alpine3.7",
-        "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.6 app in a Docker container in Alpine (default)",
-        "TEST_STR2": "Hello World from Nginx uWSGI Python 3.6 app in a Docker container",
-        "RUN_TESTS": "1",
-    },
-    {
-        "NAME": "python3.6-alpine3.8",
-        "BUILD_PATH": "python3.6-alpine3.8",
-        "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.6 app in a Docker container in Alpine (default)",
-        "TEST_STR2": "Hello World from Nginx uWSGI Python 3.6 app in a Docker container",
-        "RUN_TESTS": "1",
-    },
-    {
-        "NAME": "python3.6-alpine3.9",
-        "BUILD_PATH": "python3.6-alpine3.9",
-        "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.6 app in a Docker container in Alpine (default)",
-        "TEST_STR2": "Hello World from Nginx uWSGI Python 3.6 app in a Docker container",
-        "RUN_TESTS": "1",
-    },
-    {
-        "NAME": "python3.7",
-        "BUILD_PATH": "python3.7",
-        "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container (default)",
-        "TEST_STR2": "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
-        "RUN_TESTS": "1",
-    },
-    {
-        "NAME": "latest",
-        "BUILD_PATH": "python3.7",
-        "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container (default)",
-        "TEST_STR2": "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
-        "RUN_TESTS": "1",
-    },
-    {
-        "NAME": "python3.7-alpine3.7",
-        "BUILD_PATH": "python3.7-alpine3.7",
-        "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container in Alpine (default)",
-        "TEST_STR2": "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
-        "RUN_TESTS": "",
-    },
-    {
-        "NAME": "python3.7-alpine3.8",
-        "BUILD_PATH": "python3.7-alpine3.8",
-        "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container in Alpine (default)",
-        "TEST_STR2": "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
-        "RUN_TESTS": "",
-    },
-    {
-        "NAME": "python3.7-alpine3.9",
-        "BUILD_PATH": "python3.7-alpine3.9",
-        "TEST_STR1": "Hello World from a default Nginx uWSGI Python 3.7 app in a Docker container in Alpine (default)",
-        "TEST_STR2": "Hello World from Nginx uWSGI Python 3.7 app in a Docker container",
-        "RUN_TESTS": "",
-    },
+    {"NAME": "latest", "PYTHON_VERSION": "3.7"},
+    {"NAME": "python3.7", "PYTHON_VERSION": "3.7"},
+    {"NAME": "python3.6", "PYTHON_VERSION": "3.6"},
+    {"NAME": "python3.5", "PYTHON_VERSION": "3.5"},
+    {"NAME": "python2.7", "PYTHON_VERSION": "2.7"},
+    {"NAME": "python3.6-alpine3.9", "PYTHON_VERSION": "3.6"},
+    {"NAME": "python3.6-alpine3.8", "PYTHON_VERSION": "3.6"},
+    {"NAME": "python3.6-alpine3.7", "PYTHON_VERSION": "3.6"},
+    {"NAME": "python2.7-alpine3.9", "PYTHON_VERSION": "2.7"},
+    {"NAME": "python2.7-alpine3.8", "PYTHON_VERSION": "2.7"},
+    {"NAME": "python2.7-alpine3.7", "PYTHON_VERSION": "2.7"},
 ]
 
 start_with = os.environ.get("START_WITH")
 build_push = os.environ.get("BUILD_PUSH")
 
 
-def process_tag(*, env: dict):
+def process_tag(*, env: dict) -> None:
     use_env = {**os.environ, **env}
     script = "scripts/test.sh"
     if build_push:
@@ -117,7 +30,7 @@ def process_tag(*, env: dict):
         sys.exit(return_code)
 
 
-def print_version_envs():
+def print_version_envs() -> None:
     env_lines = []
     for env in environments:
         env_vars = []
@@ -128,7 +41,7 @@ def print_version_envs():
         print(line)
 
 
-def main():
+def main() -> None:
     start_at = 0
     if start_with:
         start_at = [

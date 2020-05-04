@@ -1,27 +1,25 @@
-[![Build Status](https://travis-ci.com/tiangolo/uwsgi-nginx-docker.svg?branch=master)](https://travis-ci.com/tiangolo/uwsgi-nginx-docker)
+[![Test](https://github.com/tiangolo/uwsgi-nginx-docker/workflows/Test/badge.svg)](https://github.com/tiangolo/uwsgi-nginx-docker/actions?query=workflow%3ATest) [![Deploy](https://github.com/tiangolo/uwsgi-nginx-docker/workflows/Deploy/badge.svg)](https://github.com/tiangolo/uwsgi-nginx-docker/actions?query=workflow%3ADeploy)
 
 ## Supported tags and respective `Dockerfile` links
 
-* [`python3.7`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.7/Dockerfile)
-* [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.6/Dockerfile)
-* [`python3.6-alpine3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.6-alpine3.7/Dockerfile)
-* [`python3.6-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.6-alpine3.8/Dockerfile)
-* [`python3.6-alpine3.9` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.6-alpine3.9/Dockerfile)
-* [`python3.5` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.5/Dockerfile)
-* [`python2.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python2.7/Dockerfile)
-* [`python2.7-alpine3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python2.7-alpine3.7/Dockerfile)
-* [`python2.7-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python2.7-alpine3.8/Dockerfile)
-* [`python2.7-alpine3.9` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python2.7-alpine3.9/Dockerfile)
+* [`python3.7`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.7.dockerfile)
+* [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.6.dockerfile)
+* [`python3.6-alpine3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.6-alpine3.7.dockerfile)
+* [`python3.6-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.6-alpine3.8.dockerfile)
+* [`python3.6-alpine3.9` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.6-alpine3.9.dockerfile)
+* [`python3.5` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.5.dockerfile)
+* [`python2.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python2.7.dockerfile)
+* [`python2.7-alpine3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python2.7-alpine3.7.dockerfile)
+* [`python2.7-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python2.7-alpine3.8.dockerfile)
+* [`python2.7-alpine3.9` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python2.7-alpine3.9.dockerfile)
 
 **Note**: Note: There are [tags for each build date](https://hub.docker.com/r/tiangolo/uwsgi-nginx/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uwsgi-nginx:python3.7-2019-09-28`.
 
-## Temporarily not supported
+## Python 3.7 not supported in in Alpine
 
-* [`python3.7-alpine3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.7-alpine3.7/Dockerfile)
-* [`python3.7-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.7-alpine3.8/Dockerfile)
-* [`python3.7-alpine3.9` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/python3.7-alpine3.9/Dockerfile)
+As uWSGI has not been released with Python 3.7 support for [Alpine 3.7](https://pkgs.alpinelinux.org/package/v3.7/main/x86/uwsgi-python3), [Alpine 3.8](https://pkgs.alpinelinux.org/package/v3.8/main/x86/uwsgi-python3), and [Alpine 3.9](https://pkgs.alpinelinux.org/package/v3.9/main/x86/uwsgi-python3), it is still not supported.
 
-Temporarily not supported as uWSGI has not been released with Python 3.7 support for [Alpine 3.7](https://pkgs.alpinelinux.org/package/v3.7/main/x86/uwsgi-python3), [Alpine 3.8](https://pkgs.alpinelinux.org/package/v3.8/main/x86/uwsgi-python3), and [Alpine 3.9](https://pkgs.alpinelinux.org/package/v3.9/main/x86/uwsgi-python3).
+It doesn't depend on this image but on uWSGI releases for Alpine.
 
 # uwsgi-nginx
 
