@@ -60,8 +60,6 @@ def verify_container(container: Container, response_text: str) -> None:
 
 
 def test_env_vars_1() -> None:
-    if not os.getenv("RUN_TESTS"):
-        return
     name = os.getenv("NAME")
     image = f"tiangolo/uwsgi-nginx:{name}"
     response_text = get_response_text1()

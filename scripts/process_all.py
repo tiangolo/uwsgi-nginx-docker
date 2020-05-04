@@ -3,20 +3,20 @@ import subprocess
 import sys
 
 environments = [
-    {"NAME": "latest", "PYTHON_VERSION": "3.7", "RUN_TESTS": "1"},
-    {"NAME": "python3.7", "PYTHON_VERSION": "3.7", "RUN_TESTS": "1"},
-    {"NAME": "python3.6", "PYTHON_VERSION": "3.6", "RUN_TESTS": "1"},
-    {"NAME": "python3.5", "PYTHON_VERSION": "3.5", "RUN_TESTS": "1"},
-    {"NAME": "python2.7", "PYTHON_VERSION": "2.7", "RUN_TESTS": "1"},
-    {"NAME": "python3.7-alpine3.9", "PYTHON_VERSION": "3.7", "RUN_TESTS": ""},
-    {"NAME": "python3.7-alpine3.8", "PYTHON_VERSION": "3.7", "RUN_TESTS": ""},
-    {"NAME": "python3.7-alpine3.7", "PYTHON_VERSION": "3.7", "RUN_TESTS": ""},
-    {"NAME": "python3.6-alpine3.9", "PYTHON_VERSION": "3.6", "RUN_TESTS": "1"},
-    {"NAME": "python3.6-alpine3.8", "PYTHON_VERSION": "3.6", "RUN_TESTS": "1"},
-    {"NAME": "python3.6-alpine3.7", "PYTHON_VERSION": "3.6", "RUN_TESTS": "1"},
-    {"NAME": "python2.7-alpine3.9", "PYTHON_VERSION": "2.7", "RUN_TESTS": "1"},
-    {"NAME": "python2.7-alpine3.8", "PYTHON_VERSION": "2.7", "RUN_TESTS": "1"},
-    {"NAME": "python2.7-alpine3.7", "PYTHON_VERSION": "2.7", "RUN_TESTS": "1"},
+    {"NAME": "latest", "PYTHON_VERSION": "3.7"},
+    {"NAME": "python3.7", "PYTHON_VERSION": "3.7"},
+    {"NAME": "python3.6", "PYTHON_VERSION": "3.6"},
+    {"NAME": "python3.5", "PYTHON_VERSION": "3.5"},
+    {"NAME": "python2.7", "PYTHON_VERSION": "2.7"},
+    {"NAME": "python3.7-alpine3.9", "PYTHON_VERSION": "3.7",},
+    {"NAME": "python3.7-alpine3.8", "PYTHON_VERSION": "3.7",},
+    {"NAME": "python3.7-alpine3.7", "PYTHON_VERSION": "3.7",},
+    {"NAME": "python3.6-alpine3.9", "PYTHON_VERSION": "3.6"},
+    {"NAME": "python3.6-alpine3.8", "PYTHON_VERSION": "3.6"},
+    {"NAME": "python3.6-alpine3.7", "PYTHON_VERSION": "3.6"},
+    {"NAME": "python2.7-alpine3.9", "PYTHON_VERSION": "2.7"},
+    {"NAME": "python2.7-alpine3.8", "PYTHON_VERSION": "2.7"},
+    {"NAME": "python2.7-alpine3.7", "PYTHON_VERSION": "2.7"},
 ]
 
 start_with = os.environ.get("START_WITH")
