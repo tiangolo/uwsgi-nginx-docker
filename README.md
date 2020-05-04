@@ -284,6 +284,13 @@ In the official Python image, there's a Stretch version only for Python 3.6. So,
 
 ### Latest Changes
 
+### 1.3.0
+
+* This is the last version to support:
+    * Debian Stretch (before upgrading to Buster).
+    * Python 3.5.
+    * Alpine 3.7, 3.8, 3.9 (before upgrading to Alpine 3.11).
+    * If you need any of those, make sure to use a tag for the build date `2020-05-04`.
 * Refactor build set up:
     * Re-use code and configs.
     * Migrate to GitHub Actions.
