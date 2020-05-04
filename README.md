@@ -4,14 +4,14 @@
 
 * [`python3.7`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.7.dockerfile)
 * [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.6.dockerfile)
-* [`python3.6-alpine3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.6-alpine3.7.dockerfile)
-* [`python3.6-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.6-alpine3.8.dockerfile)
-* [`python3.6-alpine3.9` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.6-alpine3.9.dockerfile)
 * [`python3.5` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.5.dockerfile)
 * [`python2.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python2.7.dockerfile)
-* [`python2.7-alpine3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python2.7-alpine3.7.dockerfile)
-* [`python2.7-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python2.7-alpine3.8.dockerfile)
+* [`python3.6-alpine3.9` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.6-alpine3.9.dockerfile)
+* [`python3.6-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.6-alpine3.8.dockerfile)
+* [`python3.6-alpine3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.6-alpine3.7.dockerfile)
 * [`python2.7-alpine3.9` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python2.7-alpine3.9.dockerfile)
+* [`python2.7-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python2.7-alpine3.8.dockerfile)
+* [`python2.7-alpine3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python2.7-alpine3.7.dockerfile)
 
 **Note**: Note: There are [tags for each build date](https://hub.docker.com/r/tiangolo/uwsgi-nginx/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uwsgi-nginx:python3.7-2019-09-28`.
 
@@ -23,7 +23,7 @@ It doesn't depend on this image but on uWSGI releases for Alpine.
 
 # uwsgi-nginx
 
-**Docker** image with **uWSGI** and **Nginx** for web applications in **Python 3.7**, **Python 3.6**, **Python 3.5** and **Python 2.7** (as **Flask**) in a single container. Optionally with Alpine Linux.
+**Docker** image with **uWSGI** and **Nginx** for web applications in **Python 3.5** and above, and **Python 2.7** (as **Flask**) in a single container. Optionally with Alpine Linux.
 
 ## Description
 
@@ -284,6 +284,11 @@ In the official Python image, there's a Stretch version only for Python 3.6. So,
 
 ### Latest Changes
 
+* Refactor build set up:
+    * Re-use code and configs.
+    * Migrate to GitHub Actions.
+    * Simplify tests.
+    * PR [#78](https://github.com/tiangolo/uwsgi-nginx-docker/pull/78).
 * Migrate Travis to .com, update badge. PR [#77](https://github.com/tiangolo/uwsgi-nginx-docker/pull/77).
 
 ### 1.2.0
