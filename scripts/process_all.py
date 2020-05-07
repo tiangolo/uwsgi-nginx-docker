@@ -6,7 +6,6 @@ environments = [
     {"NAME": "latest", "PYTHON_VERSION": "3.7"},
     {"NAME": "python3.7", "PYTHON_VERSION": "3.7"},
     {"NAME": "python3.6", "PYTHON_VERSION": "3.6"},
-    {"NAME": "python3.5", "PYTHON_VERSION": "3.5"},
     {"NAME": "python2.7", "PYTHON_VERSION": "2.7"},
     {"NAME": "python3.6-alpine3.9", "PYTHON_VERSION": "3.6"},
     {"NAME": "python3.6-alpine3.8", "PYTHON_VERSION": "3.6"},
