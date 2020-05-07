@@ -283,6 +283,8 @@ In the official Python image, there's a Stretch version only for Python 3.6. So,
 
 ### Latest Changes
 
+* Remove support for Python 3.5. PR [#81](https://github.com/tiangolo/uwsgi-nginx-docker/pull/81).
+
 ### 1.3.0
 
 * This is the last version to support:
