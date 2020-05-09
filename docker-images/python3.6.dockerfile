@@ -1,4 +1,4 @@
-FROM python:3.6-stretch
+FROM python:3.6-buster
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
