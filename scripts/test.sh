@@ -2,4 +2,4 @@
 set -e
 
 bash scripts/build.sh
-pytest tests
+pytest tests "$@"

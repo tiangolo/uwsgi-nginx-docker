@@ -2,23 +2,13 @@
 
 ## Supported tags and respective `Dockerfile` links
 
-* [`python3.7`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.7.dockerfile)
+* [`python3.8`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.8.dockerfile)
+* [`python3.7`, _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.7.dockerfile)
 * [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.6.dockerfile)
 * [`python2.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python2.7.dockerfile)
-* [`python3.6-alpine3.9` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.6-alpine3.9.dockerfile)
-* [`python3.6-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.6-alpine3.8.dockerfile)
-* [`python3.6-alpine3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.6-alpine3.7.dockerfile)
-* [`python2.7-alpine3.9` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python2.7-alpine3.9.dockerfile)
-* [`python2.7-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python2.7-alpine3.8.dockerfile)
-* [`python2.7-alpine3.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python2.7-alpine3.7.dockerfile)
+* [`python3.8-alpine` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.8-alpine.dockerfile)
 
 **Note**: Note: There are [tags for each build date](https://hub.docker.com/r/tiangolo/uwsgi-nginx/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uwsgi-nginx:python3.7-2019-09-28`.
-
-## Python 3.7 not supported in in Alpine
-
-As uWSGI has not been released with Python 3.7 support for [Alpine 3.7](https://pkgs.alpinelinux.org/package/v3.7/main/x86/uwsgi-python3), [Alpine 3.8](https://pkgs.alpinelinux.org/package/v3.8/main/x86/uwsgi-python3), and [Alpine 3.9](https://pkgs.alpinelinux.org/package/v3.9/main/x86/uwsgi-python3), it is still not supported.
-
-It doesn't depend on this image but on uWSGI releases for Alpine.
 
 # uwsgi-nginx
 
@@ -65,7 +55,7 @@ If you need to use an older WSGI-based framework like Flask or Django (instead o
 * You shouldn't have to clone the GitHub repo. You should use it as a base image for other images, using this in your `Dockerfile`:
 
 ```Dockerfile
-FROM tiangolo/uwsgi-nginx:python3.7
+FROM tiangolo/uwsgi-nginx:python3.8
 
 # Your Dockerfile code...
 ```
@@ -82,12 +72,12 @@ If you are building a **Flask** web application you should use instead [**tiango
 
 ### Custom app directory
 
-If you need to use a directory for your app different than `/app`, you can override the uWSGI config file path with an environment variable `UWSGI_INI`, and put your custom `uwsgi.ini` file there. 
+If you need to use a directory for your app different than `/app`, you can override the uWSGI config file path with an environment variable `UWSGI_INI`, and put your custom `uwsgi.ini` file there.
 
 For example, if you needed to have your application directory in `/application` instead of `/app`, your `Dockerfile` would look like:
 
 ```Dockerfile
-FROM tiangolo/uwsgi-nginx:python3.7
+FROM tiangolo/uwsgi-nginx:python3.8
 
 ENV UWSGI_INI /application/uwsgi.ini
 
@@ -119,7 +109,7 @@ Have in mind that `UWSGI_CHEAPER` must be lower than `UWSGI_PROCESSES`.
 So, if, for example, you need to start with 4 processes and grow to a maximum of 64, your `Dockerfile` could look like:
 
 ```Dockerfile
-FROM tiangolo/uwsgi-nginx:python3.7
+FROM tiangolo/uwsgi-nginx:python3.8
 
 ENV UWSGI_CHEAPER 4
 ENV UWSGI_PROCESSES 64
@@ -138,7 +128,7 @@ For example, if you wanted to set the maximum upload file size to 1 MB (the defa
 So, your `Dockerfile` would look something like:
 
 ```Dockerfile
-FROM tiangolo/uwsgi-nginx:python3.7
+FROM tiangolo/uwsgi-nginx:python3.8
 
 ENV NGINX_MAX_UPLOAD 1m
 
@@ -156,7 +146,7 @@ You might also need to create the respective `EXPOSE` Docker instruction.
 You can do that in your `Dockerfile`, it would look something like:
 
 ```Dockerfile
-FROM tiangolo/uwsgi-nginx:python3.7
+FROM tiangolo/uwsgi-nginx:python3.8
 
 ENV LISTEN_PORT 8080
 
@@ -210,7 +200,7 @@ or you can set it to the keyword `auto` and it will try to autodetect the number
 For example, using `auto`, your Dockerfile could look like:
 
 ```Dockerfile
-FROM tiangolo/uwsgi-nginx:python3.7
+FROM tiangolo/uwsgi-nginx:python3.8
 
 ENV NGINX_WORKER_PROCESSES auto
 
@@ -265,6 +255,46 @@ include /etc/nginx/conf.d/*.conf;
 
 If you want to add a custom `/app/nginx.conf` file but don't know where to start from, you can use [the `nginx.conf` used for the tests](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/tests/test_02_app/custom_nginx_app/app/nginx.conf) and customize it or modify it further.
 
+## Technical details
+
+The combination of uWSGI with Nginx is a [common way to deploy Python web applications](http://flask.pocoo.org/docs/1.0/deploying/uwsgi/).
+
+Roughly:
+
+* **Nginx** is a web server, it takes care of the HTTP connections and also can serve static files directly and more efficiently.
+
+* **uWSGI** is an application server, that's what runs your Python code and it talks with Nginx.
+
+* **Your Python code** has the actual web application, and is run by uWSGI.
+
+This image takes advantage of already slim and optimized existing Docker images (based on Debian as [recommended by Docker](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)) and implements Docker best practices.
+
+It uses the official Python Docker image, installs uWSGI and on top of that, with the least amount of modifications, adds the official Nginx image (as of 2016-02-14).
+
+And it controls all these processes with Supervisord.
+
+---
+
+There's the rule of thumb that you should have "one process per container".
+
+That helps, for example, isolating an app and its database in different containers.
+
+But if you want to have a "micro-services" approach you may want to [have more than one process in one container](https://valdhaus.co/writings/docker-misconceptions/) if they are all related to the same "service", and you may want to include your Flask code, uWSGI and Nginx in the same container (and maybe run another container with your database).
+
+That's the approach taken in this image.
+
+---
+
+This image has a default sample "Hello World" app in the container's `/app` directory using the example in the [uWSGI documentation](http://uwsgi-docs.readthedocs.org/en/latest/WSGIquickstart.html).
+
+You probably want to override it or delete it in your project.
+
+It is there in case you run this image by itself and not as a base image for your own `Dockerfile`, so that you get a sample app without errors.
+
+## Tests
+
+All the image tags, configurations, environment variables and application options are tested.
+
 ## Release Notes
 
 <!-- 
@@ -292,6 +322,7 @@ In the official Python image, there's a Stretch version only for Python 3.6. So,
     * Debian Stretch (before upgrading to Buster).
     * Python 3.5.
     * Alpine 3.7, 3.8, 3.9 (before upgrading to Alpine 3.11).
+    * Alpine in older versions of Python, 2.7 and 3.6 (Before upgrading to Python 3.8).
     * If you need any of those, make sure to use a tag for the build date `2020-05-04`.
 * Refactor build set up:
     * Re-use code and configs.
@@ -358,46 +389,6 @@ In the official Python image, there's a Stretch version only for Python 3.6. So,
 * Also, it now uses a base `uwsgi.ini` file under `/etc/uwsgi/` with most of the general configurations, so, the `uwsgi.ini` inside `/app` (the one you could need to modify) is now a lot simpler.
 
 * 2016-04-05: Nginx and uWSGI logs are now redirected to stdout, allowing to use `docker logs`.
-
-## Technical details
-
-The combination of uWSGI with Nginx is a [common way to deploy Python web applications](http://flask.pocoo.org/docs/1.0/deploying/uwsgi/).
-
-Roughly:
-
-* **Nginx** is a web server, it takes care of the HTTP connections and also can serve static files directly and more efficiently.
-
-* **uWSGI** is an application server, that's what runs your Python code and it talks with Nginx.
-
-* **Your Python code** has the actual web application, and is run by uWSGI.
-
-This image takes advantage of already slim and optimized existing Docker images (based on Debian as [recommended by Docker](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)) and implements Docker best practices.
-
-It uses the official Python Docker image, installs uWSGI and on top of that, with the least amount of modifications, adds the official Nginx image (as of 2016-02-14).
-
-And it controls all these processes with Supervisord.
-
----
-
-There's the rule of thumb that you should have "one process per container".
-
-That helps, for example, isolating an app and its database in different containers.
-
-But if you want to have a "micro-services" approach you may want to [have more than one process in one container](https://valdhaus.co/writings/docker-misconceptions/) if they are all related to the same "service", and you may want to include your Flask code, uWSGI and Nginx in the same container (and maybe run another container with your database).
-
-That's the approach taken in this image.
-
----
-
-This image has a default sample "Hello World" app in the container's `/app` directory using the example in the [uWSGI documentation](http://uwsgi-docs.readthedocs.org/en/latest/WSGIquickstart.html).
-
-You probably want to override it or delete it in your project.
-
-It is there in case you run this image by itself and not as a base image for your own `Dockerfile`, so that you get a sample app without errors.
-
-## Tests
-
-All the image tags, configurations, environment variables and application options are tested.
 
 ## License
 

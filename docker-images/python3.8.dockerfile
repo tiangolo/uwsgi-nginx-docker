@@ -1,30 +1,29 @@
-FROM python:3.6-alpine3.9
+FROM python:3.8-buster
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
-COPY install-nginx-alpine.sh /
+COPY install-nginx-debian.sh /
 
-RUN sh /install-nginx-alpine.sh
+RUN bash /install-nginx-debian.sh
 
 EXPOSE 80
 
-# # Expose 443, in case of LTS / HTTPS
+# Expose 443, in case of LTS / HTTPS
 EXPOSE 443
 
 # Install uWSGI
-RUN apk add --no-cache uwsgi-python3
+RUN pip install uwsgi
 
+# Remove default configuration from Nginx
+RUN rm /etc/nginx/conf.d/default.conf
 # Copy the base uWSGI ini file to enable default dynamic uwsgi process number
 COPY uwsgi.ini /etc/uwsgi/
 
 # Install Supervisord
-RUN apk add --no-cache supervisor
+RUN apt-get update && apt-get install -y supervisor \
+&& rm -rf /var/lib/apt/lists/*
 # Custom Supervisord config
-COPY supervisord-alpine.ini /etc/supervisor.d/supervisord.ini
-
-# uWSGI Python plugin
-# As an env var to re-use the config file
-ENV UWSGI_PLUGIN python3
+COPY supervisord-debian.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Which uWSGI .ini file should be used, to make it customizable
 ENV UWSGI_INI /app/uwsgi.ini
@@ -49,10 +48,6 @@ ENV NGINX_WORKER_PROCESSES 1
 # (in a Dockerfile or with an option for `docker run`)
 ENV LISTEN_PORT 80
 
-# Used by the entrypoint to explicitly add installed Python packages 
-# and uWSGI Python packages to PYTHONPATH otherwise uWSGI can't import Flask
-ENV ALPINEPYTHON python3.6
-
 # Copy start.sh script that will check for a /app/prestart.sh script and run it before starting the app
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
@@ -61,7 +56,7 @@ RUN chmod +x /start.sh
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-ENTRYPOINT ["sh", "/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 
 # Add demo app
 COPY ./app /app

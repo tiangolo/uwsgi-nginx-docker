@@ -56,6 +56,9 @@ else
 
     # Generate Nginx config for maximum upload file size
     printf "client_max_body_size $USE_NGINX_MAX_UPLOAD;\n" > /etc/nginx/conf.d/upload.conf
+
+    # Remove default Nginx config from Alpine
+    printf "" > /etc/nginx/conf.d/default.conf
 fi
 
 # For Alpine:
