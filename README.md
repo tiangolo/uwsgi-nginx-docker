@@ -295,21 +295,13 @@ It is there in case you run this image by itself and not as a base image for you
 
 All the image tags, configurations, environment variables and application options are tested.
 
+## Updates
+
+Updates are announced in the releases.
+
+You can click the "watch" button at the top right and select "Releases only" to receive an email notification when there's a new release.
+
 ## Release Notes
-
-<!-- 
-
-**Note**: although Raspberry Pi can now compile and run the image, Docker Hub doesn't have an automated building process for other architectures yet.
-
-https://github.com/docker/hub-feedback/issues/1261
-
-* 2017-12-09: The version based in Python 3.6 now supports multiple architectures apart from AMD64 using the new Docker multi-architecture features. It was tested on an ARMv7 32 bits (Raspberry Pi 3 B). 
-
-To achieve that, the Python 3.6 version now uses a copy of the latest Nginx image which is based on the latest Debian version (Debian Stretch). 
-
-In the official Python image, there's a Stretch version only for Python 3.6. So, that's the only one that can be merged with the current Nginx image. That's why, in this image, only Python 3.6 supports multi-arch.
-
--->
 
 ### Latest Changes
 
