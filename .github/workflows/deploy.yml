@@ -21,7 +21,7 @@ jobs:
           - name: python2.7
             python_version: "2.7"
           - name: python3.8-alpine
-            python_version: "3.6"
+            python_version: "3.8"
       fail-fast: true
     runs-on: ubuntu-18.04
     steps:
