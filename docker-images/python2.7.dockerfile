@@ -1,4 +1,4 @@
-FROM python:2.7
+FROM python:2.7-buster
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
