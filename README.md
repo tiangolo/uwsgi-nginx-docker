@@ -305,6 +305,8 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+* Fix Python 3.8 Alpine environment for installed packages. PR [#84](https://github.com/tiangolo/uwsgi-nginx-docker/pull/84).
+
 ### 1.4.0
 
 * Add [GitHub Sponsors](https://github.com/sponsors/tiangolo) button.
