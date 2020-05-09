@@ -283,6 +283,7 @@ In the official Python image, there's a Stretch version only for Python 3.6. So,
 
 ### Latest Changes
 
+* Upgrade Nginx to latest version, `1.17.10`, based on latest Debian, Buster. PR [#82](https://github.com/tiangolo/uwsgi-nginx-docker/pull/82).
 * Remove support for Python 3.5. PR [#81](https://github.com/tiangolo/uwsgi-nginx-docker/pull/81).
 
 ### 1.3.0
