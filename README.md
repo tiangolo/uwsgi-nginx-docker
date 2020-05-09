@@ -313,6 +313,8 @@ In the official Python image, there's a Stretch version only for Python 3.6. So,
 
 ### Latest Changes
 
+### 1.4.0
+
 * Add [GitHub Sponsors](https://github.com/sponsors/tiangolo) button.
 * Add new image for Python 3.8, and new image for Python 3.8 on Alpine. PR [#83](https://github.com/tiangolo/uwsgi-nginx-docker/pull/83).
 * Upgrade Nginx to latest version, `1.17.10`, based on latest Debian, Buster. PR [#82](https://github.com/tiangolo/uwsgi-nginx-docker/pull/82).
