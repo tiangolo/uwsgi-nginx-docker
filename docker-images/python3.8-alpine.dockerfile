@@ -51,7 +51,7 @@ ENV LISTEN_PORT 80
 
 # Used by the entrypoint to explicitly add installed Python packages 
 # and uWSGI Python packages to PYTHONPATH otherwise uWSGI can't import Flask
-ENV ALPINEPYTHON python3.6
+ENV ALPINEPYTHON python3.8
 
 # Copy start.sh script that will check for a /app/prestart.sh script and run it before starting the app
 COPY start.sh /start.sh
