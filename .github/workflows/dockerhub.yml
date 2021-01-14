@@ -1,0 +1,40 @@
+name: Dockerhub
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+jobs:
+  deploy:
+    if: github.event.pull_request.merged
+    env:
+      DOCKERHUB_USERNAME: rockathedocka
+      fail-fast: true
+    strategy:
+      matrix:
+        image:
+          - name: latest
+            python_version: "3.8"
+            tags: '["latest", "3.8"]'
+          - name: python3.8.6
+            python_version: "3.8.6"
+            tags: '["3.8.6"]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        run: echo ${{ secrets.DOCKERHUB_PAT }} | docker login -u ${{ env.DOCKERHUB_USERNAME }} --password-stdin
+
+      - name: Build and Push
+        env:
+          NAME: ${{ matrix.image.name }}
+          DOCKERFILE: ${{ matrix.image.dockerfile }}
+          PYTHON_VERSION: ${{ matrix.image.python_version }}
+          TAGS: ${{ matrix.image.tags }}
+        run: ./.cicd/build-push.sh
+
