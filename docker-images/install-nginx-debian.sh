@@ -4,8 +4,8 @@
 # Ref: https://github.com/nginxinc/docker-nginx/blob/594ce7a8bc26c85af88495ac94d5cd0096b306f7/mainline/buster/Dockerfile
 
 # Standard set up Nginx
-export NGINX_VERSION=1.17.10
-export NJS_VERSION=0.3.9
+export NGINX_VERSION=1.19.7
+export NJS_VERSION=0.5.1
 export PKG_RELEASE=1~buster
 
 set -x \
@@ -31,7 +31,7 @@ set -x \
         nginx-module-xslt=${NGINX_VERSION}-${PKG_RELEASE} \
         nginx-module-geoip=${NGINX_VERSION}-${PKG_RELEASE} \
         nginx-module-image-filter=${NGINX_VERSION}-${PKG_RELEASE} \
-        nginx-module-njs=${NGINX_VERSION}.${NJS_VERSION}-${PKG_RELEASE} \
+        nginx-module-njs=${NGINX_VERSION}+${NJS_VERSION}-${PKG_RELEASE} \
     " \
     && case "$dpkgArch" in \
         amd64|i386) \
