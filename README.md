@@ -57,7 +57,7 @@ If you need to use an older WSGI-based framework like Flask or Django (instead o
 * You shouldn't have to clone the GitHub repo. You should use it as a base image for other images, using this in your `Dockerfile`:
 
 ```Dockerfile
-FROM tiangolo/uwsgi-nginx:python3.8
+FROM tiangolo/uwsgi-nginx:python3.9
 
 # Your Dockerfile code...
 ```
