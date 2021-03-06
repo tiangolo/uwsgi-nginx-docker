@@ -3,7 +3,6 @@
 ## Supported tags and respective `Dockerfile` links
 
 * [`python3.9`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.9.dockerfile)
-* [`python3.9-alpine` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.9-alpine.dockerfile)
 * [`python3.8` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.8.dockerfile)
 * [`python3.8-alpine` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.8-alpine.dockerfile)
 * [`python3.7`, _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.7.dockerfile)
