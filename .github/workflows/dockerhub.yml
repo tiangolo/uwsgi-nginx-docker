@@ -17,11 +17,8 @@ jobs:
       matrix:
         image:
           - name: latest
-            python_version: "3.8"
-            tags: '["latest", "3.8"]'
-          - name: python3.8.6
-            python_version: "3.8.6"
-            tags: '["3.8.6"]'
+            python_version: "3.9"
+            tags: '["latest", "3.9"]'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
