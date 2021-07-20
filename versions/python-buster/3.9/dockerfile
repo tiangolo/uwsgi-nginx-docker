@@ -4,7 +4,7 @@ LABEL maintainer="Julian Raymar <julian.raymar@zeel.com>"
 
 # Install nginx according to official STABLE Debian Nginx Docker image
 # Ref: https://github.com/nginxinc/docker-nginx/tree/master/stable/debian
-ENV NGINX_VERSION   1.21.1
+ENV NGINX_VERSION   1.20.1
 ENV NJS_VERSION     0.5.3
 ENV PKG_RELEASE     1~buster
 
