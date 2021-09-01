@@ -3,10 +3,10 @@
 # From official Nginx Docker image, as a script to re-use it, removing internal comments
 
 # Standard set up Nginx Alpine
-# https://github.com/nginxinc/docker-nginx/blob/594ce7a8bc26c85af88495ac94d5cd0096b306f7/mainline/alpine/Dockerfile
+# https://github.com/nginxinc/docker-nginx/blob/f958fbacada447737319e979db45a1da49123142/mainline/alpine/Dockerfile
 
-export NGINX_VERSION=1.17.10
-export NJS_VERSION=0.3.9
+export NGINX_VERSION=1.21.1
+export NJS_VERSION=0.6.1
 export PKG_RELEASE=1
 
 set -x \
@@ -19,7 +19,7 @@ set -x \
         nginx-module-njs=${NGINX_VERSION}.${NJS_VERSION}-r${PKG_RELEASE} \
     " \
     && case "$apkArch" in \
-        x86_64) \
+        x86_64|aarch64) \
             set -x \
             && KEY_SHA512="e7fa8303923d9b95db37a77ad46c68fd4755ff935d0a534d26eba83de193c76166c68bfe7f65471bf8881004ef4aa6df3e34689c305662750c0172fca5d8552a *stdin" \
             && apk add --no-cache --virtual .cert-deps \
@@ -89,6 +89,7 @@ set -x \
     && apk del .gettext \
     && mv /tmp/envsubst /usr/local/bin/ \
     && apk add --no-cache tzdata \
+    && apk add --no-cache curl ca-certificates \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
 

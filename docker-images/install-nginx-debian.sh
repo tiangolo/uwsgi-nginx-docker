@@ -1,11 +1,11 @@
 #! /usr/bin/env bash
 
 # From official Nginx Docker image, as a script to re-use it, removing internal comments
-# Ref: https://github.com/nginxinc/docker-nginx/blob/594ce7a8bc26c85af88495ac94d5cd0096b306f7/mainline/buster/Dockerfile
+# Ref: https://github.com/nginxinc/docker-nginx/blob/f958fbacada447737319e979db45a1da49123142/mainline/debian/Dockerfile
 
 # Standard set up Nginx
-export NGINX_VERSION=1.17.10
-export NJS_VERSION=0.3.9
+export NGINX_VERSION=1.21.1
+export NJS_VERSION=0.6.1
 export PKG_RELEASE=1~buster
 
 set -x \
@@ -31,10 +31,10 @@ set -x \
         nginx-module-xslt=${NGINX_VERSION}-${PKG_RELEASE} \
         nginx-module-geoip=${NGINX_VERSION}-${PKG_RELEASE} \
         nginx-module-image-filter=${NGINX_VERSION}-${PKG_RELEASE} \
-        nginx-module-njs=${NGINX_VERSION}.${NJS_VERSION}-${PKG_RELEASE} \
+        nginx-module-njs=${NGINX_VERSION}+${NJS_VERSION}-${PKG_RELEASE} \
     " \
     && case "$dpkgArch" in \
-        amd64|i386) \
+        amd64|i386|arm64) \
             echo "deb https://nginx.org/packages/mainline/debian/ buster nginx" >> /etc/apt/sources.list.d/nginx.list \
             && apt-get update \
             ;; \
@@ -68,14 +68,13 @@ set -x \
     && apt-get install --no-install-recommends --no-install-suggests -y \
                         $nginxPackages \
                         gettext-base \
-    && apt-get remove --purge --auto-remove -y ca-certificates && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/nginx.list \
+                        curl \
+    && apt-get remove --purge --auto-remove -y && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/nginx.list \
     \
     && if [ -n "$tempDir" ]; then \
         apt-get purge -y --auto-remove \
         && rm -rf "$tempDir" /etc/apt/sources.list.d/temp.list; \
-    fi
-
-# forward request and error logs to docker log collector
-ln -sf /dev/stdout /var/log/nginx/access.log \
-    && ln -sf /dev/stderr /var/log/nginx/error.log
+    fi \
+    && ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log \
 # Standard set up Nginx finished
