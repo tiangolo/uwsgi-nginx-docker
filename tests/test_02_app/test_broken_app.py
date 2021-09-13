@@ -29,7 +29,6 @@ def verify_container(container: Container) -> None:
         in logs
     )
     assert "WARN received SIGTERM indicating exit request" in logs
-    assert "INFO waiting for nginx, quit_on_failure to die" in logs
     assert "INFO stopped: nginx (exit status 0)" in logs
     assert "INFO stopped: quit_on_failure (terminated by SIGTERM)" in logs
 
