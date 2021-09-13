@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 # Ref:
 # * https://github.com/tiangolo/uwsgi-nginx-docker/issues/61#issuecomment-508034634
