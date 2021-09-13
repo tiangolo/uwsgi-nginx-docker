@@ -25,6 +25,10 @@ RUN apt-get update && apt-get install -y supervisor \
 # Custom Supervisord config
 COPY supervisord-debian.conf /etc/supervisor/conf.d/supervisord.conf
 
+# Copy stop-supervisor.sh to kill the supervisor and substasks on app failure
+COPY stop-supervisor.sh /etc/supervisor/stop-supervisor.sh
+RUN chmod +x /etc/supervisor/stop-supervisor.sh
+
 # Which uWSGI .ini file should be used, to make it customizable
 ENV UWSGI_INI /app/uwsgi.ini
 
