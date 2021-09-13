@@ -306,6 +306,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+* ✨ Quit Supervisor on errors, to allow orchestrators to handle it. PR [#110](https://github.com/tiangolo/uwsgi-nginx-docker/pull/110) by [@tiangolo](https://github.com/tiangolo).
 * ✨ Add Python 3.9. PR [#101](https://github.com/tiangolo/uwsgi-nginx-docker/pull/101) by [@sjadema](https://github.com/sjadema).
 * ⬆ Upgrade Nginx to the latest version of the official images. PR [#107](https://github.com/tiangolo/uwsgi-nginx-docker/pull/107) by [@tiangolo](https://github.com/tiangolo).
 * 🐛 Fix broken link to TechEmpower benchmarks. PR [#96](https://github.com/tiangolo/uwsgi-nginx-docker/pull/96) by [@tiangolo](https://github.com/tiangolo).
