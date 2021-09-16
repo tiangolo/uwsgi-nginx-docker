@@ -22,6 +22,10 @@ RUN apk add --no-cache supervisor
 # Custom Supervisord config
 COPY supervisord-alpine.ini /etc/supervisor.d/supervisord.ini
 
+# Copy stop-supervisor.sh to kill the supervisor and substasks on app failure
+COPY stop-supervisor.sh /etc/supervisor/stop-supervisor.sh
+RUN chmod +x /etc/supervisor/stop-supervisor.sh
+
 # uWSGI Python plugin
 # As an env var to re-use the config file
 ENV UWSGI_PLUGIN python3

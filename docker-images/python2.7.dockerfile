@@ -6,14 +6,18 @@ COPY install-nginx-debian.sh /
 
 RUN bash /install-nginx-debian.sh
 
+# Install GCC for uWSGI
+RUN apt-get update && apt-get install -y gcc
+
+# Install requirements: uWSGI
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install -r /tmp/requirements.txt
+
+# Expose 80, for HTTP
 EXPOSE 80
 
 # Expose 443, in case of LTS / HTTPS
 EXPOSE 443
-
-# Install uWSGI
-RUN apt-get update && apt-get install -y gcc \
-&& pip install uwsgi
 
 # Remove default configuration from Nginx
 RUN rm /etc/nginx/conf.d/default.conf
@@ -26,6 +30,10 @@ RUN apt-get install -y supervisor \
 
 # Custom Supervisord config
 COPY supervisord-debian.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Copy stop-supervisor.sh to kill the supervisor and substasks on app failure
+COPY stop-supervisor.sh /etc/supervisor/stop-supervisor.sh
+RUN chmod +x /etc/supervisor/stop-supervisor.sh
 
 # Which uWSGI .ini file should be used, to make it customizable
 ENV UWSGI_INI /app/uwsgi.ini
