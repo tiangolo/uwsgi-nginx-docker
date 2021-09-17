@@ -6,9 +6,9 @@ COPY install-nginx-debian.sh /
 
 RUN bash /install-nginx-debian.sh
 
-# Install requirements: uWSGI
+# Install requirements
 COPY requirements.txt /tmp/requirements.txt
-RUN pip install -r /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 EXPOSE 80
 
