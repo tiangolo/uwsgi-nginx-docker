@@ -7,13 +7,20 @@
 * [`python3.8-alpine` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.8-alpine.dockerfile)
 * [`python3.7`, _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.7.dockerfile)
 * [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.6.dockerfile)
+
+## Deprecated
+
+These tags are no longer supported:
+
 * [`python2.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python2.7.dockerfile)
+
+---
 
 **Note**: There are [tags for each build date](https://hub.docker.com/r/tiangolo/uwsgi-nginx/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uwsgi-nginx:python3.7-2019-09-28`.
 
 # uwsgi-nginx
 
-**Docker** image with **uWSGI** and **Nginx** for web applications in **Python 3.6** and above, and **Python 2.7** (as **Flask**) in a single container. Optionally with Alpine Linux.
+**Docker** image with **uWSGI** and **Nginx** for web applications in **Python** (as **Flask**) in a single container. Optionally with Alpine Linux.
 
 ## Description
 
@@ -138,8 +145,6 @@ COPY ./app /app
 
 # Your Dockerfile code...
 ```
-
-* But, if you need Python 2.7 that line would have to be `FROM tiangolo/uwsgi-nginx:python2.7`.
 
 * By default it will try to find a uWSGI config file in `/app/uwsgi.ini`.
 
@@ -384,6 +389,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+* 🔥 Remove support for Python 2.7. PR [#123](https://github.com/tiangolo/uwsgi-nginx-docker/pull/123) by [@tiangolo](https://github.com/tiangolo).
 * ✏️ Fix typo duplicate "Note" in Readme. PR [#121](https://github.com/tiangolo/uwsgi-nginx-docker/pull/121) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Update pip install command with flag --no-cache-dir to reduce disk used. PR [#120](https://github.com/tiangolo/uwsgi-nginx-docker/pull/120) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update Latest Changes GitHub Action. PR [#119](https://github.com/tiangolo/uwsgi-nginx-docker/pull/119) by [@tiangolo](https://github.com/tiangolo).
