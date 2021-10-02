@@ -412,6 +412,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+* 📝 Add note to discourage Alpine with Python. PR [#124](https://github.com/tiangolo/uwsgi-nginx-docker/pull/124) by [@tiangolo](https://github.com/tiangolo).
 * 📝 Add Kubernetes warning, when to use this image. PR [#122](https://github.com/tiangolo/uwsgi-nginx-docker/pull/122) by [@tiangolo](https://github.com/tiangolo).
 * 🔥 Remove support for Python 2.7. PR [#123](https://github.com/tiangolo/uwsgi-nginx-docker/pull/123) by [@tiangolo](https://github.com/tiangolo).
 * ✏️ Fix typo duplicate "Note" in Readme. PR [#121](https://github.com/tiangolo/uwsgi-nginx-docker/pull/121) by [@tiangolo](https://github.com/tiangolo).
