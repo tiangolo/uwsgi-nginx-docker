@@ -7,13 +7,20 @@
 * [`python3.8-alpine` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.8-alpine.dockerfile)
 * [`python3.7`, _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.7.dockerfile)
 * [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.6.dockerfile)
+
+## Deprecated
+
+These tags are no longer supported:
+
 * [`python2.7` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python2.7.dockerfile)
+
+---
 
 **Note**: There are [tags for each build date](https://hub.docker.com/r/tiangolo/uwsgi-nginx/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uwsgi-nginx:python3.7-2019-09-28`.
 
 # uwsgi-nginx
 
-**Docker** image with **uWSGI** and **Nginx** for web applications in **Python 3.6** and above, and **Python 2.7** (as **Flask**) in a single container. Optionally with Alpine Linux.
+**Docker** image with **uWSGI** and **Nginx** for web applications in **Python** (as **Flask**) in a single container. Optionally with Alpine Linux.
 
 ## Description
 
@@ -60,8 +67,6 @@ FROM tiangolo/uwsgi-nginx:python3.9
 
 # Your Dockerfile code...
 ```
-
-* But, if you need Python 2.7 that line would have to be `FROM tiangolo/uwsgi-nginx:python2.7`.
 
 * By default it will try to find a uWSGI config file in `/app/uwsgi.ini`.
 
