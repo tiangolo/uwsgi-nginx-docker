@@ -6,7 +6,7 @@
 # Standard set up Nginx
 export NGINX_VERSION=1.21.1
 export NJS_VERSION=0.6.1
-export PKG_RELEASE=1~buster
+export PKG_RELEASE=1~bullseye
 
 set -x \
     && apt-get update \
@@ -35,11 +35,11 @@ set -x \
     " \
     && case "$dpkgArch" in \
         amd64|i386|arm64) \
-            echo "deb https://nginx.org/packages/mainline/debian/ buster nginx" >> /etc/apt/sources.list.d/nginx.list \
+            echo "deb https://nginx.org/packages/mainline/debian/ bullseye nginx" >> /etc/apt/sources.list.d/nginx.list \
             && apt-get update \
             ;; \
         *) \
-            echo "deb-src https://nginx.org/packages/mainline/debian/ buster nginx" >> /etc/apt/sources.list.d/nginx.list \
+            echo "deb-src https://nginx.org/packages/mainline/debian/ bullseye nginx" >> /etc/apt/sources.list.d/nginx.list \
             \
             && tempDir="$(mktemp -d)" \
             && chmod 777 "$tempDir" \
