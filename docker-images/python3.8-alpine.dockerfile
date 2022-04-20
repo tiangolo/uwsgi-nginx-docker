@@ -28,7 +28,7 @@ RUN chmod +x /etc/supervisor/stop-supervisor.sh
 
 # uWSGI Python plugin
 # As an env var to re-use the config file
-ENV UWSGI_PLUGIN python3
+ENV UWSGI_PLUGIN python3.8
 
 # Which uWSGI .ini file should be used, to make it customizable
 ENV UWSGI_INI /app/uwsgi.ini
