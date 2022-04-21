@@ -413,6 +413,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+* ⬆ Upgrade Nginx to version 1.21.6 and Alpine to version 3.13. PR [#148](https://github.com/tiangolo/uwsgi-nginx-docker/pull/148) by [@haley-comet](https://github.com/haley-comet).
 * ✨ Add support for Python 3.10 and upgrade uWSGI to `2.0.20`. PR [#127](https://github.com/tiangolo/uwsgi-nginx-docker/pull/127) by [@tiangolo](https://github.com/tiangolo).
 * 📝 Add note to discourage Alpine with Python. PR [#124](https://github.com/tiangolo/uwsgi-nginx-docker/pull/124) by [@tiangolo](https://github.com/tiangolo).
 * 📝 Add Kubernetes warning, when to use this image. PR [#122](https://github.com/tiangolo/uwsgi-nginx-docker/pull/122) by [@tiangolo](https://github.com/tiangolo).
