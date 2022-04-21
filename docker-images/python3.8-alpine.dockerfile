@@ -1,4 +1,4 @@
-FROM python:3.8-alpine3.11
+FROM python:3.8-alpine3.13
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
