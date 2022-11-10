@@ -413,6 +413,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+* ⬆️ Update pytest requirement from ^5.4.1 to ^7.0.1. PR [#138](https://github.com/tiangolo/uwsgi-nginx-docker/pull/138) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump actions/checkout from 2 to 3.1.0. PR [#157](https://github.com/tiangolo/uwsgi-nginx-docker/pull/157) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔧 Run tests only on PRs or when pushing on master to avoid double CI. PR [#149](https://github.com/tiangolo/uwsgi-nginx-docker/pull/149) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Upgrade Nginx to version 1.21.6 and Alpine to version 3.13. PR [#148](https://github.com/tiangolo/uwsgi-nginx-docker/pull/148) by [@haley-comet](https://github.com/haley-comet).
