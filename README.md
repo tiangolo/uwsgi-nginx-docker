@@ -413,6 +413,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+* ⬆️ Update isort requirement from ^4.3.21 to ^5.8.0. PR [#118](https://github.com/tiangolo/uwsgi-nginx-docker/pull/118) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update docker requirement from ^4.2.0 to ^5.0.3. PR [#126](https://github.com/tiangolo/uwsgi-nginx-docker/pull/126) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump actions/setup-python from 1 to 4.1.0. PR [#155](https://github.com/tiangolo/uwsgi-nginx-docker/pull/155) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update mypy requirement from ^0.770 to ^0.971. PR [#156](https://github.com/tiangolo/uwsgi-nginx-docker/pull/156) by [@dependabot[bot]](https://github.com/apps/dependabot).
