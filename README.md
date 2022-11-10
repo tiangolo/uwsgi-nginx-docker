@@ -413,6 +413,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+* ⬆️ Bump actions/setup-python from 1 to 4.1.0. PR [#155](https://github.com/tiangolo/uwsgi-nginx-docker/pull/155) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update mypy requirement from ^0.770 to ^0.971. PR [#156](https://github.com/tiangolo/uwsgi-nginx-docker/pull/156) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update pytest requirement from ^5.4.1 to ^7.0.1. PR [#138](https://github.com/tiangolo/uwsgi-nginx-docker/pull/138) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump actions/checkout from 2 to 3.1.0. PR [#157](https://github.com/tiangolo/uwsgi-nginx-docker/pull/157) by [@dependabot[bot]](https://github.com/apps/dependabot).
