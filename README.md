@@ -419,6 +419,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+* 👷 Add GitHub Action for Docker Hub description. PR [#172](https://github.com/tiangolo/uwsgi-nginx-docker/pull/172) by [@tiangolo](https://github.com/tiangolo).
 
 ### 2.0.0
 
