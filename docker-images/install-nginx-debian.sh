@@ -1,12 +1,12 @@
 #! /usr/bin/env bash
 
 # From official Nginx Docker image, as a script to re-use it, removing internal comments
-# Ref: https://github.com/nginxinc/docker-nginx/blob/f958fbacada447737319e979db45a1da49123142/mainline/debian/Dockerfile
+# Ref: https://github.com/nginxinc/docker-nginx/blob/fef51235521d1cdf8b05d8cb1378a526d2abf421/mainline/debian/Dockerfile
 
 # Standard set up Nginx
-export NGINX_VERSION=1.21.6
-export NJS_VERSION=0.7.3
-export PKG_RELEASE=1~buster
+export NGINX_VERSION=1.23.2
+export NJS_VERSION=0.7.7
+export PKG_RELEASE=1~bullseye
 
 set -x \
     && apt-get update \
@@ -15,9 +15,7 @@ set -x \
     NGINX_GPGKEY=573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62; \
     found=''; \
     for server in \
-        ha.pool.sks-keyservers.net \
         hkp://keyserver.ubuntu.com:80 \
-        hkp://p80.pool.sks-keyservers.net:80 \
         pgp.mit.edu \
     ; do \
         echo "Fetching GPG key $NGINX_GPGKEY from $server"; \
@@ -34,12 +32,12 @@ set -x \
         nginx-module-njs=${NGINX_VERSION}+${NJS_VERSION}-${PKG_RELEASE} \
     " \
     && case "$dpkgArch" in \
-        amd64|i386|arm64) \
-            echo "deb https://nginx.org/packages/mainline/debian/ buster nginx" >> /etc/apt/sources.list.d/nginx.list \
+        amd64|arm64) \
+            echo "deb https://nginx.org/packages/mainline/debian/ bullseye nginx" >> /etc/apt/sources.list.d/nginx.list \
             && apt-get update \
             ;; \
         *) \
-            echo "deb-src https://nginx.org/packages/mainline/debian/ buster nginx" >> /etc/apt/sources.list.d/nginx.list \
+            echo "deb-src https://nginx.org/packages/mainline/debian/ bullseye nginx" >> /etc/apt/sources.list.d/nginx.list \
             \
             && tempDir="$(mktemp -d)" \
             && chmod 777 "$tempDir" \
