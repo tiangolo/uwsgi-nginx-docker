@@ -419,19 +419,56 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+
+### 2.0.0
+
+Highlights of this release:
+
+* Support for Python 3.10, 3.11, and 3.9.
+* Deprecation of Python 3.6 and 2.7.
+    * The last Python 3.6 and 2.7 images are available in Docker Hub, but they won't be updated or maintained anymore.
+    * The last images with a date tag are `python3.6-2022-11-25` and `python2.7-2022-11-25`.
+* Upgraded versions of all the dependencies.
+* Small improvements and fixes.
+
+#### Features
+
+* ✨ Add support for Python 3.11. PR [#171](https://github.com/tiangolo/uwsgi-nginx-docker/pull/171) by [@tiangolo](https://github.com/tiangolo).
+* ✨ Add support for Python 3.10 and upgrade uWSGI to `2.0.20`. PR [#127](https://github.com/tiangolo/uwsgi-nginx-docker/pull/127) by [@tiangolo](https://github.com/tiangolo).
+* ⬆️ Update pip install command with flag --no-cache-dir to reduce disk used. PR [#120](https://github.com/tiangolo/uwsgi-nginx-docker/pull/120) by [@tiangolo](https://github.com/tiangolo).
+* ✨ Quit Supervisor on errors, to allow orchestrators to handle it. PR [#110](https://github.com/tiangolo/uwsgi-nginx-docker/pull/110) by [@tiangolo](https://github.com/tiangolo).
+* ✨ Add Python 3.9. PR [#101](https://github.com/tiangolo/uwsgi-nginx-docker/pull/101) by [@sjadema](https://github.com/sjadema).
+
+#### Breaking Changes
+
+* 🔥 Deprecate and remove Python 3.6 and 2.7. PR [#164](https://github.com/tiangolo/uwsgi-nginx-docker/pull/164) by [@tiangolo](https://github.com/tiangolo).
+* 🔥 Remove support for Python 2.7. PR [#123](https://github.com/tiangolo/uwsgi-nginx-docker/pull/123) by [@tiangolo](https://github.com/tiangolo).
+
+#### Upgrades
+
+* ⬆️ Upgrade Nginx to the latest version 1.23.2, and Debian to bullseye. PR [#163](https://github.com/tiangolo/uwsgi-nginx-docker/pull/163) by [@tiangolo](https://github.com/tiangolo).
+* ⬆️ Bump uwsgi from 2.0.20 to 2.0.21. PR [#159](https://github.com/tiangolo/uwsgi-nginx-docker/pull/159) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Upgrade Nginx to version 1.21.6 and Alpine to version 3.13. PR [#148](https://github.com/tiangolo/uwsgi-nginx-docker/pull/148) by [@haley-comet](https://github.com/haley-comet).
+* ⬆ Upgrade Nginx to the latest version of the official images. PR [#107](https://github.com/tiangolo/uwsgi-nginx-docker/pull/107) by [@tiangolo](https://github.com/tiangolo).
+
+#### Docs
+
+* 📝 Add note to discourage Alpine with Python. PR [#124](https://github.com/tiangolo/uwsgi-nginx-docker/pull/124) by [@tiangolo](https://github.com/tiangolo).
+* 📝 Add Kubernetes warning, when to use this image. PR [#122](https://github.com/tiangolo/uwsgi-nginx-docker/pull/122) by [@tiangolo](https://github.com/tiangolo).
+* ✏️ Fix typo duplicate "Note" in Readme. PR [#121](https://github.com/tiangolo/uwsgi-nginx-docker/pull/121) by [@tiangolo](https://github.com/tiangolo).
+* 🐛 Fix broken link to TechEmpower benchmarks. PR [#96](https://github.com/tiangolo/uwsgi-nginx-docker/pull/96) by [@tiangolo](https://github.com/tiangolo).
+
+#### Internal
+
 * ⬆️ Update autoflake requirement from ^1.3.1 to ^2.0.0. PR [#166](https://github.com/tiangolo/uwsgi-nginx-docker/pull/166) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update mypy requirement from ^0.971 to ^0.991. PR [#167](https://github.com/tiangolo/uwsgi-nginx-docker/pull/167) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update docker requirement from ^5.0.3 to ^6.0.1. PR [#168](https://github.com/tiangolo/uwsgi-nginx-docker/pull/168) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update black requirement from ^20.8b1 to ^22.10. PR [#169](https://github.com/tiangolo/uwsgi-nginx-docker/pull/169) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ✨ Add support for Python 3.11. PR [#171](https://github.com/tiangolo/uwsgi-nginx-docker/pull/171) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Upgrade CI OS. PR [#170](https://github.com/tiangolo/uwsgi-nginx-docker/pull/170) by [@tiangolo](https://github.com/tiangolo).
 * 🔧 Update Dependabot config. PR [#165](https://github.com/tiangolo/uwsgi-nginx-docker/pull/165) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Bump tiangolo/issue-manager from 0.2.0 to 0.4.0. PR [#112](https://github.com/tiangolo/uwsgi-nginx-docker/pull/112) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* 🔥 Deprecate and remove Python 3.6 and 2.7. PR [#164](https://github.com/tiangolo/uwsgi-nginx-docker/pull/164) by [@tiangolo](https://github.com/tiangolo).
-* ⬆️ Upgrade Nginx to the latest version 1.23.2, and Debian to bullseye. PR [#163](https://github.com/tiangolo/uwsgi-nginx-docker/pull/163) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add scheduled CI. PR [#162](https://github.com/tiangolo/uwsgi-nginx-docker/pull/162) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add alls-green GitHub Action. PR [#161](https://github.com/tiangolo/uwsgi-nginx-docker/pull/161) by [@tiangolo](https://github.com/tiangolo).
-* ⬆️ Bump uwsgi from 2.0.20 to 2.0.21. PR [#159](https://github.com/tiangolo/uwsgi-nginx-docker/pull/159) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update black requirement from ^19.10b0 to ^20.8b1. PR [#116](https://github.com/tiangolo/uwsgi-nginx-docker/pull/116) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update isort requirement from ^4.3.21 to ^5.8.0. PR [#118](https://github.com/tiangolo/uwsgi-nginx-docker/pull/118) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update docker requirement from ^4.2.0 to ^5.0.3. PR [#126](https://github.com/tiangolo/uwsgi-nginx-docker/pull/126) by [@dependabot[bot]](https://github.com/apps/dependabot).
@@ -440,19 +477,8 @@ You can click the "watch" button at the top right and select "Releases only" to 
 * ⬆️ Update pytest requirement from ^5.4.1 to ^7.0.1. PR [#138](https://github.com/tiangolo/uwsgi-nginx-docker/pull/138) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump actions/checkout from 2 to 3.1.0. PR [#157](https://github.com/tiangolo/uwsgi-nginx-docker/pull/157) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔧 Run tests only on PRs or when pushing on master to avoid double CI. PR [#149](https://github.com/tiangolo/uwsgi-nginx-docker/pull/149) by [@tiangolo](https://github.com/tiangolo).
-* ⬆ Upgrade Nginx to version 1.21.6 and Alpine to version 3.13. PR [#148](https://github.com/tiangolo/uwsgi-nginx-docker/pull/148) by [@haley-comet](https://github.com/haley-comet).
-* ✨ Add support for Python 3.10 and upgrade uWSGI to `2.0.20`. PR [#127](https://github.com/tiangolo/uwsgi-nginx-docker/pull/127) by [@tiangolo](https://github.com/tiangolo).
-* 📝 Add note to discourage Alpine with Python. PR [#124](https://github.com/tiangolo/uwsgi-nginx-docker/pull/124) by [@tiangolo](https://github.com/tiangolo).
-* 📝 Add Kubernetes warning, when to use this image. PR [#122](https://github.com/tiangolo/uwsgi-nginx-docker/pull/122) by [@tiangolo](https://github.com/tiangolo).
-* 🔥 Remove support for Python 2.7. PR [#123](https://github.com/tiangolo/uwsgi-nginx-docker/pull/123) by [@tiangolo](https://github.com/tiangolo).
-* ✏️ Fix typo duplicate "Note" in Readme. PR [#121](https://github.com/tiangolo/uwsgi-nginx-docker/pull/121) by [@tiangolo](https://github.com/tiangolo).
-* ⬆️ Update pip install command with flag --no-cache-dir to reduce disk used. PR [#120](https://github.com/tiangolo/uwsgi-nginx-docker/pull/120) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update Latest Changes GitHub Action. PR [#119](https://github.com/tiangolo/uwsgi-nginx-docker/pull/119) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add Dependabot and external dependencies, to get automatic upgrade PRs. PR [#111](https://github.com/tiangolo/uwsgi-nginx-docker/pull/111) by [@tiangolo](https://github.com/tiangolo).
-* ✨ Quit Supervisor on errors, to allow orchestrators to handle it. PR [#110](https://github.com/tiangolo/uwsgi-nginx-docker/pull/110) by [@tiangolo](https://github.com/tiangolo).
-* ✨ Add Python 3.9. PR [#101](https://github.com/tiangolo/uwsgi-nginx-docker/pull/101) by [@sjadema](https://github.com/sjadema).
-* ⬆ Upgrade Nginx to the latest version of the official images. PR [#107](https://github.com/tiangolo/uwsgi-nginx-docker/pull/107) by [@tiangolo](https://github.com/tiangolo).
-* 🐛 Fix broken link to TechEmpower benchmarks. PR [#96](https://github.com/tiangolo/uwsgi-nginx-docker/pull/96) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add GitHub Action latest-changes, update issue-manager. PR [#92](https://github.com/tiangolo/uwsgi-nginx-docker/pull/92) by [@tiangolo](https://github.com/tiangolo).
 * Fix Python 3.8 Alpine environment for installed packages. PR [#84](https://github.com/tiangolo/uwsgi-nginx-docker/pull/84).
 
