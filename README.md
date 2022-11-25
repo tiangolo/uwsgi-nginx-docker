@@ -418,6 +418,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+* 🔧 Update Dependabot config. PR [#165](https://github.com/tiangolo/uwsgi-nginx-docker/pull/165) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Bump tiangolo/issue-manager from 0.2.0 to 0.4.0. PR [#112](https://github.com/tiangolo/uwsgi-nginx-docker/pull/112) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔥 Deprecate and remove Python 3.6 and 2.7. PR [#164](https://github.com/tiangolo/uwsgi-nginx-docker/pull/164) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Upgrade Nginx to the latest version 1.23.2, and Debian to bullseye. PR [#163](https://github.com/tiangolo/uwsgi-nginx-docker/pull/163) by [@tiangolo](https://github.com/tiangolo).
