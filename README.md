@@ -2,7 +2,8 @@
 
 ## Supported tags and respective `Dockerfile` links
 
-* [`python3.10`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.10.dockerfile)
+* [`python3.11`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.11.dockerfile)
+* [`python3.10`, _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.10.dockerfile)
 * [`python3.9`, _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.9.dockerfile)
 * [`python3.8` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.8.dockerfile)
 * [`python3.7`, _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.7.dockerfile)
@@ -146,7 +147,7 @@ You can use this image as a base image for other images.
 Assuming you have a file `requirements.txt`, you could have a `Dockerfile` like this:
 
 ```Dockerfile
-FROM tiangolo/uwsgi-nginx:python3.9
+FROM tiangolo/uwsgi-nginx:python3.11
 
 COPY ./requirements.txt /app/requirements.txt
 
@@ -172,7 +173,7 @@ If you need to use a directory for your app different than `/app`, you can overr
 For example, if you needed to have your application directory in `/application` instead of `/app`, your `Dockerfile` would look like:
 
 ```Dockerfile
-FROM tiangolo/uwsgi-nginx:python3.9
+FROM tiangolo/uwsgi-nginx:python3.11
 
 ENV UWSGI_INI /application/uwsgi.ini
 
@@ -204,7 +205,7 @@ Have in mind that `UWSGI_CHEAPER` must be lower than `UWSGI_PROCESSES`.
 So, if, for example, you need to start with 4 processes and grow to a maximum of 64, your `Dockerfile` could look like:
 
 ```Dockerfile
-FROM tiangolo/uwsgi-nginx:python3.9
+FROM tiangolo/uwsgi-nginx:python3.11
 
 ENV UWSGI_CHEAPER 4
 ENV UWSGI_PROCESSES 64
@@ -223,7 +224,7 @@ For example, if you wanted to set the maximum upload file size to 1 MB (the defa
 So, your `Dockerfile` would look something like:
 
 ```Dockerfile
-FROM tiangolo/uwsgi-nginx:python3.9
+FROM tiangolo/uwsgi-nginx:python3.11
 
 ENV NGINX_MAX_UPLOAD 1m
 
@@ -241,7 +242,7 @@ You might also need to create the respective `EXPOSE` Docker instruction.
 You can do that in your `Dockerfile`, it would look something like:
 
 ```Dockerfile
-FROM tiangolo/uwsgi-nginx:python3.9
+FROM tiangolo/uwsgi-nginx:python3.11
 
 ENV LISTEN_PORT 8080
 
@@ -295,7 +296,7 @@ or you can set it to the keyword `auto` and it will try to autodetect the number
 For example, using `auto`, your Dockerfile could look like:
 
 ```Dockerfile
-FROM tiangolo/uwsgi-nginx:python3.9
+FROM tiangolo/uwsgi-nginx:python3.11
 
 ENV NGINX_WORKER_PROCESSES auto
 
