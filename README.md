@@ -419,6 +419,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+* ⬆️ Update black requirement from ^20.8b1 to ^22.10. PR [#169](https://github.com/tiangolo/uwsgi-nginx-docker/pull/169) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ✨ Add support for Python 3.11. PR [#171](https://github.com/tiangolo/uwsgi-nginx-docker/pull/171) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Upgrade CI OS. PR [#170](https://github.com/tiangolo/uwsgi-nginx-docker/pull/170) by [@tiangolo](https://github.com/tiangolo).
 * 🔧 Update Dependabot config. PR [#165](https://github.com/tiangolo/uwsgi-nginx-docker/pull/165) by [@tiangolo](https://github.com/tiangolo).
