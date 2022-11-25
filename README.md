@@ -419,6 +419,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+* ⬆️ Update autoflake requirement from ^1.3.1 to ^2.0.0. PR [#166](https://github.com/tiangolo/uwsgi-nginx-docker/pull/166) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update mypy requirement from ^0.971 to ^0.991. PR [#167](https://github.com/tiangolo/uwsgi-nginx-docker/pull/167) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update docker requirement from ^5.0.3 to ^6.0.1. PR [#168](https://github.com/tiangolo/uwsgi-nginx-docker/pull/168) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update black requirement from ^20.8b1 to ^22.10. PR [#169](https://github.com/tiangolo/uwsgi-nginx-docker/pull/169) by [@dependabot[bot]](https://github.com/apps/dependabot).
