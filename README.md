@@ -413,6 +413,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+* ⬆️ Upgrade Nginx to the latest version 1.23.2, and Debian to bullseye. PR [#163](https://github.com/tiangolo/uwsgi-nginx-docker/pull/163) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add scheduled CI. PR [#162](https://github.com/tiangolo/uwsgi-nginx-docker/pull/162) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add alls-green GitHub Action. PR [#161](https://github.com/tiangolo/uwsgi-nginx-docker/pull/161) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Bump uwsgi from 2.0.20 to 2.0.21. PR [#159](https://github.com/tiangolo/uwsgi-nginx-docker/pull/159) by [@dependabot[bot]](https://github.com/apps/dependabot).
