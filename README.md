@@ -20,7 +20,7 @@ To learn more about why Alpine images are discouraged for Python read the note a
 * `python3.6`
 * `python2.7`
 
-The last versions with date tags for Python 3.6 are:
+The last date tags for deprecated Python versions are:
 
 * `python3.6-2022-11-25`
 * `python2.7-2022-11-25`
