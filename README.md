@@ -419,6 +419,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+* ✨ Add support for Python 3.11. PR [#171](https://github.com/tiangolo/uwsgi-nginx-docker/pull/171) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Upgrade CI OS. PR [#170](https://github.com/tiangolo/uwsgi-nginx-docker/pull/170) by [@tiangolo](https://github.com/tiangolo).
 * 🔧 Update Dependabot config. PR [#165](https://github.com/tiangolo/uwsgi-nginx-docker/pull/165) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Bump tiangolo/issue-manager from 0.2.0 to 0.4.0. PR [#112](https://github.com/tiangolo/uwsgi-nginx-docker/pull/112) by [@dependabot[bot]](https://github.com/apps/dependabot).
