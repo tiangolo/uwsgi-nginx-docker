@@ -18,13 +18,11 @@ To learn more about why Alpine images are discouraged for Python read the note a
 🚨 These tags are no longer supported or maintained, they are removed from the GitHub repository, but the last version pushed is still available in Docker Hub.
 
 * `python3.6`
-* `python3.6-alpine3.8`
 * `python2.7`
 
 The last versions with date tags for Python 3.6 are:
 
 * `python3.6-2022-11-25`
-* `python3.6-alpine3.8-2022-11-25`
 * `python2.7-2022-11-25`
 
 ---
