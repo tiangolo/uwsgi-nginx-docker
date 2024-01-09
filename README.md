@@ -425,6 +425,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Internal
 
+* ⬆ Bump tiangolo/issue-manager from 0.4.0 to 0.4.1. PR [#191](https://github.com/tiangolo/uwsgi-nginx-docker/pull/191) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Update latest-changes GitHub Action. PR [#182](https://github.com/tiangolo/uwsgi-nginx-docker/pull/182) by [@tiangolo](https://github.com/tiangolo).
 
 ### 2.0.0
