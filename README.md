@@ -425,6 +425,10 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 * ⬆️ Bump uwsgi from 2.0.21 to 2.0.22 in /docker-images. PR [#188](https://github.com/tiangolo/uwsgi-nginx-docker/pull/188) by [@dependabot[bot]](https://github.com/apps/dependabot).
 
+#### Docs
+
+* 📝 Update test badge in `README.md`. PR [#199](https://github.com/tiangolo/uwsgi-nginx-docker/pull/199) by [@alejsdev](https://github.com/alejsdev).
+
 #### Internal
 
 * ⬆ Bump actions/checkout from 3.1.0 to 4.1.2. PR [#197](https://github.com/tiangolo/uwsgi-nginx-docker/pull/197) by [@dependabot[bot]](https://github.com/apps/dependabot).
