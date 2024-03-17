@@ -57,6 +57,7 @@ jobs:
         env:
           NAME: ${{ matrix.image.name }}
           PYTHON_VERSION: ${{ matrix.image.python_version }}
+          SLEEP_TIME: "5"
   check:
     if: always()
     needs:
