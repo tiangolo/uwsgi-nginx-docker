@@ -56,15 +56,6 @@ else
 
     # Generate Nginx config for maximum upload file size
     printf "client_max_body_size $USE_NGINX_MAX_UPLOAD;\n" > /etc/nginx/conf.d/upload.conf
-
-    # Remove default Nginx config from Alpine
-    printf "" > /etc/nginx/conf.d/default.conf
 fi
 
-# For Alpine:
-# Explicitly add installed Python packages and uWSGI Python packages to PYTHONPATH
-# Otherwise uWSGI can't import Flask
-if [ -n "$ALPINEPYTHON" ] ; then
-    export PYTHONPATH=$PYTHONPATH:/usr/local/lib/$ALPINEPYTHON/site-packages:/usr/lib/$ALPINEPYTHON/site-packages
-fi
 exec "$@"
