@@ -415,6 +415,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Internal
 
+* 🔧 Add GitHub templates for discussions and issues, and security policy. PR [#203](https://github.com/tiangolo/uwsgi-nginx-docker/pull/203) by [@alejsdev](https://github.com/alejsdev).
 * 🔧 Update `latest-changes.yml`. PR [#201](https://github.com/tiangolo/uwsgi-nginx-docker/pull/201) by [@alejsdev](https://github.com/alejsdev).
 
 ### 2.1.0
