@@ -413,6 +413,10 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+#### Internal
+
+* 🔧 Update `latest-changes.yml`. PR [#201](https://github.com/tiangolo/uwsgi-nginx-docker/pull/201) by [@alejsdev](https://github.com/alejsdev).
+
 ### 2.1.0
 
 #### Features
