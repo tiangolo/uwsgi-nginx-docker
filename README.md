@@ -413,10 +413,6 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
-* 👷 Update dependabot. PR [#183](https://github.com/tiangolo/uwsgi-nginx-docker/pull/183) by [@tiangolo](https://github.com/tiangolo).
-* 👷 Update latest changes token. PR [#180](https://github.com/tiangolo/uwsgi-nginx-docker/pull/180) by [@tiangolo](https://github.com/tiangolo).
-* 👷 Add GitHub Action for Docker Hub description. PR [#172](https://github.com/tiangolo/uwsgi-nginx-docker/pull/172) by [@tiangolo](https://github.com/tiangolo).
-
 #### Features
 
 * ✨ Add support for multiarch builds, including ARM (e.g. Mac M1). PR [#200](https://github.com/tiangolo/uwsgi-nginx-docker/pull/200) by [@tiangolo](https://github.com/tiangolo).
@@ -435,6 +431,9 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Internal
 
+* 👷 Update dependabot. PR [#183](https://github.com/tiangolo/uwsgi-nginx-docker/pull/183) by [@tiangolo](https://github.com/tiangolo).
+* 👷 Update latest changes token. PR [#180](https://github.com/tiangolo/uwsgi-nginx-docker/pull/180) by [@tiangolo](https://github.com/tiangolo).
+* 👷 Add GitHub Action for Docker Hub description. PR [#172](https://github.com/tiangolo/uwsgi-nginx-docker/pull/172) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump actions/checkout from 3.1.0 to 4.1.2. PR [#197](https://github.com/tiangolo/uwsgi-nginx-docker/pull/197) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump tiangolo/issue-manager from 0.4.1 to 0.5.0. PR [#193](https://github.com/tiangolo/uwsgi-nginx-docker/pull/193) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump peter-evans/dockerhub-description from 3 to 4. PR [#192](https://github.com/tiangolo/uwsgi-nginx-docker/pull/192) by [@dependabot[bot]](https://github.com/apps/dependabot).
