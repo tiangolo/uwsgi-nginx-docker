@@ -13,7 +13,7 @@ on:
     - cron: "0 0 * * 1"
 
 jobs:
-  build:
+  test:
     strategy:
       matrix:
         image:
@@ -32,30 +32,36 @@ jobs:
       fail-fast: true
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.2
+      - uses: actions/checkout@v4
+      - name: Set Dockerfile name
+        if: matrix.image.name != 'latest'
+        run: echo "DOCKERFILE_NAME=${{ matrix.image.name }}" >> $GITHUB_ENV
+      - name: Set Dockerfile name latest
+        if: matrix.image.name == 'latest'
+        run: echo "DOCKERFILE_NAME=python${{ matrix.image.python_version }}" >> $GITHUB_ENV
+      - name: Build
+        uses: docker/build-push-action@v2
+        with:
+          push: false
+          tags: tiangolo/uwsgi-nginx:${{ matrix.image.name }}
+          context: ./docker-images/
+          file: ./docker-images/${{ env.DOCKERFILE_NAME }}.dockerfile
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.7"
-      - name: Install poetry
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install poetry
-      - name: Configure poetry
-        run: python -m poetry config virtualenvs.create false
+          python-version: "3.10"
       - name: Install Dependencies
-        run: python -m poetry install
+        run: python -m pip install docker pytest
       - name: Test Image
-        run: python -m poetry run bash scripts/test.sh
+        run: bash scripts/test.sh
         env:
           NAME: ${{ matrix.image.name }}
-          DOCKERFILE: ${{ matrix.image.dockerfile }}
           PYTHON_VERSION: ${{ matrix.image.python_version }}
           SLEEP_TIME: "5"
   check:
     if: always()
     needs:
-    - build
+    - test
     runs-on: ubuntu-latest
     steps:
     - name: Decide whether the needed jobs succeeded or failed
