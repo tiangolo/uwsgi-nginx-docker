@@ -417,6 +417,10 @@ You can click the "watch" button at the top right and select "Releases only" to 
 * 👷 Update latest changes token. PR [#180](https://github.com/tiangolo/uwsgi-nginx-docker/pull/180) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add GitHub Action for Docker Hub description. PR [#172](https://github.com/tiangolo/uwsgi-nginx-docker/pull/172) by [@tiangolo](https://github.com/tiangolo).
 
+#### Features
+
+* ✨ Add support for multiarch builds, including ARM (e.g. Mac M1). PR [#200](https://github.com/tiangolo/uwsgi-nginx-docker/pull/200) by [@tiangolo](https://github.com/tiangolo).
+
 #### Refactors
 
 * 🔥 Remove support for Alpine. PR [#198](https://github.com/tiangolo/uwsgi-nginx-docker/pull/198) by [@tiangolo](https://github.com/tiangolo).
