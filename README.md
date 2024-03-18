@@ -413,6 +413,8 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+### 2.1.0
+
 #### Features
 
 * ✨ Add support for multiarch builds, including ARM (e.g. Mac M1). PR [#200](https://github.com/tiangolo/uwsgi-nginx-docker/pull/200) by [@tiangolo](https://github.com/tiangolo).
