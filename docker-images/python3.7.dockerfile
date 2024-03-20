@@ -2,6 +2,9 @@ FROM python:3.7-bullseye
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
 COPY install-nginx-debian.sh /
 
 RUN bash /install-nginx-debian.sh
