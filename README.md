@@ -413,6 +413,10 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 ### Latest Changes
 
+#### Features
+
+* 🔧 Avoid creating unnecessary `*.pyc` files with `PYTHONDONTWRITEBYTECODE=1` and ensure logs are printed immediately with `PYTHONUNBUFFERED=1`. PR [#208](https://github.com/tiangolo/uwsgi-nginx-docker/pull/208) by [@estebanx64](https://github.com/estebanx64).
+
 #### Internal
 
 * 🔧 Add GitHub templates for discussions and issues, and security policy. PR [#203](https://github.com/tiangolo/uwsgi-nginx-docker/pull/203) by [@alejsdev](https://github.com/alejsdev).
