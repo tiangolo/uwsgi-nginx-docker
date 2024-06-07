@@ -1,0 +1,29 @@
+version: 0.2
+
+env:
+  parameter-store:
+    DOCKER_HUB_TOKEN: /amplycicd/docker-token
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws --version
+      - $(aws ecr get-login --region $AWS_REGION --no-include-email)
+      - echo "Logging into docker hub as amplycicd"
+      - echo $DOCKER_HUB_TOKEN | docker login -u amplycicd --password-stdin
+      - echo "DESTINATION_REPO_URL $DESTINATION_REPO_URL"
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-8)
+      - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - BUILD_DATE=`TZ=UTC date +%Y-%m-%dT%H:%M:%SZ`
+  build:
+    commands:
+      - echo Build started on `date`
+      - docker build -t ${DESTINATION_REPO_URL}:latest -f docker-images/python3.9.dockerfile .
+      - echo Build completed on `date`
+  post_build:
+    commands:
+      - echo Tagging and pushing the Docker image...
+      - docker tag ${DESTINATION_REPO_URL}:latest ${DESTINATION_REPO_URL}:${IMAGE_TAG}
+      - docker push ${DESTINATION_REPO_URL}:latest
+      - docker push ${DESTINATION_REPO_URL}:${IMAGE_TAG}
