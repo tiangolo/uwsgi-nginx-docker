@@ -419,6 +419,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Internal
 
+* 👷 Update issue-manager.yml GitHub Action permissions. PR [#213](https://github.com/tiangolo/uwsgi-nginx-docker/pull/213) by [@tiangolo](https://github.com/tiangolo).
 * 🔧 Add GitHub templates for discussions and issues, and security policy. PR [#203](https://github.com/tiangolo/uwsgi-nginx-docker/pull/203) by [@alejsdev](https://github.com/alejsdev).
 * 🔧 Update `latest-changes.yml`. PR [#201](https://github.com/tiangolo/uwsgi-nginx-docker/pull/201) by [@alejsdev](https://github.com/alejsdev).
 
