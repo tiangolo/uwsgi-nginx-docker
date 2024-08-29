@@ -419,6 +419,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Internal
 
+* ⬆ Bump docker/login-action from 1 to 3. PR [#204](https://github.com/tiangolo/uwsgi-nginx-docker/pull/204) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump peter-evans/dockerhub-description from 3 to 4. PR [#205](https://github.com/tiangolo/uwsgi-nginx-docker/pull/205) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump docker/setup-buildx-action from 1 to 3. PR [#206](https://github.com/tiangolo/uwsgi-nginx-docker/pull/206) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump docker/build-push-action from 2 to 5. PR [#207](https://github.com/tiangolo/uwsgi-nginx-docker/pull/207) by [@dependabot[bot]](https://github.com/apps/dependabot).
