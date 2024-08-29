@@ -417,6 +417,10 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 * 🔧 Avoid creating unnecessary `*.pyc` files with `PYTHONDONTWRITEBYTECODE=1` and ensure logs are printed immediately with `PYTHONUNBUFFERED=1`. PR [#208](https://github.com/tiangolo/uwsgi-nginx-docker/pull/208) by [@estebanx64](https://github.com/estebanx64).
 
+#### Upgrades
+
+* ⬆ Bump uwsgi from 2.0.22 to 2.0.26. PR [#210](https://github.com/tiangolo/uwsgi-nginx-docker/pull/210) by [@dependabot[bot]](https://github.com/apps/dependabot).
+
 #### Internal
 
 * ⬆ Bump docker/login-action from 1 to 3. PR [#204](https://github.com/tiangolo/uwsgi-nginx-docker/pull/204) by [@dependabot[bot]](https://github.com/apps/dependabot).
