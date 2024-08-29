@@ -419,6 +419,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Internal
 
+* ⬆ Bump docker/build-push-action from 2 to 5. PR [#207](https://github.com/tiangolo/uwsgi-nginx-docker/pull/207) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Update `latest-changes` GitHub Action. PR [#214](https://github.com/tiangolo/uwsgi-nginx-docker/pull/214) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update issue-manager.yml GitHub Action permissions. PR [#213](https://github.com/tiangolo/uwsgi-nginx-docker/pull/213) by [@tiangolo](https://github.com/tiangolo).
 * 🔧 Add GitHub templates for discussions and issues, and security policy. PR [#203](https://github.com/tiangolo/uwsgi-nginx-docker/pull/203) by [@alejsdev](https://github.com/alejsdev).
