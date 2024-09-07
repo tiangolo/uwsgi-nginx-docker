@@ -423,6 +423,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Internal
 
+* 👷 Update `issue-manager.yml`. PR [#226](https://github.com/tiangolo/uwsgi-nginx-docker/pull/226) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump docker/login-action from 1 to 3. PR [#204](https://github.com/tiangolo/uwsgi-nginx-docker/pull/204) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump peter-evans/dockerhub-description from 3 to 4. PR [#205](https://github.com/tiangolo/uwsgi-nginx-docker/pull/205) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump docker/setup-buildx-action from 1 to 3. PR [#206](https://github.com/tiangolo/uwsgi-nginx-docker/pull/206) by [@dependabot[bot]](https://github.com/apps/dependabot).
