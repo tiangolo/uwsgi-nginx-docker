@@ -1,4 +1,4 @@
-FROM python:3.11
+FROM python:3.11-bullseye
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
