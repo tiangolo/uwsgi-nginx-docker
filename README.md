@@ -416,6 +416,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Features
 
+* ♻️ Add support for Python 3.12. PR [#228](https://github.com/tiangolo/uwsgi-nginx-docker/pull/228) by [@tiangolo](https://github.com/tiangolo).
 * 🔧 Avoid creating unnecessary `*.pyc` files with `PYTHONDONTWRITEBYTECODE=1` and ensure logs are printed immediately with `PYTHONUNBUFFERED=1`. PR [#208](https://github.com/tiangolo/uwsgi-nginx-docker/pull/208) by [@estebanx64](https://github.com/estebanx64).
 
 #### Refactors
