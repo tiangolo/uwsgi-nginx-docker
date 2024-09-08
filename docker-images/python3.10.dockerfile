@@ -13,11 +13,6 @@ RUN bash /install-nginx-debian.sh
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
-EXPOSE 80
-
-# Expose 443, in case of LTS / HTTPS
-EXPOSE 443
-
 # Remove default configuration from Nginx
 RUN rm /etc/nginx/conf.d/default.conf
 # Copy the base uWSGI ini file to enable default dynamic uwsgi process number
