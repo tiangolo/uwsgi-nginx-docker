@@ -433,6 +433,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Internal
 
+* 🔥 Remove old unused files. PR [#234](https://github.com/tiangolo/uwsgi-nginx-docker/pull/234) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump tiangolo/issue-manager from 0.5.0 to 0.5.1. PR [#229](https://github.com/tiangolo/uwsgi-nginx-docker/pull/229) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump docker/build-push-action from 5 to 6. PR [#225](https://github.com/tiangolo/uwsgi-nginx-docker/pull/225) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Update `issue-manager.yml`. PR [#226](https://github.com/tiangolo/uwsgi-nginx-docker/pull/226) by [@tiangolo](https://github.com/tiangolo).
