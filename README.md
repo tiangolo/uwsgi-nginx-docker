@@ -6,26 +6,28 @@
 * [`python3.11`, _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.11.dockerfile)
 * [`python3.10`, _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.10.dockerfile)
 * [`python3.9`, _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.9.dockerfile)
-* [`python3.8` _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.8.dockerfile)
-* [`python3.7`, _(Dockerfile)_](https://github.com/tiangolo/uwsgi-nginx-docker/blob/master/docker-images/python3.7.dockerfile)
 
 ## Deprecated tags
 
 🚨 These tags are no longer supported or maintained, they are removed from the GitHub repository, but the last versions pushed might still be available in Docker Hub if anyone has been pulling them:
 
+* `python3.8`
 * `python3.8-alpine`
+* `python3.7`
 * `python3.6`
 * `python2.7`
 
 The last date tags for these versions are:
 
+* `python3.8-2024-10-28`
 * `python3.8-alpine-2024-03-11`
+* `python3.7-2024-10-28`
 * `python3.6-2022-11-25`
 * `python2.7-2022-11-25`
 
 ---
 
-**Note**: There are [tags for each build date](https://hub.docker.com/r/tiangolo/uwsgi-nginx/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uwsgi-nginx:python3.7-2019-09-28`.
+**Note**: There are [tags for each build date](https://hub.docker.com/r/tiangolo/uwsgi-nginx/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uwsgi-nginx:python3.12-2024-11-02`.
 
 # uwsgi-nginx
 
