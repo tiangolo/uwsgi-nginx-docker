@@ -8,8 +8,6 @@ environments = [
     {"NAME": "python3.11", "PYTHON_VERSION": "3.11"},
     {"NAME": "python3.10", "PYTHON_VERSION": "3.10"},
     {"NAME": "python3.9", "PYTHON_VERSION": "3.9"},
-    {"NAME": "python3.8", "PYTHON_VERSION": "3.8"},
-    {"NAME": "python3.7", "PYTHON_VERSION": "3.7"},
 ]
 
 start_with = os.environ.get("START_WITH")
