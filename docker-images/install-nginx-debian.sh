@@ -2,7 +2,8 @@
 
 # From official Nginx Docker image, as a script to re-use it, removing internal comments
 # Ref: https://github.com/nginx/docker-nginx/blob/7f1d49f6f222f7e588a9066fd53a0ce43c3466a5/mainline/debian/Dockerfile
-# Override group id to 101, original was 101, but clashes with build-deps _ssh gid 101
+# Override group id from 101 to 102 as the original clashes with build-deps _ssh gid 101
+
 
 # Standard set up Nginx
 export NGINX_VERSION=1.27.5
