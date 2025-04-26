@@ -17,6 +17,7 @@ client = docker.from_env()
 
 def verify_container(container: Container) -> None:
     logs = get_logs(container)
+    print(logs)
     assert 'unable to find "application" callable in file /app/main.py' in logs
     assert (
         "unable to load app 0 (mountpoint='') (callable not found or import error)"
