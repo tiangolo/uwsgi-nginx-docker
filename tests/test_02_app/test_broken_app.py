@@ -37,7 +37,6 @@ def test_on_broken_quit_container() -> None:
     name = os.getenv("NAME", "")
     dockerfile_content = generate_dockerfile_content_simple_app(name)
     dockerfile = "Dockerfile"
-    sleep_time = int(os.getenv("SLEEP_TIME", 5))
     remove_previous_container(client)
     tag = "uwsgi-nginx-testimage"
     test_path = Path(__file__)
@@ -48,7 +47,9 @@ def test_on_broken_quit_container() -> None:
     container: Container = client.containers.run(
         tag, name=CONTAINER_NAME, ports={"80": "8000"}, detach=True
     )
-    time.sleep(sleep_time)
+    while container.status != "exited":
+        time.sleep(1)
+        container.reload()
     verify_container(container)
     updated_container: Container = client.containers.get(container.id)
     assert updated_container.status == "exited"
