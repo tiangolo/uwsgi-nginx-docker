@@ -37,7 +37,7 @@ def test_on_broken_quit_container() -> None:
     name = os.getenv("NAME", "")
     dockerfile_content = generate_dockerfile_content_simple_app(name)
     dockerfile = "Dockerfile"
-    sleep_time = int(os.getenv("SLEEP_TIME", 3))
+    sleep_time = int(os.getenv("SLEEP_TIME", 5))
     remove_previous_container(client)
     tag = "uwsgi-nginx-testimage"
     test_path = Path(__file__)
