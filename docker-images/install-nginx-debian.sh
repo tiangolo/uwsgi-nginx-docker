@@ -1,9 +1,7 @@
 #! /usr/bin/env bash
 
 # From official Nginx Docker image, as a script to re-use it, removing internal comments
-# Ref: https://github.com/nginx/docker-nginx/blob/7f1d49f6f222f7e588a9066fd53a0ce43c3466a5/mainline/debian/Dockerfile
-# To udpate it, copy the entire Nginx Dockerfile here, convert ENV to export, and remove all comments
-# then remove the last parts that are not installing, not needed, like copying entrypoint files
+# Ref: https://github.com/nginxinc/docker-nginx/blob/fef51235521d1cdf8b05d8cb1378a526d2abf421/mainline/debian/Dockerfile
 
 # Standard set up Nginx
 export NGINX_VERSION=1.27.5
@@ -85,7 +83,6 @@ set -x \
                 done \
                 && make base module-geoip module-image-filter module-njs module-xslt \
             ) \
-            \
             && apt-mark showmanual | xargs apt-mark auto > /dev/null \
             && { [ -z "$savedAptMark" ] || apt-mark manual $savedAptMark; } \
             \
@@ -109,4 +106,5 @@ set -x \
     fi \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log \
+    # && mkdir /docker-entrypoint.d
 # Standard set up Nginx finished
