@@ -2,6 +2,7 @@
 
 # From official Nginx Docker image, as a script to re-use it, removing internal comments
 # Ref: https://github.com/nginx/docker-nginx/blob/7f1d49f6f222f7e588a9066fd53a0ce43c3466a5/mainline/debian/Dockerfile
+# Override group id to 101, original was 101, but clashes with build-deps _ssh gid 101
 
 # Standard set up Nginx
 export NGINX_VERSION=1.27.5
@@ -11,8 +12,8 @@ export PKG_RELEASE=1~bookworm
 export DYNPKG_RELEASE=1~bookworm
 
 set -x \
-    && groupadd --system --gid 101 nginx \
-    && useradd --system --gid nginx --no-create-home --home /nonexistent --comment "nginx user" --shell /bin/false --uid 101 nginx \
+    && groupadd --system --gid 102 nginx \
+    && useradd --system --gid nginx --no-create-home --home /nonexistent --comment "nginx user" --shell /bin/false --uid 102 nginx \
     && apt-get update \
     && apt-get install --no-install-recommends --no-install-suggests -y gnupg1 ca-certificates \
     && \
