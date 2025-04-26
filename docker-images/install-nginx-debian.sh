@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 # From official Nginx Docker image, as a script to re-use it, removing internal comments
-# Ref: https://github.com/nginxinc/docker-nginx/blob/fef51235521d1cdf8b05d8cb1378a526d2abf421/mainline/debian/Dockerfile
+# Ref: https://github.com/nginx/docker-nginx/blob/7f1d49f6f222f7e588a9066fd53a0ce43c3466a5/mainline/debian/Dockerfile
 
 # Standard set up Nginx
 export NGINX_VERSION=1.27.5
