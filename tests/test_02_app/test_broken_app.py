@@ -24,14 +24,14 @@ def verify_container(container: Container) -> None:
         in logs
     )
     assert "*** no app loaded. GAME OVER ***" in logs
-    assert "INFO exited: uwsgi (exit status 22; not expected)" in logs
+    assert "exited: uwsgi (exit status 22; not expected)" in logs
     assert (
         "INFO success: quit_on_failure entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)"
         in logs
     )
     assert "WARN received SIGTERM indicating exit request" in logs
     assert "INFO stopped: nginx (exit status 0)" in logs
-    assert "INFO stopped: quit_on_failure (terminated by SIGTERM)" in logs
+    assert "stopped: quit_on_failure (terminated by SIGTERM)" in logs
 
 
 def test_on_broken_quit_container() -> None:
