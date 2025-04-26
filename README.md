@@ -427,6 +427,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Upgrades
 
+* ⬆ Bump uwsgi from 2.0.28 to 2.0.29. PR [#237](https://github.com/tiangolo/uwsgi-nginx-docker/pull/237) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Upgrade Docker images to Debian Bookworm and latest Nginx. PR [#238](https://github.com/tiangolo/uwsgi-nginx-docker/pull/238) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump uwsgi from 2.0.26 to 2.0.28. PR [#232](https://github.com/tiangolo/uwsgi-nginx-docker/pull/232) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔥 Drop support for Python 3.7 and 3.8. PR [#233](https://github.com/tiangolo/uwsgi-nginx-docker/pull/233) by [@tiangolo](https://github.com/tiangolo).
