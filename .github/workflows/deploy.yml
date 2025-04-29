@@ -14,7 +14,9 @@ jobs:
       matrix:
         image:
           - name: latest
-            python_version: "3.12"
+            python_version: "3.13"
+          - name: python3.13
+            python_version: "3.13"
           - name: python3.12
             python_version: "3.12"
           - name: python3.11
@@ -49,7 +51,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: |
             tiangolo/uwsgi-nginx:${{ matrix.image.name }}
-            tiangolo/uwsgi-nginx:${{ matrix.image.name }}-${{ env.DATE_TAG }} 
+            tiangolo/uwsgi-nginx:${{ matrix.image.name }}-${{ env.DATE_TAG }}
           context: ./docker-images/
           file: ./docker-images/${{ env.DOCKERFILE_NAME }}.dockerfile
       - name: Docker Hub Description
