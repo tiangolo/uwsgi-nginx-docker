@@ -411,6 +411,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Docs
 
+* 📝 Add note about historical README. PR [#251](https://github.com/tiangolo/uwsgi-nginx-docker/pull/251) by [@tiangolo](https://github.com/tiangolo).
 * 📝 Add deprecation note. PR [#250](https://github.com/tiangolo/uwsgi-nginx-docker/pull/250) by [@tiangolo](https://github.com/tiangolo).
 
 #### Internal
