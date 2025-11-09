@@ -437,6 +437,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Internal
 
+* ⬆ Bump actions/checkout from 4 to 5. PR [#243](https://github.com/tiangolo/uwsgi-nginx-docker/pull/243) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/labeler from 5 to 6. PR [#244](https://github.com/tiangolo/uwsgi-nginx-docker/pull/244) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/setup-python from 5 to 6. PR [#245](https://github.com/tiangolo/uwsgi-nginx-docker/pull/245) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump tiangolo/issue-manager from 0.5.1 to 0.6.0. PR [#246](https://github.com/tiangolo/uwsgi-nginx-docker/pull/246) by [@dependabot[bot]](https://github.com/apps/dependabot).
