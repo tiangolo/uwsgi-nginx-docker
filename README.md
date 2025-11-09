@@ -437,6 +437,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Internal
 
+* ⬆ Bump tiangolo/latest-changes from 0.3.2 to 0.4.0. PR [#242](https://github.com/tiangolo/uwsgi-nginx-docker/pull/242) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Add CI Labeler. PR [#236](https://github.com/tiangolo/uwsgi-nginx-docker/pull/236) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump tiangolo/latest-changes from 0.3.1 to 0.3.2. PR [#235](https://github.com/tiangolo/uwsgi-nginx-docker/pull/235) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔥 Remove old unused files. PR [#234](https://github.com/tiangolo/uwsgi-nginx-docker/pull/234) by [@tiangolo](https://github.com/tiangolo).
