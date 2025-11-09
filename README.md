@@ -1,3 +1,9 @@
+## DEPRECATED 🚨
+
+This Docker image is now deprecated. Read about it below.
+
+---
+
 [![Test](https://github.com/tiangolo/uwsgi-nginx-docker/actions/workflows/test.yml/badge.svg)](https://github.com/tiangolo/uwsgi-nginx-docker/actions/workflows/test.yml) [![Deploy](https://github.com/tiangolo/uwsgi-nginx-docker/workflows/Deploy/badge.svg)](https://github.com/tiangolo/uwsgi-nginx-docker/actions?query=workflow%3ADeploy)
 
 ## Supported tags and respective `Dockerfile` links
@@ -38,29 +44,9 @@ The last date tags for these versions are:
 
 This [**Docker**](https://www.docker.com/) image allows you to create [**Python**](https://www.python.org/) web applications that run with [**uWSGI**](https://uwsgi-docs.readthedocs.org/en/latest/) and [**Nginx**](http://nginx.org/en/) in a single container.
 
-The combination of uWSGI with Nginx is a [common way to deploy Python web applications like Flask and Django](http://flask.pocoo.org/docs/1.0/deploying/uwsgi/). It is widely used in the industry and would give you decent performance. (*)
+The combination of uWSGI with Nginx is a [common way to deploy Python web applications like Flask and Django](http://flask.pocoo.org/docs/1.0/deploying/uwsgi/). It is widely used in the industry and would give you decent performance.
 
 This image was created to be the base image for [**tiangolo/uwsgi-nginx-flask**](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/) but could be used as the base image for any other (WSGI-based) Python web application, like Django.
-
-### * Note on performance and features
-
-If you are starting a new project, you might benefit from a newer and faster framework based on ASGI instead of WSGI (Flask and Django are WSGI-based).
-
-You could use an ASGI framework like:
-
-* [**FastAPI**](https://github.com/tiangolo/fastapi) (which is based on Starlette) with this Docker image: [**tiangolo/uvicorn-gunicorn-fastapi**](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker).
-* [**Starlette**](https://github.com/encode/starlette) directly, with this Docker image: [**tiangolo/uvicorn-gunicorn-starlette**](https://github.com/tiangolo/uvicorn-gunicorn-starlette-docker).
-* Or any other ASGI framework with this Docker image: [**tiangolo/uvicorn-gunicorn**](https://github.com/tiangolo/uvicorn-gunicorn-docker).
-
-FastAPI, or Starlette, would give you about 800% (8x) the performance achievable with this image (**tiangolo/uwsgi-nginx**). [You can see the third-party benchmarks here](https://www.techempower.com/benchmarks/#section=test&runid=a979de55-980d-4721-a46f-77298b3f3923&hw=ph&test=query&l=z8kflr-v&a=2).
-
-Also, if you want to use new technologies like WebSockets it would be easier (and *possible*) with a newer framework based on ASGI, like FastAPI or Starlette. As the standard ASGI was designed to be able to handle asynchronous code like the one needed for WebSockets.
-
-#### If you need a WSGI-based application (like Flask or Django)
-
-If you need to use an older WSGI-based framework like Flask or Django (instead of something based on ASGI) and you need to have the best performance possible, you can use the alternative image: [**tiangolo/meinheld-gunicorn**](https://github.com/tiangolo/meinheld-gunicorn-docker).
-
-**tiangolo/meinheld-gunicorn** will give you about 400% (4x) the performance of this image.
 
 ---
 
@@ -68,7 +54,7 @@ If you need to use an older WSGI-based framework like Flask or Django (instead o
 
 **Docker Hub image**: [https://hub.docker.com/r/tiangolo/uwsgi-nginx/](https://hub.docker.com/r/tiangolo/uwsgi-nginx/)
 
-## 🚨 WARNING: You Probably Don't Need this Docker Image
+## 🚨 DEPRECATION WARNING
 
 You are probably using **Kubernetes** or similar tools. In that case, you probably **don't need this image** (or any other **similar base image**). You are probably better off **building a Docker image from scratch**.
 
@@ -110,31 +96,11 @@ CMD ["gunicorn", "--conf", "app/gunicorn_conf.py", "--bind", "0.0.0.0:80", "app.
 
 You can read more about these ideas in the [FastAPI documentation about: FastAPI in Containers - Docker](https://fastapi.tiangolo.com/deployment/docker/#replication-number-of-processes) as the same ideas would apply to other web applications in containers.
 
-## When to Use this Docker Image
+[uWSGI is now in maintenance mode](https://uwsgi-docs.readthedocs.io/en/latest/), so it's probably better to migrate to a different tool.
 
-### A Simple App
+Additionally, I haven't used this Docker image in years, so I don't have much bandwidth to keep it up to date. Most of my time is dedicated to [FastAPI](https://fastapi.tiangolo.com/) and friends.
 
-You could want a process manager running multiple worker processes in the container if your application is **simple enough** that you don't need (at least not yet) to fine-tune the number of processes too much, and you can just use an automated default, and you are running it on a **single server**, not a cluster.
-
-### Docker Compose
-
-You could be deploying to a **single server** (not a cluster) with **Docker Compose**, so you wouldn't have an easy way to manage replication of containers (with Docker Compose) while preserving the shared network and **load balancing**.
-
-Then you could want to have **a single container** with a **process manager** starting **several worker processes** inside, as this Docker image does.
-
-### Prometheus and Other Reasons
-
-You could also have **other reasons** that would make it easier to have a **single container** with **multiple processes** instead of having **multiple containers** with **a single process** in each of them.
-
-For example (depending on your setup) you could have some tool like a Prometheus exporter in the same container that should have access to **each of the requests** that come.
-
-In this case, if you had **multiple containers**, by default, when Prometheus came to **read the metrics**, it would get the ones for **a single container each time** (for the container that handled that particular request), instead of getting the **accumulated metrics** for all the replicated containers.
-
-Then, in that case, it could be simpler to have **one container** with **multiple processes**, and a local tool (e.g. a Prometheus exporter) on the same container collecting Prometheus metrics for all the internal processes and exposing those metrics on that single container.
-
----
-
-Read more about it all in the [FastAPI documentation about: FastAPI in Containers - Docker](https://fastapi.tiangolo.com/deployment/docker/), as the same concepts apply to other web applications in containers.
+You can probably still use this image as-is, while you migrate to a different tool, but I won't be adding (and maintaining) support for new versions of Python.
 
 ## How to use
 
@@ -363,7 +329,7 @@ Roughly:
 
 This image takes advantage of already slim and optimized existing Docker images (based on Debian as [recommended by Docker](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)) and implements Docker best practices.
 
-It uses the official Python Docker image, installs uWSGI and on top of that, with the least amount of modifications, adds the official Nginx image (as of 2016-02-14).
+It uses the official Python Docker image, installs uWSGI and on top of that, with the least amount of modifications, adds the official Nginx image.
 
 And it controls all these processes with Supervisord.
 
