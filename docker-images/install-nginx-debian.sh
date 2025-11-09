@@ -1,16 +1,16 @@
 #! /usr/bin/env bash
 
 # From official Nginx Docker image, as a script to re-use it, removing internal comments
-# Ref: https://github.com/nginx/docker-nginx/blob/7f1d49f6f222f7e588a9066fd53a0ce43c3466a5/mainline/debian/Dockerfile
+# Ref: https://github.com/nginx/docker-nginx/blob/e4d5453581d9d3618f77c4aeccf2e6171a1cd6ff/mainline/debian/Dockerfile
 # Override group id from 101 to 102 as the original clashes with build-deps _ssh gid 101
 
 
 # Standard set up Nginx
-export NGINX_VERSION=1.27.5
-export NJS_VERSION=0.8.10
-export NJS_RELEASE=1~bookworm
-export PKG_RELEASE=1~bookworm
-export DYNPKG_RELEASE=1~bookworm
+export NGINX_VERSION=1.29.3
+export NJS_VERSION=0.9.4
+export NJS_RELEASE=1~trixie
+export PKG_RELEASE=1~trixie
+export DYNPKG_RELEASE=1~trixie
 
 set -x \
     && groupadd --system --gid 102 nginx \
@@ -28,11 +28,11 @@ set -x \
         pgp.mit.edu \
     ; do \
         echo "Fetching GPG key $NGINX_GPGKEY from $server"; \
-        gpg1 --keyserver "$server" --keyserver-options timeout=10 --recv-keys "$NGINX_GPGKEY" && found=yes && break; \
+        gpg1 --batch --keyserver "$server" --keyserver-options timeout=10 --recv-keys "$NGINX_GPGKEY" && found=yes && break; \
     done; \
     test -z "$found" && echo >&2 "error: failed to fetch GPG key $NGINX_GPGKEY" && exit 1; \
     done; \
-    gpg1 --export "$NGINX_GPGKEYS" > "$NGINX_GPGKEY_PATH" ; \
+    gpg1 --batch --export $NGINX_GPGKEYS > "$NGINX_GPGKEY_PATH" ; \
     rm -rf "$GNUPGHOME"; \
     apt-get remove --purge --auto-remove -y gnupg1 && rm -rf /var/lib/apt/lists/* \
     && dpkgArch="$(dpkg --print-architecture)" \
@@ -45,7 +45,7 @@ set -x \
     " \
     && case "$dpkgArch" in \
         amd64|arm64) \
-            echo "deb [signed-by=$NGINX_GPGKEY_PATH] https://nginx.org/packages/mainline/debian/ bookworm nginx" >> /etc/apt/sources.list.d/nginx.list \
+            echo "deb [signed-by=$NGINX_GPGKEY_PATH] https://nginx.org/packages/mainline/debian/ trixie nginx" >> /etc/apt/sources.list.d/nginx.list \
             && apt-get update \
             ;; \
         *) \
@@ -68,7 +68,7 @@ set -x \
                 && REVISION="${NGINX_VERSION}-${PKG_RELEASE}" \
                 && REVISION=${REVISION%~*} \
                 && curl -f -L -O https://github.com/nginx/pkg-oss/archive/${REVISION}.tar.gz \
-                && PKGOSSCHECKSUM="c773d98b567bd585c17f55702bf3e4c7d82b676bfbde395270e90a704dca3c758dfe0380b3f01770542b4fd9bed1f1149af4ce28bfc54a27a96df6b700ac1745 *${REVISION}.tar.gz" \
+                && PKGOSSCHECKSUM="249858446828ace0c81ea3e057135aa368f3dab83430cf867bb9fc32598948f29c4bd50908491da704536af1106aa87553f6a76cc126c6833dc9b14dd00564b8 *${REVISION}.tar.gz" \
                 && if [ "$(openssl sha512 -r ${REVISION}.tar.gz)" = "$PKGOSSCHECKSUM" ]; then \
                     echo "pkg-oss tarball checksum verification succeeded!"; \
                 else \
