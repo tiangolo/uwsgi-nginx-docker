@@ -1,4 +1,4 @@
-FROM python:3.10-bookworm
+FROM python:3.10-trixie
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
