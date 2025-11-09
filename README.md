@@ -439,6 +439,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Internal
 
+* 🔥 Drop support for Python 3.9. PR [#249](https://github.com/tiangolo/uwsgi-nginx-docker/pull/249) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump actions/checkout from 4 to 5. PR [#243](https://github.com/tiangolo/uwsgi-nginx-docker/pull/243) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/labeler from 5 to 6. PR [#244](https://github.com/tiangolo/uwsgi-nginx-docker/pull/244) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/setup-python from 5 to 6. PR [#245](https://github.com/tiangolo/uwsgi-nginx-docker/pull/245) by [@dependabot[bot]](https://github.com/apps/dependabot).
