@@ -416,6 +416,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Internal
 
+* 👷 Upgrade actions/checkout from v5 to v6. PR [#255](https://github.com/tiangolo/uwsgi-nginx-docker/pull/255) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Upgrade `latest-changes` GitHub Action and pin `actions/checkout@v5`. PR [#254](https://github.com/tiangolo/uwsgi-nginx-docker/pull/254) by [@tiangolo](https://github.com/tiangolo).
 * 🔥 Drop support for Python 3.9. PR [#249](https://github.com/tiangolo/uwsgi-nginx-docker/pull/249) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump actions/checkout from 4 to 5. PR [#243](https://github.com/tiangolo/uwsgi-nginx-docker/pull/243) by [@dependabot[bot]](https://github.com/apps/dependabot).
