@@ -416,6 +416,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Internal
 
+* ⬆ Bump actions/checkout from 5 to 6. PR [#253](https://github.com/tiangolo/uwsgi-nginx-docker/pull/253) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump peter-evans/dockerhub-description from 4 to 5. PR [#252](https://github.com/tiangolo/uwsgi-nginx-docker/pull/252) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Upgrade actions/checkout from v5 to v6. PR [#255](https://github.com/tiangolo/uwsgi-nginx-docker/pull/255) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Upgrade `latest-changes` GitHub Action and pin `actions/checkout@v5`. PR [#254](https://github.com/tiangolo/uwsgi-nginx-docker/pull/254) by [@tiangolo](https://github.com/tiangolo).
