@@ -416,6 +416,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Internal
 
+* 👷 Update Dependabot. PR [#259](https://github.com/tiangolo/uwsgi-nginx-docker/pull/259) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump docker/setup-buildx-action from 3 to 4. PR [#257](https://github.com/tiangolo/uwsgi-nginx-docker/pull/257) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump docker/build-push-action from 6 to 7. PR [#258](https://github.com/tiangolo/uwsgi-nginx-docker/pull/258) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/checkout from 5 to 6. PR [#253](https://github.com/tiangolo/uwsgi-nginx-docker/pull/253) by [@dependabot[bot]](https://github.com/apps/dependabot).
