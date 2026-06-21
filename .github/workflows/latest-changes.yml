@@ -1,7 +1,6 @@
 name: Latest Changes
-
 on:
-  pull_request_target:
+  pull_request_target: # zizmor: ignore[dangerous-triggers]
     branches:
       - master
     types:
@@ -15,15 +14,18 @@ on:
         description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
         required: false
         default: 'false'
-
 jobs:
   latest-changes:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.2
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           # To allow latest-changes to commit to master
           token: ${{ secrets.UWSGI_NGINX_DOCKER_LATEST_CHANGES }}
-      - uses: tiangolo/latest-changes@0.5.0
+          persist-credentials: false
+      - uses: tiangolo/latest-changes@eb3f6e7ff0073896ecb561e774a121de9418fa06 # 0.5.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+    permissions:
+      contents: write
+      pull-requests: read
