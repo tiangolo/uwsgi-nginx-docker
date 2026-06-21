@@ -58,7 +58,6 @@ jobs:
           PYTHON_VERSION: ${{ matrix.image.python_version }}
           SLEEP_TIME: "5"
   check:
-    permissions: {}
     if: always()
     needs:
       - test
