@@ -416,6 +416,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Internal
 
+* 🔒️ Add zizmor workflow security checks. PR [#265](https://github.com/tiangolo/uwsgi-nginx-docker/pull/265) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump the github-actions group across 1 directory with 3 updates. PR [#263](https://github.com/tiangolo/uwsgi-nginx-docker/pull/263) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔥 Remove configs now stored in central GitHub repo. PR [#260](https://github.com/tiangolo/uwsgi-nginx-docker/pull/260) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update Dependabot. PR [#259](https://github.com/tiangolo/uwsgi-nginx-docker/pull/259) by [@tiangolo](https://github.com/tiangolo).
