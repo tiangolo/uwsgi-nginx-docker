@@ -416,6 +416,7 @@ You can click the "watch" button at the top right and select "Releases only" to 
 
 #### Internal
 
+* 👷 Update issue-manager to 0.7.1. PR [#268](https://github.com/tiangolo/uwsgi-nginx-docker/pull/268) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Update issue-manager to 0.7.0. PR [#267](https://github.com/tiangolo/uwsgi-nginx-docker/pull/267) by [@tiangolo](https://github.com/tiangolo).
 * 🔒️ Add zizmor workflow security checks. PR [#265](https://github.com/tiangolo/uwsgi-nginx-docker/pull/265) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump the github-actions group across 1 directory with 3 updates. PR [#263](https://github.com/tiangolo/uwsgi-nginx-docker/pull/263) by [@dependabot[bot]](https://github.com/apps/dependabot).
