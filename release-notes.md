@@ -29,6 +29,7 @@
 
 ### Internal
 
+* 📝 Refactor release notes, move to its own file. PR [#269](https://github.com/tiangolo/uwsgi-nginx-docker/pull/269) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update issue-manager to 0.7.1. PR [#268](https://github.com/tiangolo/uwsgi-nginx-docker/pull/268) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Update issue-manager to 0.7.0. PR [#267](https://github.com/tiangolo/uwsgi-nginx-docker/pull/267) by [@tiangolo](https://github.com/tiangolo).
 * 🔒️ Add zizmor workflow security checks. PR [#265](https://github.com/tiangolo/uwsgi-nginx-docker/pull/265) by [@tiangolo](https://github.com/tiangolo).
@@ -234,4 +235,3 @@ Highlights of this release:
 * Also, it now uses a base `uwsgi.ini` file under `/etc/uwsgi/` with most of the general configurations, so, the `uwsgi.ini` inside `/app` (the one you could need to modify) is now a lot simpler.
 
 * 2016-04-05: Nginx and uWSGI logs are now redirected to stdout, allowing to use `docker logs`.
-
