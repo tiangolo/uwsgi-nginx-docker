@@ -29,6 +29,7 @@
 
 ### Internal
 
+* ⬆️ Update issue-manager to 0.8.1. PR [#273](https://github.com/tiangolo/uwsgi-nginx-docker/pull/273) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Update latest-changes to 0.6.1. PR [#272](https://github.com/tiangolo/uwsgi-nginx-docker/pull/272) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Simplify pull request workflow triggers. PR [#271](https://github.com/tiangolo/uwsgi-nginx-docker/pull/271) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update setup-python pin comment to 6.2.0. PR [#270](https://github.com/tiangolo/uwsgi-nginx-docker/pull/270) by [@tiangolo](https://github.com/tiangolo).
