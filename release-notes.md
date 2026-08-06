@@ -29,6 +29,7 @@
 
 ### Internal
 
+* 🔧 Fix Zizmor version comments. PR [#280](https://github.com/tiangolo/uwsgi-nginx-docker/pull/280) by [@tiangolo](https://github.com/tiangolo).
 * 🔥 Remove the old Latest Changes workflow. PR [#279](https://github.com/tiangolo/uwsgi-nginx-docker/pull/279) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Upgrade latest-changes to 0.7.1. PR [#278](https://github.com/tiangolo/uwsgi-nginx-docker/pull/278) by [@tiangolo](https://github.com/tiangolo).
 * 🔧 Fix Docker action pin version comments. PR [#276](https://github.com/tiangolo/uwsgi-nginx-docker/pull/276) by [@tiangolo](https://github.com/tiangolo).
