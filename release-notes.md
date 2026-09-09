@@ -29,6 +29,7 @@
 
 ### Internal
 
+* ⬆ Bump the github-actions group across 1 directory with 3 updates. PR [#285](https://github.com/tiangolo/uwsgi-nginx-docker/pull/285) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Migrate automatic labels to Latest Changes. PR [#283](https://github.com/tiangolo/uwsgi-nginx-docker/pull/283) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Remove legacy label check. PR [#281](https://github.com/tiangolo/uwsgi-nginx-docker/pull/281) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump the github-actions group across 1 directory with 7 updates. PR [#277](https://github.com/tiangolo/uwsgi-nginx-docker/pull/277) by [@dependabot[bot]](https://github.com/apps/dependabot).
